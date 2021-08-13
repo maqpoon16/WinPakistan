@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:weightSum="2"
+    >
+
+
+
+        <androidx.cardview.widget.CardView
+            android:visibility="gone"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:visibility="gone"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:id="@+id/txttips"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:autoSizeMaxTextSize="30sp"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeStepGranularity="2sp"
+                android:autoSizeTextType="uniform"
+                android:maxLines="3"
+                android:text="sdas"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="top"
+                android:textAlignment="center"
+                android:textColor="@color/bluehard"
+                tools:ignore="RtlCompat" />
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+    <ImageView
+        android:src="@mipmap/banner2"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:scaleType="fitXY"
+        android:id="@+id/imagetips"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentRight="true"
+
+        android:padding="3dp" />
+
+</LinearLayout>

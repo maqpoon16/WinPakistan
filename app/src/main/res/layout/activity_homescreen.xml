@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+     android:background="@color/bluehard"
+    android:layout_height="match_parent"
+
+
+    tools:context=".activites.Homescreen">
+    <ImageView
+
+        android:layout_centerInParent="true"
+
+        android:layout_above="@id/texttcreateaccount"
+        android:id="@+id/imglogo"
+
+        android:src="@mipmap/logo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </ImageView>
+    <TextView
+        android:textSize="23dp"
+        android:id="@+id/texttcreateaccount"
+        android:layout_centerInParent="true"
+        android:textColor="@color/white"
+        android:text="Login or Create Your Account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </TextView>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@drawable/letstartblayout"
+        android:id="@+id/bottomlayout"
+       android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal">
+        <androidx.appcompat.widget.AppCompatButton
+            android:onClick="login"
+            android:text="Login"
+            app:layout_constraintWidth_percent="0.6"
+            app:layout_constraintHeight_percent="0.25"
+            android:background="@drawable/loginbtnbackgredient"
+            android:id="@+id/btnlogin"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            tools:ignore="MissingConstraints">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <TextView
+            android:textColor="@color/bluehard"
+            android:text="OR"
+            android:id="@+id/txtor"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/btnlogin"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
+
+        </TextView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:onClick="signup"
+            android:text="Sign Up"
+            app:layout_constraintWidth_percent="0.6"
+            app:layout_constraintHeight_percent="0.25"
+            android:background="@drawable/loginbtnbackgredient"
+            android:id="@+id/btnsignup"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/txtor"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            tools:ignore="MissingConstraints">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

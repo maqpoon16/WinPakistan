@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:background="@color/white"
+    tools:context=".activites.MainScreenActivity">
+
+    <ScrollView
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            app:layout_constraintHeight_percent="0.9"
+            android:layout_width="match_parent"
+            android:background="@drawable/backgredient"
+            android:layout_height="0dp"
+            tools:ignore="MissingConstraints">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/winnercariew"
+             app:cardCornerRadius="10dp"
+              app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintWidth_percent="0.9"
+                app:layout_constraintHeight_percent="0.25"
+                android:layout_marginTop="10dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:background="@drawable/loginbtnbackgredient"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/txtlastwinner"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:textColor="@color/white"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:text="Last Game Winner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        app:layout_constraintHeight_percent="0.7"
+                        android:weightSum="3"
+                        android:orientation="horizontal"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintWidth_percent="0.8"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtlastwinner"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </RelativeLayout>
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/profile_image1"
+                            android:layout_width="96dp"
+                            android:layout_height="96dp"
+                            android:src="@mipmap/person1"
+                            app:civ_border_width="2dp"
+                            android:elevation="20dp"
+                            app:civ_border_color="#FF000000"/>
+
+
+
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                           app:layout_constraintLeft_toRightOf="@id/profile_image1"
+                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/profile_image2"
+                            android:layout_width="96dp"
+                            android:layout_height="96dp"
+                            android:src="@mipmap/person1"
+                            app:civ_border_width="2dp"
+                            android:elevation="20dp"
+                            app:civ_border_color="#FF000000"/>
+
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            app:layout_constraintLeft_toRightOf="@id/profile_image2"
+                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/profile_image3"
+                            android:layout_width="96dp"
+                            android:layout_height="96dp"
+                            android:src="@mipmap/person1"
+                            app:civ_border_width="2dp"
+                            android:elevation="20dp"
+                            app:civ_border_color="#FF000000"/>
+                        <LinearLayout
+
+
+                            app:layout_constraintHeight_percent="0.2"
+                            android:weightSum="3"
+                            android:orientation="horizontal"
+
+                            app:layout_constraintWidth_percent="0.8"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp">
+                            <TextView
+
+                                android:layout_marginRight="5dp"
+                                android:textColor="@color/white"
+                                android:background="@drawable/winnergredient"
+                                android:textAlignment="center"
+                                android:layout_weight="1"
+                                android:text="faisl"
+                                android:id="@+id/txtwinner1"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content">
+
+                            </TextView>
+                            <TextView
+                                android:layout_marginRight="5dp"
+                                android:textColor="@color/white"
+                                android:background="@drawable/winnergredient"
+                                android:textAlignment="center"
+                                android:layout_weight="1"
+                                app:layout_constraintLeft_toRightOf="@id/txtwinner1"
+                                android:text="inham"
+                                android:id="@+id/txtwinner2"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content">
+
+                            </TextView>
+                            <TextView
+                                android:textColor="@color/white"
+                                android:background="@drawable/winnergredient"
+                                android:textAlignment="center"
+                                android:layout_weight="1"
+                                android:text="husain"
+                                android:id="@+id/txtwinner3"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content">
+
+                            </TextView>
+
+                        </LinearLayout>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+            <RelativeLayout
+                android:id="@+id/relative"
+                android:layout_marginTop="10dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/winnercariew"
+                app:layout_constraintWidth_percent="0.9"
+                app:layout_constraintHeight_percent="0.7"
+                android:layout_width="0dp"
+                android:layout_height="0dp">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:paddingBottom="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+
+                        android:id="@+id/linertop"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:background="@drawable/leaderboardgredient"
+                        app:layout_constraintHeight_percent="0.06"
+                        app:layout_constraintWidth_percent="0.9"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:orientation="horizontal">
+
+                    </LinearLayout>
+                    <LinearLayout
+
+                        android:id="@+id/carleaderboard"
+                         app:layout_constraintTop_toBottomOf="@id/linertop"
+                         android:background="@color/white"
+
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintWidth_percent="0.99"
+                        app:layout_constraintHeight_percent="0.7"
+
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:orientation="horizontal">
+                    </LinearLayout>
+                    <LinearLayout
+
+
+                        app:layout_constraintTop_toTopOf="@id/carleaderboard"
+                        android:id="@+id/linertop2"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:background="@drawable/leaderboardgredient2"
+                        app:layout_constraintHeight_percent="0.15"
+                        app:layout_constraintWidth_percent="0.8"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+                            android:text="Current Game"
+                            android:textColor="@color/white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                        <TextView
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+                            android:text="Set  Question   Rank"
+                            android:textColor="@color/white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+
+
+
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/linaerpointsid"
+                        app:layout_constraintTop_toBottomOf="@+id/linertop2"
+                        android:layout_marginBottom="40dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+
+                        app:layout_constraintWidth_percent="0.9"
+                        app:layout_constraintHeight_percent="0.3"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp">
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/carpoints"
+
+                           android:layout_marginLeft="5dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+
+                            app:cardCornerRadius="50dp"
+                            app:layout_constraintWidth_percent="0.3"
+                            app:layout_constraintHeight_percent="0.8"
+
+                            app:cardBackgroundColor="@color/colorGrey"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp">
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <TextView
+                                    android:layout_marginTop="5dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:text="Points"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+                                <TextView
+                                    android:layout_marginTop="5dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:text="30"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+                                <ImageView
+                                    android:layout_marginTop="5dp"
+                                    android:textAlignment="center"
+                                    android:src="@drawable/stars_24"
+                                    android:text="30"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                </ImageView>
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/carprize"
+
+                            android:layout_marginLeft="10dp"
+                            app:layout_constraintLeft_toRightOf="@id/carpoints"
+                            app:cardElevation="10dp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+
+                            app:cardCornerRadius="50dp"
+                            app:layout_constraintWidth_percent="0.3"
+                            app:layout_constraintHeight_percent="0.8"
+
+                            app:cardBackgroundColor="@color/colorGrey"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp">
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <TextView
+                                    android:layout_marginTop="5dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:text="Amount"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+                                <TextView
+                                    android:layout_marginTop="5dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:text="30 RS"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+                                <ImageView
+                                    android:layout_marginTop="5dp"
+                                    android:textAlignment="center"
+                                    android:src="@drawable/ic_baseline_money_24"
+                                    android:text="30"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                </ImageView>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cartimer"
+
+                            android:layout_marginLeft="13dp"
+                            app:layout_constraintLeft_toRightOf="@id/carprize"
+                            app:cardElevation="10dp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+
+                            app:cardCornerRadius="50dp"
+                            app:layout_constraintWidth_percent="0.3"
+                            app:layout_constraintHeight_percent="0.8"
+
+                            app:cardBackgroundColor="@color/colorGrey"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp">
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <TextView
+                                    android:layout_marginTop="5dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:text="Time"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+                                <TextView
+                                    android:layout_marginTop="5dp"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:text="00:12:23"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+                                <ImageView
+                                    android:layout_marginTop="5dp"
+                                    android:textAlignment="center"
+                                    android:src="@drawable/ic_baseline_watch_later_24"
+                                    android:text="30"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                </ImageView>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                    android:textSize="20dp"
+                        android:text="Play"
+                        android:background="@drawable/loginbtnbackgredient"
+                        app:layout_constraintHeight_percent="0.1"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/linaerpointsid"
+                        app:layout_constraintWidth_percent="0.8"
+
+
+                        android:layout_width="0dp"
+                        android:layout_height="0dp">
+
+                    </androidx.appcompat.widget.AppCompatButton>
+                    <Button
+
+
+                        android:text="LeaderBoard"
+                        app:layout_constraintTop_toBottomOf="@id/carleaderboard"
+                        app:layout_constraintBottom_toBottomOf="@id/carleaderboard"
+                        android:id="@+id/buttonleadtherboad"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                       android:background="@drawable/loginbtnbackgredient"
+                        app:layout_constraintHeight_percent="0.1"
+                        app:layout_constraintWidth_percent="0.8"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:orientation="vertical">
+                    </Button>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <LinearLayout
+                    android:background="@drawable/loginbtnback"
+                    android:padding="20dp"
+
+                    android:orientation="vertical"
+                    android:layout_alignParentBottom="true" android:layout_width="match_parent"
+                    android:layout_height="100dp">
+                    <LinearLayout
+                        android:weightSum="3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:textAlignment="center"
+                            android:text="Challenged"
+                            android:layout_weight="1"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                        <TextView
+                            android:textAlignment="center"
+
+                            android:text="Flip Win"
+                            android:layout_weight="1"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                        <TextView
+                            android:textAlignment="center"
+                            android:text="Daily Reward"
+                            android:layout_weight="1"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+                        android:weightSum="3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_weight="1"
+                            android:src="@mipmap/luckybox"
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent">
+
+                        </ImageView>
+                        <ImageView
+                            android:layout_weight="1"
+                            android:src="@mipmap/luckybox"
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent">
+
+                        </ImageView>
+                        <ImageView
+                            android:layout_weight="1"
+                            android:src="@mipmap/luckybox"
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent">
+
+                        </ImageView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
