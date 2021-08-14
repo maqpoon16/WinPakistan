@@ -7,17 +7,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import com.win.pakistan.R;
 
 import androidx.viewpager.widget.PagerAdapter;
 
-public class AdapetrHelthtips extends PagerAdapter {
+public class AdapetrMenu extends PagerAdapter {
     private Context context;
     String[] country;
     int[] flag;
-    public AdapetrHelthtips(Context context , String[] country,
-                            int[] flag) {
+    public AdapetrMenu(Context context , String[] country,
+                       int[] flag) {
         this.context = context;
         this.context = context;
 
@@ -35,11 +34,21 @@ public class AdapetrHelthtips extends PagerAdapter {
     */
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        View view = LayoutInflater.from(context).inflate(R.layout.linear_layouthhelthtips, null);
-        ImageView imageView = view.findViewById(R.id.imagetips);
-        TextView textView= view.findViewById(R.id.txttips);
-        textView.setText(country[position]);
-        imageView.setImageResource(flag[position]);
+        View view = LayoutInflater.from(context).inflate(R.layout.linear_menu, null);
+        ImageView imageparticpnt1 = view.findViewById(R.id.imagemenu1);
+        ImageView imageparticpnt2 = view.findViewById(R.id.imagemenu2);
+        ImageView imageparticpnt3 = view.findViewById(R.id.imagemenu3);
+        TextView txtparticepent1= view.findViewById(R.id.txtmenu1);
+        TextView txtparticepent2= view.findViewById(R.id.txtmenu2);
+        TextView txtparticepent3= view.findViewById(R.id.txtmenu3);
+
+        txtparticepent1.setText(country[0]);
+        txtparticepent2.setText(country[1]);
+        txtparticepent3.setText(country[2]);
+
+        imageparticpnt1.setImageResource(flag[0]);
+        imageparticpnt2.setImageResource(flag[1]);
+        imageparticpnt3.setImageResource(flag[2]);
 
         container.addView(view);
         return view;
@@ -57,7 +66,7 @@ public class AdapetrHelthtips extends PagerAdapter {
     */
     @Override
     public int getCount() {
-        return 4;
+        return 3;
     }
     /*
     Used to determine whether the page view is associated with object key returned by instantiateItem.
@@ -67,7 +76,7 @@ public class AdapetrHelthtips extends PagerAdapter {
     public boolean isViewFromObject(View view, Object object) {
         return object == view;
     }
-    private int getImageAt(int position) {
+   /* private int getImageAt(int position) {
         switch (position) {
             case 0:
                 return R.mipmap.banner;
@@ -82,6 +91,6 @@ public class AdapetrHelthtips extends PagerAdapter {
 
             default:
                 return R.mipmap.banner;
-        }
-    }
+        }*//*
+    }*/
 }
