@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 
+import com.win.pakistan.Models.authResponse;
 import com.win.pakistan.R;
 
 import org.json.JSONArray;
@@ -17,12 +18,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Splash extends AppCompatActivity {
+import static com.win.pakistan.Common.Methods.getAutoLogin;
 
+public class Splash extends AppCompatActivity {
+    private authResponse response;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        response = getAutoLogin(Splash.this);
         delayEnter();
     }
     private void delayEnter() {
@@ -35,8 +39,12 @@ public class Splash extends AppCompatActivity {
 
             @Override
             public void onFinish() {
+                if(response!=null && response.isStatus()){
+                    startActivity(new Intent(Splash.this, MainScreenActivity.class));
+                    finish();
+                    return;
+                }
                 startActivity(new Intent(Splash.this, WelcomeActivity.class));
-
                 finish();
             }
         }.start();

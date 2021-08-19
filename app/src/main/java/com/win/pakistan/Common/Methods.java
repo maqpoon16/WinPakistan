@@ -1,8 +1,11 @@
 package com.win.pakistan.Common;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -11,6 +14,8 @@ import android.widget.Toast;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.Gson;
+import com.win.pakistan.Models.authResponse;
 import com.win.pakistan.R;
 
 public class Methods {
@@ -47,5 +52,26 @@ public class Methods {
         snackbarLayout.addView(customSnackView, 0);
 
         snackbar.show();
+    }
+    public  static void setAutoLogin(Activity context, authResponse authResponse){
+        SharedPreferences sharedpreferences = context.getSharedPreferences(context.getResources().getString(R.string.preferance_name), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putBoolean(context.getResources().getString(R.string.preferance_key_isEnable), authResponse.isStatus());
+        Gson gson = new Gson();
+        String json = gson.toJson(authResponse);
+        editor.putString(context.getResources().getString(R.string.preferance_key_UserData), json);
+        editor.apply();
+    }
+    public  static authResponse getAutoLogin(Activity context){
+        authResponse Object = null;
+        SharedPreferences sharedpreferences = context.getSharedPreferences(context.getResources().getString(R.string.preferance_name), Context.MODE_PRIVATE);
+        if(sharedpreferences.getBoolean(context.getResources().getString(R.string.preferance_key_isEnable),false)){
+            Gson gson = new Gson();
+            String json = sharedpreferences.getString(context.getResources().getString(R.string.preferance_key_UserData),null);
+            if(json!=null){
+                Object = gson.fromJson(json, authResponse.class);
+            }
+        }
+        return Object;
     }
 }

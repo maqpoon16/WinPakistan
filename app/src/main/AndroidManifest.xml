@@ -24,6 +24,12 @@
             android:name=".activites.Homescreen"
             android:theme="@style/NoActionbar" />
         <activity
+            android:name=".activites.PrizeActivity"
+            android:theme="@style/NoActionbar" />
+        <activity
+            android:name=".activites.WalletActivity"
+            android:theme="@style/NoActionbar" />
+        <activity
             android:name=".activites.WelcomeActivity"
             android:theme="@style/NoActionbar" />
         <activity

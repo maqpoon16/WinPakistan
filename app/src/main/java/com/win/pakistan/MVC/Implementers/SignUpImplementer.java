@@ -70,8 +70,8 @@ public class SignUpImplementer implements SignUpPresenter {
             }
 
             OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-            httpClient.readTimeout(6, TimeUnit.SECONDS);
-            httpClient.connectTimeout(6, TimeUnit.SECONDS);
+            httpClient.readTimeout(20, TimeUnit.SECONDS);
+            httpClient.connectTimeout(20, TimeUnit.SECONDS);
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(baseUrlLogin)
                     .addConverterFactory(GsonConverterFactory.create())
@@ -83,12 +83,13 @@ public class SignUpImplementer implements SignUpPresenter {
                 public void onResponse(@NotNull Call<authResponse> call, @NotNull Response<authResponse> response) {
                     if(response!=null && response.body()!=null){
                         authResponse authResponse = response.body();
-
                         if(authResponse.isStatus()){
                             signUpView.OnSignUpSuccessfull();
                         }else {
                             signUpView.OnSignUpFailed(authResponse.getMessage());
                         }
+                    }else{
+                        signUpView.OnSignUpFailed(context.getResources().getString(R.string.snackbarServerNotRepsond));
                     }
 
                 }

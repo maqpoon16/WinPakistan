@@ -6,7 +6,12 @@
     <string name="slide_1_title">Participate and Win Huge Gifts</string>
     <string name="slide_1_desc">Enjoy</string>
     <string name="slide_2_desc">second detail page</string>
-<!--    Signup Screen-->
+<!--    SharedPreferences-->
+    <string name="preferance_name">Login</string>
+    <string name="preferance_key_isEnable">IsAutoLoginEnable</string>
+    <string name="preferance_key_UserData">UserData</string>
+
+    <!--    Signup Activity Screen-->
     <string name="snackbarSignupModelValidation">Incorrect Data</string>
     <string name="snackbarSignupModelValidationUser">Incorrect Username</string>
     <string name="snackbarSignupModelValidationPass">Incorrect Password</string>
@@ -15,5 +20,30 @@
     <string name="snackbarSignupModelValidationDOB">Incorrect DOB</string>
     <string name="snackbarSignupModelValidationContact">Incorrect Contact</string>
     <string name="snackbarSignupModelValidationGender">Incorrect Gender</string>
+    <string name="snackbarServerNotRepsond">Sorry! Server is not responding now.</string>
+<!--    Signup Screen XML-->
+    <string name="UserName">UserName</string>
+    <string name="select_username">Select username</string>
+    <string name="full_name">Full Name</string>
+    <string name="type_your_name">Type your Name</string>
+    <string name="date_of_birth">Date OF Birth</string>
+    <string name="click_to_select_dob">Click to Select DOB</string>
+    <string name="contact">Contact</string>
+    <string name="type_your_contact">Type your Contact</string>
+    <string name="email_optional">Email (optional)</string>
+    <string name="password">Password</string>
+    <string name="full_address">Full Address</string>
+    <string name="address_location">Address / Location</string>
+    <string name="type_your_address">Type your Address</string>
+    <string name="choose_your_gender">Choose Your Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="age">Age</string>
+    <string name="enter_your_age">Enter your Age</string>
+    <string name="create_account">Create Account</string>
+    <string name="or">OR</string>
+    <string name="already_have_an_account">Already have an Account!</string>
+    <string name="click_here">Click Here</string>
+
 
 </resources>

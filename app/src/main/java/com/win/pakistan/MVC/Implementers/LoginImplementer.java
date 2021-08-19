@@ -1,5 +1,6 @@
 package com.win.pakistan.MVC.Implementers;
 
+import android.app.Activity;
 import android.text.TextUtils;
 
 import com.win.pakistan.MVC.Presentors.LoginPresenter;
@@ -23,6 +24,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static com.win.pakistan.Common.FinalStrings.baseUrlLogin;
 import static com.win.pakistan.Common.FinalStrings.snackbarValidationErrorPass;
 import static com.win.pakistan.Common.FinalStrings.snackbarValidationErrorUser;
+import static com.win.pakistan.Common.Methods.setAutoLogin;
 
 public class LoginImplementer  implements LoginPresenter {
     private final LoginView loginView;
@@ -32,7 +34,7 @@ public class LoginImplementer  implements LoginPresenter {
     }
 
     @Override
-    public void LoginProcess(String user, String password) {
+    public void LoginProcess(String user, String password , Activity context) {
       try{
           if (TextUtils.isEmpty(user)){
 
@@ -64,6 +66,7 @@ public class LoginImplementer  implements LoginPresenter {
                       authResponse authResponse = response.body();
 
                       if(authResponse.isStatus()){
+                          setAutoLogin(context,authResponse);
                           loginView.OnloginSuccessfull();
                       }else {
                           loginView.OnloginFailed(authResponse.getMessage());

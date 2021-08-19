@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     //Login Button
     public void homescreen(View view) {
-        loginPresenter.LoginProcess(editTexts.get(0).getText().toString(),editTexts.get(1).getText().toString());
+        loginPresenter.LoginProcess(editTexts.get(0).getText().toString(),editTexts.get(1).getText().toString(),LoginActivity.this);
         //opndialogbox();
 
 

@@ -74,8 +74,6 @@ public class AdapetrMenu extends PagerAdapter {
 
         imagemenu2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Toast.makeText(context, "hh", Toast.LENGTH_SHORT).show();
-
 
                 Intent intent=new Intent(context, PrizeActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
