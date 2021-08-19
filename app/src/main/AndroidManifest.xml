@@ -9,7 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WinPakistanLottery">
-        <activity android:name=".activites.MainScreenActivity" android:theme="@style/loginthem"></activity>
+        <activity android:name=".activites.PrizeActivity"
+            android:theme="@style/loginthem"></activity>
+        <activity
+            android:name=".activites.WalletActivity"
+            android:theme="@style/loginthem" />
+        <activity
+            android:name=".activites.MainScreenActivity"
+            android:theme="@style/loginthem" />
         <activity
             android:name=".activites.SignUpActivity"
             android:theme="@style/loginthem" />
