@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-android:background="@color/white"
+    android:id="@+id/layout"
+    android:background="@color/white"
     tools:context=".activites.LoginActivity">
 
     <TextView
@@ -52,16 +53,11 @@ android:background="@color/white"
 
                 </TextView>
                 <EditText
-
-
-
                     android:drawablePadding="20sp"
                     android:drawableLeft="@drawable/ic_baseline_person_outline_24"
-
-
                     android:paddingLeft="1dp"
                     android:hint="Type your Name"
-
+                    android:textColor="@color/black"
                     android:textColorHint="@color/gray_border"
                     android:id="@+id/edtemail"
                     android:layout_marginTop="10dp"
@@ -78,8 +74,8 @@ android:background="@color/white"
 
                 </TextView>
                 <EditText
-
-
+                    android:inputType="textPassword"
+                    android:textColor="@color/black"
                     android:drawablePadding="20sp"
                     android:drawableLeft="@drawable/ic_baseline_lock_open_24"
                     android:paddingLeft="1dp"

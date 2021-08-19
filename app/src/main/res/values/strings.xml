@@ -6,4 +6,14 @@
     <string name="slide_1_title">Participate and Win Huge Gifts</string>
     <string name="slide_1_desc">Enjoy</string>
     <string name="slide_2_desc">second detail page</string>
+<!--    Signup Screen-->
+    <string name="snackbarSignupModelValidation">Incorrect Data</string>
+    <string name="snackbarSignupModelValidationUser">Incorrect Username</string>
+    <string name="snackbarSignupModelValidationPass">Incorrect Password</string>
+    <string name="snackbarSignupModelValidationFullName">Incorrect Full Name</string>
+    <string name="snackbarSignupModelValidationAge">Incorrect Age</string>
+    <string name="snackbarSignupModelValidationDOB">Incorrect DOB</string>
+    <string name="snackbarSignupModelValidationContact">Incorrect Contact</string>
+    <string name="snackbarSignupModelValidationGender">Incorrect Gender</string>
+
 </resources>

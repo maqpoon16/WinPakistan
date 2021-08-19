@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/layout"
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".activites.SignUpActivity">
@@ -58,20 +59,37 @@
             android:orientation="vertical">
             <TextView
                 android:textColor="@color/bluehard"
-                android:text="Username"
+                android:text="UserName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
             </TextView>
             <EditText
-
-
-
-
+                android:textColor="@color/black"
                 android:drawablePadding="20sp"
                 android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+                android:textSize="15dp"
+                android:paddingLeft="1dp"
+                android:hint="Select username"
 
-              android:textSize="12dp"
+                android:textColorHint="@color/gray_border"
+                android:id="@+id/edtusername"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+
+            <TextView
+                android:textColor="@color/bluehard"
+                android:text="Full Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </TextView>
+            <EditText
+                android:textColor="@color/black"
+                android:drawablePadding="20sp"
+                android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+                android:textSize="15dp"
                 android:paddingLeft="1dp"
                 android:hint="Type your Name"
 
@@ -82,6 +100,28 @@
                 android:layout_height="50dp"/>
             <TextView
                 android:textColor="@color/bluehard"
+                android:text="Date OF Birth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </TextView>
+            <TextView
+                android:onClick="SetDOB"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:drawablePadding="20sp"
+                android:drawableLeft="@android:drawable/ic_menu_my_calendar"
+                android:paddingLeft="1dp"
+                android:paddingTop="15dp"
+                android:hint="Click to Select DOB"
+                android:textColorHint="@color/gray_border"
+                android:id="@+id/dtdob"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+
+            <TextView
+                android:textColor="@color/bluehard"
                 android:text="Contact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -89,8 +129,9 @@
             </TextView>
             <EditText
 
-                android:textSize="12dp"
-
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:inputType="number"
                 android:drawablePadding="20sp"
                 android:drawableLeft="@drawable/ic_baseline_phone_callback_24"
 
@@ -114,11 +155,12 @@
             </TextView>
             <EditText
 
-                android:textSize="12dp"
+                android:textSize="15dp"
+                android:textColor="@color/black"
 
                 android:drawablePadding="20sp"
                 android:drawableLeft="@drawable/ic_baseline_email_24"
-
+                android:inputType="textEmailAddress"
 
                 android:paddingLeft="1dp"
                 android:hint="Type your Contact"
@@ -139,17 +181,16 @@
             </TextView>
             <EditText
 
+                android:textColor="@color/black"
 
-                android:textSize="12dp"
+                android:textSize="15dp"
                 android:drawablePadding="20sp"
                 android:drawableLeft="@drawable/ic_baseline_lock_open_24"
-
-
                 android:paddingLeft="1dp"
-                android:hint="Type your Password"
-
+                android:hint="Full Address"
+                android:inputType="textPassword"
                 android:textColorHint="@color/gray_border"
-                android:id="@+id/edtaddress"
+                android:id="@+id/edtpassword"
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp">
@@ -158,47 +199,28 @@
             <TextView
                 android:layout_marginTop="10dp"
                 android:textColor="@color/bluehard"
-                android:text="Address"
+                android:text="Address / Location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
             </TextView>
             <EditText
+                android:textColor="@color/black"
 
-                android:textSize="12dp"
+                android:textSize="15dp"
                 android:drawablePadding="20sp"
                 android:drawableLeft="@drawable/ic_baseline_location_on_24"
                 android:paddingLeft="1dp"
+                android:inputType="textPostalAddress"
                 android:hint="Type your Address"
                 android:textColorHint="@color/gray_border"
-                android:id="@+id/edtpassword"
+                android:id="@+id/edtaddress"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp">
 
             </EditText>
-            <TextView
-                android:layout_marginTop="10dp"
-                android:textColor="@color/bluehard"
-                android:text="Location"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
 
-            </TextView>
-            <EditText
-
-                android:textSize="12dp"
-                android:drawablePadding="20sp"
-                android:drawableLeft="@drawable/ic_baseline_location_on_24"
-                android:paddingLeft="1dp"
-                android:hint="Select Location"
-                android:textColorHint="@color/gray_border"
-                android:id="@+id/edtselectlocation"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-            </EditText>
             <TextView
                 android:layout_marginTop="10dp"
                 android:textColor="@color/bluehard"
@@ -234,7 +256,32 @@
 
                 </RadioGroup>
 
+            <TextView
+                android:textColor="@color/bluehard"
+                android:text="Age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
+            </TextView>
+            <EditText
+                android:textColor="@color/black"
+
+                android:textSize="15dp"
+                android:inputType="number"
+                android:drawablePadding="20sp"
+                android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+
+
+                android:paddingLeft="1dp"
+                android:hint="Enter your Age"
+
+                android:textColorHint="@color/gray_border"
+                android:id="@+id/edtage"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+            </EditText>
 
 
 
