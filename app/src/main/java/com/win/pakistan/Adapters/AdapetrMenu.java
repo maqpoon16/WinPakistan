@@ -1,15 +1,20 @@
 package com.win.pakistan.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.win.pakistan.R;
+import com.win.pakistan.activites.PrizeActivity;
+import com.win.pakistan.activites.WalletActivity;
 
 import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 public class AdapetrMenu extends PagerAdapter {
     private Context context;
@@ -35,9 +40,9 @@ public class AdapetrMenu extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         View view = LayoutInflater.from(context).inflate(R.layout.linear_menu, null);
-        ImageView imageparticpnt1 = view.findViewById(R.id.imagemenu1);
-        ImageView imageparticpnt2 = view.findViewById(R.id.imagemenu2);
-        ImageView imageparticpnt3 = view.findViewById(R.id.imagemenu3);
+        ImageView imagemenu1 = view.findViewById(R.id.imagemenu1);
+        ImageView imagemenu2 = view.findViewById(R.id.imagemenu2);
+        ImageView imagemenu3 = view.findViewById(R.id.imagemenu3);
         TextView txtparticepent1= view.findViewById(R.id.txtmenu1);
         TextView txtparticepent2= view.findViewById(R.id.txtmenu2);
         TextView txtparticepent3= view.findViewById(R.id.txtmenu3);
@@ -46,11 +51,42 @@ public class AdapetrMenu extends PagerAdapter {
         txtparticepent2.setText(country[1]);
         txtparticepent3.setText(country[2]);
 
-        imageparticpnt1.setImageResource(flag[0]);
-        imageparticpnt2.setImageResource(flag[1]);
-        imageparticpnt3.setImageResource(flag[2]);
+        imagemenu1.setImageResource(flag[0]);
+        imagemenu2.setImageResource(flag[1]);
+        imagemenu3.setImageResource(flag[2]);
 
         container.addView(view);
+
+
+
+        imagemenu1.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Toast.makeText(context, "hh", Toast.LENGTH_SHORT).show();
+
+
+    Intent intent=new Intent(context, WalletActivity.class);
+    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    context.startActivity(intent);
+
+
+            }
+        });
+
+        imagemenu2.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Toast.makeText(context, "hh", Toast.LENGTH_SHORT).show();
+
+
+                Intent intent=new Intent(context, PrizeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                context.startActivity(intent);
+
+
+            }
+        });
+
+
+
         return view;
     }
     /*
