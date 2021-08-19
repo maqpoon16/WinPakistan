@@ -231,11 +231,13 @@
             </TextView>
 
                 <RadioGroup
+                    android:id="@+id/rdgender"
                     android:layout_marginTop="5dp"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <RadioButton
+                        android:id="@+id/rdmale"
                         android:paddingLeft="10dp"
                         android:buttonTint="@color/bluehard"
                         android:textColor="@color/bluehard"
@@ -245,6 +247,7 @@
 
                     </RadioButton>
                     <RadioButton
+                        android:id="@+id/rdfemale"
                         android:paddingLeft="10dp"
                         android:buttonTint="@color/bluehard"
                         android:textColor="@color/bluehard"
@@ -287,8 +290,7 @@
 
 
             <androidx.appcompat.widget.AppCompatButton
-
-                android:id="@+id/btnlogin"
+                android:onClick="OnClickedCreateAccount"
                 android:text="Create Account"
                 android:textColor="@color/white"
                 android:background="@drawable/loginbtnbackgredient"

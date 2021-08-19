@@ -12,11 +12,14 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.win.pakistan.MVC.Implementers.SignUpImplementer;
 import com.win.pakistan.MVC.Presentors.SignUpPresenter;
 import com.win.pakistan.MVC.Views.SignUpView;
+import com.win.pakistan.Models.UserSignup;
 import com.win.pakistan.R;
 
 import java.util.Calendar;
@@ -29,6 +32,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
     private SignUpPresenter signUpPresenter;
     private EditText fullname,username,password,email,mobile,address,age;
     private TextView dateOfBirth;
+    private RadioGroup rdgender;
     private int year, month, day;
     private Calendar calendar;
     @Override
@@ -44,28 +48,14 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
         mobile = (EditText)findViewById(R.id.edtcontact);
         address = (EditText)findViewById(R.id.edtaddress);
         age = (EditText)findViewById(R.id.edtage);
+        rdgender = (RadioGroup) findViewById(R.id.rdgender);
         dateOfBirth= (TextView)findViewById(R.id.dtdob);
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
         showDate(year-20, month+1, day);
-        dateOfBirth.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
     }
 
     public void alreadyaccount(View view) {
@@ -77,11 +67,13 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
 
     @Override
     public void ShowValidationError(String error) {
+        showSnackbar(layout,6000,SignUpActivity.this, error );
 
     }
 
     @Override
     public void ShowException(String exception) {
+        showSnackbar(layout,6000,SignUpActivity.this, exception );
 
     }
 
@@ -91,10 +83,12 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
         Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+        finish();
     }
 
     @Override
     public void OnSignUpFailed(String loginFailMessage) {
+        showSnackbar(layout,6000,SignUpActivity.this, loginFailMessage );
 
     }
     @Override
@@ -139,5 +133,21 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
         Integer ageInt = new Integer(age);
         String ageS = ageInt.toString();
         this.age.setText(ageS);
+    }
+
+    public void OnClickedCreateAccount(View view) {
+        UserSignup model = new UserSignup();
+        model.setFullName(fullname.getText().toString());
+        model.setUsername(username.getText().toString());
+        model.setPassword(password.getText().toString());
+        model.setMobileNumber(mobile.getText().toString());
+        model.setEmail(email.getText().toString());
+        RadioButton radioButton = (RadioButton)findViewById(rdgender.getCheckedRadioButtonId());
+        final String value =
+                radioButton
+                        .getText().toString();
+        model.setGender(value);
+        model.setAge(age.getText().toString());
+        signUpPresenter.SignUpProcess(model);
     }
 }

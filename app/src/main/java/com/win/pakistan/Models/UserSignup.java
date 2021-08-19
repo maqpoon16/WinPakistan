@@ -1,13 +1,30 @@
 package com.win.pakistan.Models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class UserSignup {
 
+    @SerializedName("username")
+    @Expose
     private String username;
+    @SerializedName("email")
+    @Expose
     private String email;
+    @SerializedName("full_name")
+    @Expose
     private String fullName;
+    @SerializedName("password")
+    @Expose
     private String password;
-     private String mobileNumber;
+    @SerializedName("mobile_number")
+    @Expose
+    private String mobileNumber;
+    @SerializedName("gender")
+    @Expose
     private String gender;
+    @SerializedName("age")
+    @Expose
     private String age;
 
     public String getUsername() {
