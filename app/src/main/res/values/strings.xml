@@ -10,6 +10,7 @@
     <string name="preferance_name">Login</string>
     <string name="preferance_key_isEnable">IsAutoLoginEnable</string>
     <string name="preferance_key_UserData">UserData</string>
+    <string name="preferance_key_NewUser">Reward</string>
 
     <!--    Signup Activity Screen-->
     <string name="snackbarSignupModelValidation">Incorrect Data</string>
@@ -44,6 +45,9 @@
     <string name="or">OR</string>
     <string name="already_have_an_account">Already have an Account!</string>
     <string name="click_here">Click Here</string>
+    <string name="points">Points</string>
+    <string name="amount">Amount</string>
+    <string name="time">Time</string>
 
 
 </resources>

@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.preference.PreferenceManager;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,6 +18,8 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.win.pakistan.Models.authResponse;
 import com.win.pakistan.R;
+
+import static android.content.Context.INPUT_METHOD_SERVICE;
 
 public class Methods {
     public static void showSnackbar(ConstraintLayout coordinatorLayout, int duration, Activity context, String contextString ) { // Create the Snackbar
@@ -73,5 +76,23 @@ public class Methods {
             }
         }
         return Object;
+    }
+    public  static boolean newUserReward(Activity context){
+        SharedPreferences sharedpreferences = context.getSharedPreferences(context.getResources().getString(R.string.preferance_name), Context.MODE_PRIVATE);
+        return sharedpreferences.getBoolean(context.getResources().getString(R.string.preferance_key_NewUser), false);
+    }
+    public  static void setNewUserReward(Activity context,boolean setValue){
+        SharedPreferences sharedpreferences = context.getSharedPreferences(context.getResources().getString(R.string.preferance_name), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putBoolean(context.getResources().getString(R.string.preferance_key_NewUser), setValue);
+        editor.apply();
+    }
+
+    public  static void closeKeyboard(Activity context){
+        View view = context.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) context.getSystemService(INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 }

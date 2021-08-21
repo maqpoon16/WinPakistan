@@ -27,6 +27,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static com.win.pakistan.Common.FinalStrings.baseUrlLogin;
 import static com.win.pakistan.Common.FinalStrings.snackbarValidationErrorPass;
 import static com.win.pakistan.Common.FinalStrings.snackbarValidationErrorUser;
+import static com.win.pakistan.Common.Methods.newUserReward;
+import static com.win.pakistan.Common.Methods.setNewUserReward;
 
 public class SignUpImplementer implements SignUpPresenter {
     private final SignUpView signUpView;
@@ -85,6 +87,7 @@ public class SignUpImplementer implements SignUpPresenter {
                         authResponse authResponse = response.body();
                         if(authResponse.isStatus()){
                             signUpView.OnSignUpSuccessfull();
+                            setNewUserReward(context,true);
                         }else {
                             signUpView.OnSignUpFailed(authResponse.getMessage());
                         }
