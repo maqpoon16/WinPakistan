@@ -5,5 +5,5 @@ import android.widget.TextView;
 
 public interface MainScreenPresenter {
     //this fucntion called on login button and that class / activity implement this interface.
-    void TimerProcess(Activity context, TextView timerLabel);
+    void TimerProcess(Activity context);
 }

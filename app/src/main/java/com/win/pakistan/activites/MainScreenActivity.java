@@ -12,16 +12,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.win.pakistan.Adapters.AdapetrMenu;
 import com.win.pakistan.Adapters.AdapetrParticepant;
+import com.win.pakistan.MVC.Implementers.LoginImplementer;
+import com.win.pakistan.MVC.Implementers.MainScreenImplementer;
+import com.win.pakistan.MVC.Presentors.LoginPresenter;
+import com.win.pakistan.MVC.Presentors.MainScreenPresenter;
+import com.win.pakistan.MVC.Views.MainScreenView;
 import com.win.pakistan.Models.authResponse;
 import com.win.pakistan.R;
 
 import static com.win.pakistan.Common.Methods.getAutoLogin;
 import static com.win.pakistan.Common.Methods.newUserReward;
 
-public class MainScreenActivity extends AppCompatActivity {
+public class MainScreenActivity extends AppCompatActivity implements MainScreenView {
     ViewPager viewPagerparticpant,viewPagermenus;
     AdapetrParticepant particepantadpter;
     AdapetrMenu adapetrMenu;
@@ -31,10 +37,13 @@ public class MainScreenActivity extends AppCompatActivity {
     private Handler handler;
     private int delay = 2000; //milliseconds
     private int page = 0;
+    private MainScreenPresenter mainScreenPresenter;
+    TextView clockwise;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainscreencopy);
+        mainScreenPresenter = new MainScreenImplementer(this);
         //this will check user gets their on sigup reward or not!
         IsNewUser();
         handler = new Handler();
@@ -44,7 +53,8 @@ public class MainScreenActivity extends AppCompatActivity {
 
         viewPagerparticpant = findViewById(R.id.view_pager);
         viewPagermenus = findViewById(R.id.view_pagermenu);
-
+        clockwise = findViewById(R.id.clockwise);
+        mainScreenPresenter.TimerProcess(MainScreenActivity.this);
         particepantadpter = new AdapetrParticepant(MainScreenActivity.this,textpartipantname,particpentimage);
 
         viewPagerparticpant.setAdapter(particepantadpter);
@@ -177,4 +187,19 @@ public class MainScreenActivity extends AppCompatActivity {
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
     }
 
+    @Override
+    public void ShowException(String exception) {
+
+    }
+
+    @Override
+    public void SetTimer(String remainingTime) {
+        clockwise.setText(remainingTime);
+
+    }
+
+    @Override
+    public void LuckyDrawWinner(String remainingTime) {
+
+    }
 }

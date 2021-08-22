@@ -15,9 +15,9 @@ import java.util.Locale;
 
 public class MainScreenImplementer implements MainScreenPresenter {
     private final MainScreenView mainScreenView;
-    private String EVENT_DATE_TIME = "2021-12-31 10:30:00";
-    private String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
-    private Handler handler = new Handler();
+    private final String EVENT_DATE_TIME = "2021-08-22 11:45:00";
+    private final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    private final Handler handler = new Handler();
     private Runnable runnable;
     public MainScreenImplementer(MainScreenView mainScreenView) {
         this.mainScreenView = mainScreenView;
@@ -25,9 +25,10 @@ public class MainScreenImplementer implements MainScreenPresenter {
 
 
     @Override
-    public void TimerProcess(Activity context, TextView timerLabel) {
+    public void TimerProcess(Activity context ) {
 
         runnable = new Runnable() {
+            @SuppressLint("DefaultLocale")
             @Override
             public void run() {
                 try {
@@ -42,11 +43,12 @@ public class MainScreenImplementer implements MainScreenPresenter {
                         long Hours = diff / (60 * 60 * 1000) % 24;
                         long Minutes = diff / (60 * 1000) % 60;
                         long Seconds = diff / 1000 % 60;
-                        timerLabel.setText(String.format("%02d", Hours)+":"+String.format("%02d", Minutes)+":"+String.format("%02d", Seconds));
+                        mainScreenView.SetTimer(String.format("%02d", Hours)+":"+String.format("%02d", Minutes)+":"+String.format("%02d", Seconds));
                     } else {
                         handler.removeCallbacks(runnable);
                     }
                 } catch (Exception e) {
+                    mainScreenView.ShowException(e.getLocalizedMessage());
                     e.printStackTrace();
                 }
             }
