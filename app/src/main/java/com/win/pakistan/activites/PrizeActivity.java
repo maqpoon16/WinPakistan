@@ -29,5 +29,7 @@ GridView gridView;
         prizearraylist.add(new PrizDataclass("Note8i ",80000, R.mipmap.mobile2));
         prizeAdapter=new PrizeAdapter(PrizeActivity.this,prizearraylist);
         gridView.setAdapter(prizeAdapter);
+
+
     }
 }

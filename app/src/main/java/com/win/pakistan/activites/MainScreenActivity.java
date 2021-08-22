@@ -88,6 +88,13 @@ public class MainScreenActivity extends AppCompatActivity {
             opndialogbox();
         }
     }
+    public void playbutton(View view) {
+
+        particepatelottery();
+
+
+
+    }
     private void opndialogbox() {
         Button btncontiue,btnwatchvideo;
         View promptsView = LayoutInflater.from(MainScreenActivity.this).inflate(R.layout.dialogcoustomafterlogin, null);
@@ -128,4 +135,46 @@ public class MainScreenActivity extends AppCompatActivity {
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
     }
+
+    private void particepatelottery() {
+        Button btncontiue,btnwatchvideo;
+        View promptsView = LayoutInflater.from(MainScreenActivity.this).inflate(R.layout.particepatedialoge, null);
+        final Dialog dialog = new Dialog(MainScreenActivity.this);
+        dialog.requestWindowFeature(1);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(-1));
+
+
+        btncontiue = (Button) promptsView.findViewById(R.id.btncontinue);
+        btnwatchvideo = (Button) promptsView.findViewById(R.id.btnwatchvideo);
+
+
+
+        btncontiue.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        btnwatchvideo.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Google Reward videos here
+                dialog.dismiss();
+            }
+        });
+
+
+
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = -1;
+        lp.height = -1;
+        dialog.setContentView(promptsView);
+        dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+    }
+
 }

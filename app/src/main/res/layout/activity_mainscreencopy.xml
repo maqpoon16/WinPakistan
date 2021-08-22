@@ -319,6 +319,7 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:onClick="playbutton"
                     android:textSize="20dp"
                         android:text="Play"
                         android:background="@drawable/loginbtnbackgredient"

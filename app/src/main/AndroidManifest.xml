@@ -13,7 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WinPakistanLottery"
         tools:targetApi="m">
-        <activity android:name=".activites.MainScreenActivity" android:theme="@style/loginthem"></activity>
+        <activity android:name=".activites.MainScreenActivity" android:theme="@style/loginthem">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity
             android:name=".activites.SignUpActivity"
             android:theme="@style/loginthem" />
@@ -35,11 +43,7 @@
         <activity
             android:name=".activites.Splash"
             android:theme="@style/NoActionbar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

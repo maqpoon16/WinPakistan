@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:tools="http://schemas.android.com/tools"
+   android:background="@android:color/transparent"
+    android:layout_gravity="center"
+    android:layout_width="300dp"
+    android:layout_height="400dp"
+
+    android:padding="10dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/white"
+
+
+        android:layout_gravity="center"
+        android:id="@+id/second_top_layout"
+
+        android:layout_width="match_parent"
+        android:layout_height="340dp">
+
+        <TextView
+            android:textAlignment="center"
+
+            android:id="@+id/txtenjoy"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enjoy..."
+            android:textColor="@color/swipe_refresh_red"
+            android:textSize="25dp"
+
+
+            app:layout_constraintHorizontal_bias="0.507"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.256">
+
+        </TextView>
+
+        <TextView
+            android:textAlignment="center"
+
+            android:id="@+id/txtparticepate"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Take participate in lottery and get your gift"
+            android:textColor="@color/bluehard"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintHorizontal_bias="0.507"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.256">
+
+        </TextView>
+
+        <LinearLayout
+            android:layout_marginTop="30dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:id="@+id/bottomlayout"
+            app:layout_constraintTop_toBottomOf="@+id/txtparticepate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:onClick="login"
+                android:text="Through  Payment"
+                android:textColor="@color/white"
+                android:background="@drawable/loginbtnbackgredient"
+                android:id="@+id/btncontinue"
+                android:layout_marginTop="20dp"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:layout_marginTop="10dp"
+                android:onClick="login"
+                android:text="Use  Coins"
+                android:textColor="@color/white"
+                android:background="@drawable/loginbtnbackgredient"
+                android:id="@+id/btnwatchvideo"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/btncontinue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints">
+
+            </androidx.appcompat.widget.AppCompatButton>
+        </LinearLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
