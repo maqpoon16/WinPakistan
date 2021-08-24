@@ -12,6 +12,10 @@
     <string name="preferance_key_UserData">UserData</string>
     <string name="preferance_key_NewUser">Reward</string>
 
+<!--    Login Activity Screen-->
+    <string name="snackbarValidationErrorUser">Incorrect user!</string>
+    <string name="snackbarValidationErrorPass">Incorrect password!</string>
+    <string name="snackbarLoginSuccessfull">Login Successful!</string>
     <!--    Signup Activity Screen-->
     <string name="snackbarSignupModelValidation">Incorrect Data</string>
     <string name="snackbarSignupModelValidationUser">Incorrect Username</string>
@@ -48,6 +52,7 @@
     <string name="points">Points</string>
     <string name="amount">Amount</string>
     <string name="time">Time</string>
-
-
+<!--API String-->
+    <string name="WorldTimeSpanUrl">http://worldtimeapi.org/api/timezone/Asia/</string>
+    <string name="ServerBaseUrl">http://orange-ltd.com/api/</string>
 </resources>

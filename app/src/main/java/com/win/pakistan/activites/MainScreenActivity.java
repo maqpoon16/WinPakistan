@@ -1,6 +1,7 @@
 package com.win.pakistan.activites;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.Dialog;
@@ -13,21 +14,17 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.win.pakistan.Adapters.AdapetrMenu;
 import com.win.pakistan.Adapters.AdapetrParticepant;
-import com.win.pakistan.MVC.Implementers.LoginImplementer;
 import com.win.pakistan.MVC.Implementers.MainScreenImplementer;
-import com.win.pakistan.MVC.Presentors.LoginPresenter;
 import com.win.pakistan.MVC.Presentors.MainScreenPresenter;
 import com.win.pakistan.MVC.Views.MainScreenView;
-import com.win.pakistan.Models.authResponse;
 import com.win.pakistan.R;
-
-import static com.win.pakistan.Common.Methods.getAutoLogin;
 import static com.win.pakistan.Common.Methods.newUserReward;
+import static com.win.pakistan.Common.Methods.showSnackbar;
 
 public class MainScreenActivity extends AppCompatActivity implements MainScreenView {
+    private ConstraintLayout layout;
     ViewPager viewPagerparticpant,viewPagermenus;
     AdapetrParticepant particepantadpter;
     AdapetrMenu adapetrMenu;
@@ -44,6 +41,7 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainscreencopy);
         mainScreenPresenter = new MainScreenImplementer(this);
+        layout = findViewById(R.id.layout);
         //this will check user gets their on sigup reward or not!
         IsNewUser();
         handler = new Handler();
@@ -189,6 +187,13 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
 
     @Override
     public void ShowException(String exception) {
+        showSnackbar(layout,6000,MainScreenActivity.this, exception );
+
+    }
+
+    @Override
+    public void ShowFailureMessage(String failureReason) {
+        showSnackbar(layout,6000,MainScreenActivity.this, failureReason );
 
     }
 

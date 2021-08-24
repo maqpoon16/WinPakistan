@@ -15,7 +15,6 @@ import com.win.pakistan.MVC.Presentors.LoginPresenter;
 import com.win.pakistan.MVC.Views.LoginView;
 import com.win.pakistan.R;
 import java.util.ArrayList;
-import static com.win.pakistan.Common.FinalStrings.snackbarLoginSuccessfull;
 import static com.win.pakistan.Common.Methods.showSnackbar;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
@@ -70,7 +69,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public void OnloginSuccessfull() {
-        showSnackbar(layout,3000,LoginActivity.this, snackbarLoginSuccessfull );
+        showSnackbar(layout,3000,LoginActivity.this,  getResources().getString(R.string.snackbarLoginSuccessfull ) );
         Intent intent = new Intent(LoginActivity.this, MainScreenActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
