@@ -21,6 +21,7 @@ import com.win.pakistan.MVC.Presentors.MainScreenPresenter;
 import com.win.pakistan.MVC.Views.MainScreenView;
 import com.win.pakistan.R;
 import static com.win.pakistan.Common.Methods.newUserReward;
+import static com.win.pakistan.Common.Methods.setNewUserReward;
 import static com.win.pakistan.Common.Methods.showSnackbar;
 
 public class MainScreenActivity extends AppCompatActivity implements MainScreenView {
@@ -94,6 +95,7 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
         boolean userRewardEnable = newUserReward(MainScreenActivity.this);
         if(userRewardEnable){
             opndialogbox();
+            setNewUserReward(MainScreenActivity.this,false);
         }
     }
     public void playbutton(View view) {

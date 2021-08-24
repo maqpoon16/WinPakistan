@@ -43,7 +43,7 @@ public class LoginImplementer  implements LoginPresenter {
               return;
           }
           UserAuth userAuth = new UserAuth();
-          userAuth.setEmail(user);
+          userAuth.setMobileNumber(user);
           userAuth.setPassword(password);
 
           OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
