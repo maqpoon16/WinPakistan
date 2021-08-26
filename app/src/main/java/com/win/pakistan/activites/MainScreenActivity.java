@@ -40,11 +40,13 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
     private int delay = 2000; //milliseconds
     private int page = 0;
     private MainScreenPresenter mainScreenPresenter;
-    TextView clockwise;
+    TextView clockwise,txtname;
+    private authResponse response;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainscreencopy);
+        response = getAutoLogin(MainScreenActivity.this);
         mainScreenPresenter = new MainScreenImplementer(this);
         layout = findViewById(R.id.layout);
         //this will check user gets their on sigup reward or not!
@@ -57,6 +59,8 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
         viewPagerparticpant = findViewById(R.id.view_pager);
         viewPagermenus = findViewById(R.id.view_pagermenu);
         clockwise = findViewById(R.id.clockwise);
+        txtname = findViewById(R.id.txtname);
+        txtname.setText(response.getUser().getFullName());
         mainScreenPresenter.TimerProcess(MainScreenActivity.this);
 
         particepantadpter = new AdapetrParticepant(MainScreenActivity.this,textpartipantname,particpentimage);
@@ -106,9 +110,6 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
     public void playbutton(View view) {
 
         particepatelottery();
-
-
-
     }
     private void opndialogbox() {
         Button btncontiue,btnwatchvideo;

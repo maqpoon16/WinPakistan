@@ -26,6 +26,21 @@ public class UserSignup {
     @SerializedName("age")
     @Expose
     private String age;
+    @SerializedName("dob")
+    @Expose
+    private String dob;
+    @SerializedName("address")
+    @Expose
+    private String address;
+    @SerializedName("latitude")
+    @Expose
+    private String latitude;
+    @SerializedName("longitude")
+    @Expose
+    private String longitude;
+    @SerializedName("profile_img")
+    @Expose
+    private String profileImg;
 
     public String getUsername() {
         return username;
@@ -81,6 +96,46 @@ public class UserSignup {
 
     public void setAge(String age) {
         this.age = age;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getProfileImg() {
+        return profileImg;
+    }
+
+    public void setProfileImg(String profileImg) {
+        this.profileImg = profileImg;
     }
 
 }

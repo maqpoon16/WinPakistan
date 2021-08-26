@@ -235,6 +235,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:background="@drawable/loginbtnbackgredient"
             android:orientation="vertical"
+            android:onClick="onLogOutClicked"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
