@@ -3,31 +3,20 @@ package com.win.pakistan.MVC.Implementers;
 import android.app.Activity;
 import android.text.TextUtils;
 
-import com.win.pakistan.MVC.Presentors.LoginPresenter;
 import com.win.pakistan.MVC.Presentors.SignUpPresenter;
 import com.win.pakistan.MVC.Views.SignUpView;
-import com.win.pakistan.Models.UserAuth;
-import com.win.pakistan.Models.UserData;
 import com.win.pakistan.Models.UserSignup;
 import com.win.pakistan.Models.authResponse;
 import com.win.pakistan.R;
 import com.win.pakistan.Services.apiServices;
-
 import org.jetbrains.annotations.NotNull;
-
 import java.util.concurrent.TimeUnit;
-
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-import static com.win.pakistan.Common.FinalStrings.baseUrlLogin;
-import static com.win.pakistan.Common.FinalStrings.snackbarValidationErrorPass;
-import static com.win.pakistan.Common.FinalStrings.snackbarValidationErrorUser;
-import static com.win.pakistan.Common.Methods.newUserReward;
 import static com.win.pakistan.Common.Methods.setNewUserReward;
 
 public class SignUpImplementer implements SignUpPresenter {
@@ -75,7 +64,7 @@ public class SignUpImplementer implements SignUpPresenter {
             httpClient.readTimeout(20, TimeUnit.SECONDS);
             httpClient.connectTimeout(20, TimeUnit.SECONDS);
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(baseUrlLogin)
+                    .baseUrl(context.getResources().getString(R.string.ServerBaseUrl))
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(httpClient.build()).build();
             apiServices service = retrofit.create(apiServices.class);
@@ -83,7 +72,7 @@ public class SignUpImplementer implements SignUpPresenter {
             call.enqueue(new Callback<authResponse>() {
                 @Override
                 public void onResponse(@NotNull Call<authResponse> call, @NotNull Response<authResponse> response) {
-                    if(response!=null && response.body()!=null){
+                    if(response.body() != null){
                         authResponse authResponse = response.body();
                         if(authResponse.isStatus()){
                             signUpView.OnSignUpSuccessfull();

@@ -21,10 +21,7 @@ import com.win.pakistan.MVC.Presentors.SignUpPresenter;
 import com.win.pakistan.MVC.Views.SignUpView;
 import com.win.pakistan.Models.UserSignup;
 import com.win.pakistan.R;
-
 import java.util.Calendar;
-
-import static com.win.pakistan.Common.FinalStrings.snackbarLoginSuccessfull;
 import static com.win.pakistan.Common.Methods.showSnackbar;
 
 public class SignUpActivity extends AppCompatActivity implements SignUpView {
@@ -79,7 +76,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
 
     @Override
     public void OnSignUpSuccessfull() {
-        showSnackbar(layout,3000,SignUpActivity.this, snackbarLoginSuccessfull );
+        showSnackbar(layout,3000,SignUpActivity.this, getResources().getString(R.string.snackbarLoginSuccessfull) );
         Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);

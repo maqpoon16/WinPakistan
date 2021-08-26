@@ -5,19 +5,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class UserAuth {
 
-    @SerializedName("email")
+    @SerializedName("mobile_number")
     @Expose
-    private String email;
+    private String mobileNumber;
     @SerializedName("password")
     @Expose
     private String password;
 
-    public String getEmail() {
-        return email;
+    public String getMobileNumber() {
+        return mobileNumber;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
     }
 
     public String getPassword() {

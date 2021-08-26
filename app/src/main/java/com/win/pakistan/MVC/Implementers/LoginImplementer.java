@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.text.TextUtils;
 
 import com.win.pakistan.MVC.Presentors.LoginPresenter;
-import com.win.pakistan.MVC.Presentors.SignUpPresenter;
 import com.win.pakistan.MVC.Views.LoginView;
 import com.win.pakistan.Models.UserAuth;
 import com.win.pakistan.Models.authResponse;
+import com.win.pakistan.R;
 import com.win.pakistan.Services.apiServices;
 
 import org.jetbrains.annotations.NotNull;
@@ -20,10 +20,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-import static com.win.pakistan.Common.FinalStrings.baseUrlLogin;
-import static com.win.pakistan.Common.FinalStrings.snackbarValidationErrorPass;
-import static com.win.pakistan.Common.FinalStrings.snackbarValidationErrorUser;
 import static com.win.pakistan.Common.Methods.setAutoLogin;
 
 public class LoginImplementer  implements LoginPresenter {
@@ -38,23 +34,23 @@ public class LoginImplementer  implements LoginPresenter {
       try{
           if (TextUtils.isEmpty(user)){
 
-              loginView.ShowValidationError(snackbarValidationErrorUser);
+              loginView.ShowValidationError(context.getResources().getString(R.string.snackbarValidationErrorUser));
               return;
           }
           if (TextUtils.isEmpty(password)){
 
-              loginView.ShowValidationError(snackbarValidationErrorPass);
+              loginView.ShowValidationError(context.getResources().getString(R.string.snackbarValidationErrorPass));
               return;
           }
           UserAuth userAuth = new UserAuth();
-          userAuth.setEmail(user);
+          userAuth.setMobileNumber(user);
           userAuth.setPassword(password);
 
           OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
           httpClient.readTimeout(6, TimeUnit.SECONDS);
           httpClient.connectTimeout(6, TimeUnit.SECONDS);
           Retrofit retrofit = new Retrofit.Builder()
-                  .baseUrl(baseUrlLogin)
+                  .baseUrl(context.getResources().getString(R.string.ServerBaseUrl))
                   .addConverterFactory(GsonConverterFactory.create())
                   .client(httpClient.build()).build();
           apiServices service = retrofit.create(apiServices.class);
@@ -62,7 +58,7 @@ public class LoginImplementer  implements LoginPresenter {
           call.enqueue(new Callback<authResponse>() {
               @Override
               public void onResponse(@NotNull Call<authResponse> call, @NotNull Response<authResponse> response) {
-                  if(response!=null && response.body()!=null){
+                  if(response.body() != null){
                       authResponse authResponse = response.body();
 
                       if(authResponse.isStatus()){
