@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         editTexts = new ArrayList<>();
         loginPresenter = new LoginImplementer(this);
         layout = findViewById(R.id.layout);
-        editTexts.add(findViewById(R.id.edtemail));
+        editTexts.add(findViewById(R.id.edtcontact));
         editTexts.add(findViewById(R.id.edtpassword));
         LinearLayout loginlayout;
         loginlayout=findViewById(R.id.loginlayout);

@@ -27,7 +27,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainScreenImplementer implements MainScreenPresenter {
     private final MainScreenView mainScreenView;
-    private final String EVENT_DATE_TIME = "2021-08-24 14:55:00";
+    private final String EVENT_DATE_TIME = "2021-08-26 20:00:00";
     private final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
     private final Handler handler = new Handler();
     private Runnable runnable;

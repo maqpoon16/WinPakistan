@@ -15,11 +15,7 @@
         tools:targetApi="m">
         <activity android:name=".activites.MainScreenActivity" android:theme="@style/loginthem">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity
@@ -41,9 +37,17 @@
             android:name=".activites.WelcomeActivity"
             android:theme="@style/NoActionbar" />
         <activity
+            android:name=".activites.ProfileActivity"
+            android:theme="@style/NoActionbar" />
+        <activity
             android:name=".activites.Splash"
             android:theme="@style/NoActionbar">
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
