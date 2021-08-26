@@ -177,4 +177,11 @@ public class MainScreenActivity extends AppCompatActivity {
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
     }
 
+    public void  gotoprofile(View v){
+
+        Intent intent=new Intent(MainScreenActivity.this,ProfileActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
 }

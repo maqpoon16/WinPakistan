@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+
+
+    android:layout_height="match_parent"
+    tools:context=".activites.ProfileActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="30dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:src="@mipmap/person3"
+        android:id="@+id/profile_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        tools:ignore="MissingConstraints">
+
+    </de.hdodenhof.circleimageview.CircleImageView>
+    <TextView
+
+        android:textStyle="bold"
+        android:textColor="@color/bluehard"
+        android:layout_marginTop="10dp"
+        android:text="inhan23@gmail.com"
+        app:layout_constraintTop_toBottomOf="@id/profile_image"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/textemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </TextView>
+    <TextView
+
+        android:textStyle="bold"
+        android:textColor="@color/bluehard"
+        android:layout_marginTop="10dp"
+        android:text="+923325503218"
+        app:layout_constraintTop_toBottomOf="@id/textemail"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/textcontact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </TextView>
+
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_marginTop="20dp"
+        android:id="@+id/card1"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="20dp"
+
+        app:layout_constraintTop_toBottomOf="@id/textcontact"
+        app:layout_constraintHeight_percent="0.11"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@drawable/loginbtnbackgredient"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:textStyle="bold"
+               android:textColor="@color/white"
+                android:drawablePadding="10dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/txtpayment"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginLeft="10dp"
+
+
+                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="20dp"
+                android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+                android:text="Payment Method"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                tools:ignore="MissingConstraints">
+
+            </TextView>
+            <TextView
+                android:onClick="gotoaccountinfo"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/white"
+
+                android:layout_marginLeft="10dp"
+                android:drawablePadding="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtpayment"
+                android:textSize="20dp"
+
+                android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+                android:text="Account Information"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints">
+
+            </TextView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+
+        android:layout_marginTop="30dp"
+
+        android:id="@+id/card2"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="20dp"
+
+        app:layout_constraintTop_toBottomOf="@id/card1"
+        app:layout_constraintHeight_percent="0.2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <LinearLayout
+            android:background="@drawable/loginbtnbackgredient"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:visibility="gone"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:drawablePadding="10dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/txtnotification"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginLeft="10dp"
+
+
+                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="20dp"
+                android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+                android:text="Notifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                tools:ignore="MissingConstraints">
+
+            </TextView>
+            <TextView
+                android:id="@+id/txtinvitefriend"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/white"
+
+                android:layout_marginLeft="10dp"
+                android:drawablePadding="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtpayment"
+                android:textSize="20dp"
+
+                android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+                android:text="Invite Friends"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints">
+
+            </TextView>
+            <TextView
+                android:id="@+id/txtterm"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/white"
+
+                android:layout_marginLeft="10dp"
+                android:drawablePadding="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtpayment"
+                android:textSize="20dp"
+
+                android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+                android:text="Terms of Services"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints">
+
+            </TextView>
+            <TextView
+                android:id="@+id/txtsetting"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/white"
+
+                android:layout_marginLeft="10dp"
+                android:drawablePadding="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtpayment"
+                android:textSize="20dp"
+
+                android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+                android:text="Setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints">
+
+            </TextView>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_marginTop="20dp"
+        android:id="@+id/card3"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="20dp"
+
+        app:layout_constraintTop_toBottomOf="@id/card2"
+        app:layout_constraintHeight_percent="0.08"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@drawable/loginbtnbackgredient"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:drawablePadding="10dp"
+                android:id="@+id/txtlogout"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="20dp"
+                android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+                android:text="Log out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints">
+
+            </TextView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

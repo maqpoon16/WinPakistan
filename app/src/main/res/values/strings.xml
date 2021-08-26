@@ -6,7 +6,7 @@
     <string name="slide_1_title">Participate and Win Huge Gifts</string>
     <string name="slide_1_desc">Enjoy</string>
     <string name="slide_2_desc">second detail page</string>
-<!--    SharedPreferences-->
+    <!--    SharedPreferences-->
     <string name="preferance_name">Login</string>
     <string name="preferance_key_isEnable">IsAutoLoginEnable</string>
     <string name="preferance_key_UserData">UserData</string>
@@ -22,7 +22,7 @@
     <string name="snackbarSignupModelValidationContact">Incorrect Contact</string>
     <string name="snackbarSignupModelValidationGender">Incorrect Gender</string>
     <string name="snackbarServerNotRepsond">Sorry! Server is not responding now.</string>
-<!--    Signup Screen XML-->
+    <!--    Signup Screen XML-->
     <string name="UserName">UserName</string>
     <string name="select_username">Select username</string>
     <string name="full_name">Full Name</string>

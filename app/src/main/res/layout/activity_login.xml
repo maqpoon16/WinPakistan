@@ -47,19 +47,20 @@
                 android:orientation="vertical">
                 <TextView
                     android:textColor="@color/bluehard"
-                    android:text="Username"
+                    android:text="Mobile Number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                 </TextView>
                 <EditText
+                    android:inputType="number"
                     android:drawablePadding="20sp"
                     android:drawableLeft="@drawable/ic_baseline_person_outline_24"
                     android:paddingLeft="1dp"
-                    android:hint="Type your Name"
+                    android:hint="eg.+9233255033"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray_border"
-                    android:id="@+id/edtemail"
+                    android:id="@+id/edtcontact"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="50dp">

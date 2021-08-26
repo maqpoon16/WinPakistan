@@ -2,25 +2,26 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.win.pakistan">
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WinPakistanLottery"
+        android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".activites.MainScreenActivity" android:theme="@style/loginthem">
-
+        <activity android:name=".activites.AccountInfoActivity"></activity>
+        <activity android:name=".activites.ProfileActivity" />
+        <activity
+            android:name=".activites.MainScreenActivity"
+            android:theme="@style/loginthem">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".activites.SignUpActivity"
@@ -42,9 +43,10 @@
             android:theme="@style/NoActionbar" />
         <activity
             android:name=".activites.Splash"
-            android:theme="@style/NoActionbar">
-
-        </activity>
+            android:theme="@style/NoActionbar" />
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>
