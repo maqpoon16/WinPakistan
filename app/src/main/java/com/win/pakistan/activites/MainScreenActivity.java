@@ -1,6 +1,7 @@
 package com.win.pakistan.activites;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.Dialog;
@@ -12,16 +13,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.win.pakistan.Adapters.AdapetrMenu;
 import com.win.pakistan.Adapters.AdapetrParticepant;
+import com.win.pakistan.MVC.Implementers.MainScreenImplementer;
+import com.win.pakistan.MVC.Presentors.MainScreenPresenter;
+import com.win.pakistan.MVC.Views.MainScreenView;
 import com.win.pakistan.Models.authResponse;
 import com.win.pakistan.R;
 
 import static com.win.pakistan.Common.Methods.getAutoLogin;
 import static com.win.pakistan.Common.Methods.newUserReward;
+import static com.win.pakistan.Common.Methods.setNewUserReward;
+import static com.win.pakistan.Common.Methods.showSnackbar;
 
-public class MainScreenActivity extends AppCompatActivity {
+public class MainScreenActivity extends AppCompatActivity implements MainScreenView {
+    private ConstraintLayout layout;
     ViewPager viewPagerparticpant,viewPagermenus;
     AdapetrParticepant particepantadpter;
     AdapetrMenu adapetrMenu;
@@ -31,10 +39,14 @@ public class MainScreenActivity extends AppCompatActivity {
     private Handler handler;
     private int delay = 2000; //milliseconds
     private int page = 0;
+    private MainScreenPresenter mainScreenPresenter;
+    TextView clockwise;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainscreencopy);
+        mainScreenPresenter = new MainScreenImplementer(this);
+        layout = findViewById(R.id.layout);
         //this will check user gets their on sigup reward or not!
         IsNewUser();
         handler = new Handler();
@@ -44,6 +56,8 @@ public class MainScreenActivity extends AppCompatActivity {
 
         viewPagerparticpant = findViewById(R.id.view_pager);
         viewPagermenus = findViewById(R.id.view_pagermenu);
+        clockwise = findViewById(R.id.clockwise);
+        mainScreenPresenter.TimerProcess(MainScreenActivity.this);
 
         particepantadpter = new AdapetrParticepant(MainScreenActivity.this,textpartipantname,particpentimage);
 
@@ -86,6 +100,7 @@ public class MainScreenActivity extends AppCompatActivity {
         boolean userRewardEnable = newUserReward(MainScreenActivity.this);
         if(userRewardEnable){
             opndialogbox();
+            setNewUserReward(MainScreenActivity.this,false);
         }
     }
     public void playbutton(View view) {
@@ -176,7 +191,28 @@ public class MainScreenActivity extends AppCompatActivity {
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
     }
+    @Override
+    public void ShowException(String exception) {
+        showSnackbar(layout,6000,MainScreenActivity.this, exception );
 
+    }
+
+    @Override
+    public void ShowFailureMessage(String failureReason) {
+        showSnackbar(layout,6000,MainScreenActivity.this, failureReason );
+
+    }
+
+    @Override
+    public void SetTimer(String remainingTime) {
+        clockwise.setText(remainingTime);
+
+    }
+
+    @Override
+    public void LuckyDrawWinner(String remainingTime) {
+
+    }
     public void  gotoprofile(View v){
 
         Intent intent=new Intent(MainScreenActivity.this,ProfileActivity.class);
