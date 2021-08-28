@@ -42,18 +42,14 @@ public class AdapetrMenu extends PagerAdapter {
         View view = LayoutInflater.from(context).inflate(R.layout.linear_menu, null);
         ImageView imagemenu1 = view.findViewById(R.id.imagemenu1);
         ImageView imagemenu2 = view.findViewById(R.id.imagemenu2);
-        ImageView imagemenu3 = view.findViewById(R.id.imagemenu3);
         TextView txtparticepent1= view.findViewById(R.id.txtmenu1);
         TextView txtparticepent2= view.findViewById(R.id.txtmenu2);
-        TextView txtparticepent3= view.findViewById(R.id.txtmenu3);
 
         txtparticepent1.setText(country[0]);
         txtparticepent2.setText(country[1]);
-        txtparticepent3.setText(country[2]);
 
         imagemenu1.setImageResource(flag[0]);
         imagemenu2.setImageResource(flag[1]);
-        imagemenu3.setImageResource(flag[2]);
 
         container.addView(view);
 

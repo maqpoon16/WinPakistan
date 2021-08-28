@@ -56,4 +56,9 @@
 <!--API String-->
     <string name="WorldTimeSpanUrl">http://worldtimeapi.org/api/timezone/Asia/</string>
     <string name="ServerBaseUrl">http://orange-ltd.com/api/</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="e_g_03133106243">e.g 03133106243</string>
+    <string name="phone">Phone</string>
+    <string name="e_g_house_no_1_street_abc_etc">e.g House no.1 Street ABC etc</string>
+    <string name="e_g_30">e.g 30</string>
 </resources>

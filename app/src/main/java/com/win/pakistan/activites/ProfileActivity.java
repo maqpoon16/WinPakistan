@@ -28,15 +28,15 @@ public class ProfileActivity extends AppCompatActivity {
     private static final int PICK_IMAGE = 1;
     private CircleImageView profile_image;
     private authResponse response;
-    private TextView tx_email,ex_mobile;
+    private TextView tx_user,ex_mobile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         response = getAutoLogin(ProfileActivity.this);
-        tx_email = (TextView) findViewById(R.id.textemail);
+        tx_user = (TextView) findViewById(R.id.textuser);
         profile_image = (CircleImageView) findViewById(R.id.profile_image);
-        tx_email.setText(response.getUser().getEmail());
+        tx_user.setText(response.getUser().getEmail());
         ex_mobile = (TextView) findViewById(R.id.textcontact);
         ex_mobile.setText(response.getUser().getMobileNumber());
 

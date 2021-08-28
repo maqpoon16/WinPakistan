@@ -24,7 +24,7 @@ android:background="@color/black"
     <de.hdodenhof.circleimageview.CircleImageView
         android:onClick="onPictureClicked"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:src="@mipmap/person3"
@@ -34,12 +34,35 @@ android:background="@color/black"
         tools:ignore="MissingConstraints">
 
     </de.hdodenhof.circleimageview.CircleImageView>
+            <TextView
+                android:id="@+id/textuser"
+                android:textColor="@color/white"
+                android:drawablePadding="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:textSize="18dp"
+                android:text="Hussain Ali Khan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
+                tools:ignore="MissingConstraints">
+
+            </TextView>
+            <TextView
+           android:id="@+id/textcontact"
+            android:textColor="@color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:textSize="15dp"
+            android:text="03133106243"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
+
+        </TextView>
         </LinearLayout>
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-
+            android:layout_marginTop="4dp"
             app:layout_constraintHeight_percent="0.15"
             android:id="@+id/layout1"
             app:layout_constraintTop_toBottomOf="@id/imglayout"
