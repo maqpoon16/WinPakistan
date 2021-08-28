@@ -67,7 +67,7 @@
 
             </TextView>
             <EditText
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:drawablePadding="20sp"
                 android:drawableStart="@drawable/ic_baseline_person_outline_24"
                 android:textSize="15sp"
@@ -90,7 +90,7 @@
 
             </TextView>
             <EditText
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:drawablePadding="20sp"
                 android:drawableStart="@drawable/ic_baseline_person_outline_24"
                 android:textSize="15sp"
@@ -113,7 +113,7 @@
             <TextView
                 android:onClick="SetDOB"
                 android:textSize="15sp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:drawablePadding="20sp"
                 android:paddingStart="1dp"
                 android:paddingTop="15dp"
@@ -136,7 +136,7 @@
             </TextView>
             <EditText
 
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="15sp"
                 android:inputType="number"
                 android:drawablePadding="20sp"
@@ -164,7 +164,7 @@
             <EditText
 
                 android:textSize="15sp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
 
                 android:drawablePadding="20sp"
                 android:drawableStart="@drawable/ic_baseline_email_24"
@@ -191,7 +191,7 @@
             </TextView>
             <EditText
 
-                android:textColor="@color/black"
+                android:textColor="@color/white"
 
                 android:textSize="15sp"
                 android:drawablePadding="20sp"
@@ -216,7 +216,7 @@
 
             </TextView>
             <EditText
-                android:textColor="@color/black"
+                android:textColor="@color/white"
 
                 android:textSize="15sp"
                 android:drawablePadding="20sp"
@@ -272,14 +272,14 @@
                 </RadioGroup>
 
             <TextView
-                android:textColor="@color/bluehard"
+                android:textColor="@color/yellow"
                 android:text="Age"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
             </TextView>
             <EditText
-                android:textColor="@color/black"
+                android:textColor="@color/white"
 
                 android:textSize="15dp"
                 android:inputType="number"
