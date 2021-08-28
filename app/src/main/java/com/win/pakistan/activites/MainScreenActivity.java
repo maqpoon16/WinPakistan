@@ -76,9 +76,9 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
         }, 1000);
 
 
-        menuimage = new int[] { R.mipmap.wallet, R.mipmap.grandpize, R.mipmap.refertofriends};
+        menuimage = new int[] {  R.mipmap.grandpize, R.mipmap.refertofriends};
 
-        txtmenuname = new String[] { "Wallet", "Grand Prize", "Refer to friend"};
+        txtmenuname = new String[] { "Grand Prize", "Refer to friend"};
 
         adapetrMenu = new AdapetrMenu(MainScreenActivity.this,txtmenuname,menuimage);
 
@@ -152,18 +152,14 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
     }
 
     private void particepatelottery() {
+
         Button btncontiue,btnwatchvideo;
         View promptsView = LayoutInflater.from(MainScreenActivity.this).inflate(R.layout.particepatedialoge, null);
         final Dialog dialog = new Dialog(MainScreenActivity.this);
         dialog.requestWindowFeature(1);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(-1));
-
-
         btncontiue = (Button) promptsView.findViewById(R.id.btncontinue);
         btnwatchvideo = (Button) promptsView.findViewById(R.id.btnwatchvideo);
-
-
-
         btncontiue.setOnClickListener(new View.OnClickListener() {
 
             @Override

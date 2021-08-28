@@ -14,10 +14,13 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+
+
     }
     public void  gotoaccountinfo(View v){
 
-        Intent intent=new Intent(ProfileActivity.this,ProfileActivity.class);
+        Intent intent=new Intent(ProfileActivity.this,AccountInfoActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }

@@ -20,12 +20,12 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             app:layout_constraintHeight_percent="0.9"
             android:layout_width="match_parent"
-            android:background="@drawable/backgredient"
+            android:background="@drawable/walletcardbackround"
             android:layout_height="0dp"
             tools:ignore="MissingConstraints">
             <androidx.appcompat.widget.Toolbar
                 app:layout_constraintHeight_percent="0.08"
-                android:background="@drawable/particepentback"
+                android:background="@drawable/walletcardbackround"
 
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
@@ -35,7 +35,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <LinearLayout
-                        android:layout_marginRight="30dp"
+                        android:layout_marginRight="10dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
 
@@ -132,7 +132,7 @@
 
 <RelativeLayout
     app:layout_constraintTop_toBottomOf="@id/imageviewuser"
-    android:background="@drawable/particepentback"
+    android:background="@drawable/walletcardbackround"
     android:orientation="vertical"
     android:layout_marginTop="15dp"
 
@@ -204,7 +204,7 @@
 
                         android:id="@+id/carleaderboard"
                          app:layout_constraintTop_toBottomOf="@id/linertop"
-                         android:background="@color/white"
+                         android:background="@drawable/walletcardbackround"
 
 
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -233,7 +233,7 @@
                             android:textStyle="bold"
                             android:layout_gravity="center"
                             android:text="Current Game"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
 
@@ -242,7 +242,7 @@
                             android:textStyle="bold"
                             android:layout_gravity="center"
                             android:text="Set  Question   Rank"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
 
@@ -282,21 +282,23 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
 
-                            app:cardCornerRadius="50dp"
+                            app:cardCornerRadius="3dp"
                             app:layout_constraintWidth_percent="0.3"
                             app:layout_constraintHeight_percent="0.8"
 
-                            app:cardBackgroundColor="@color/colorGrey"
+
                             android:layout_width="0dp"
                             android:layout_height="0dp">
                             <LinearLayout
+                                android:background="@drawable/walletcardbackround"
                                 android:orientation="vertical"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
                                 <TextView
+
                                     android:layout_marginTop="5dp"
                                     android:textAlignment="center"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/white"
                                     android:text="@string/points"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content">
@@ -305,7 +307,7 @@
                                 <TextView
                                     android:layout_marginTop="5dp"
                                     android:textAlignment="center"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/white"
                                     android:text="30"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content">
@@ -333,7 +335,7 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
 
-                            app:cardCornerRadius="50dp"
+                            app:cardCornerRadius="3dp"
                             app:layout_constraintWidth_percent="0.3"
                             app:layout_constraintHeight_percent="0.8"
 
@@ -341,13 +343,14 @@
                             android:layout_width="0dp"
                             android:layout_height="0dp">
                             <LinearLayout
+                                android:background="@drawable/walletcardbackround"
                                 android:orientation="vertical"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
                                 <TextView
                                     android:layout_marginTop="5dp"
                                     android:textAlignment="center"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/white"
                                     android:text="@string/amount"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content">
@@ -356,7 +359,7 @@
                                 <TextView
                                     android:layout_marginTop="5dp"
                                     android:textAlignment="center"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/white"
                                     android:text="30 RS"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content">
@@ -383,7 +386,7 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
 
-                            app:cardCornerRadius="50dp"
+                            app:cardCornerRadius="3dp"
                             app:layout_constraintWidth_percent="0.3"
                             app:layout_constraintHeight_percent="0.8"
 
@@ -391,13 +394,14 @@
                             android:layout_width="0dp"
                             android:layout_height="0dp">
                             <LinearLayout
+                                android:background="@drawable/walletcardbackround"
                                 android:orientation="vertical"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
                                 <TextView
                                     android:layout_marginTop="5dp"
                                     android:textAlignment="center"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/white"
                                     android:text="@string/time"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content">
@@ -407,7 +411,7 @@
                                     android:id="@+id/clockwise"
                                     android:layout_marginTop="5dp"
                                     android:textAlignment="center"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/white"
                                     android:text="00:12:23"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content">
@@ -431,7 +435,7 @@
                         android:onClick="playbutton"
                         android:textSize="20dp"
                         android:text="participate"
-                        android:background="@drawable/loginbtnbackgredient"
+                        android:background="@drawable/walletcardbackround"
                         app:layout_constraintHeight_percent="0.1"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -451,7 +455,7 @@
                         android:id="@+id/buttonleadtherboad"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        android:background="@drawable/loginbtnbackgredient"
+                        android:background="@drawable/walletcardbackround"
                         app:layout_constraintHeight_percent="0.08"
                         app:layout_constraintWidth_percent="0.4"
                         android:layout_width="0dp"
