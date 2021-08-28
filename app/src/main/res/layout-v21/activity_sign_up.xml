@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:id="@+id/layout"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/black"
     tools:context=".activites.SignUpActivity">
 
 <ScrollView
@@ -17,6 +17,7 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/black"
         app:layout_constraintHeight_percent="0.9"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -47,7 +48,7 @@
 
             android:id="@+id/loginlayout"
             android:padding="10sp"
-            android:background="@color/white"
+            android:background="@color/black"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -58,14 +59,15 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
-                android:textColor="@color/bluehard"
+                android:textStyle="bold"
+                android:textColor="@color/yellow"
                 android:text="@string/UserName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
             </TextView>
             <EditText
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:drawablePadding="20sp"
                 android:drawableStart="@drawable/ic_baseline_person_outline_24"
                 android:textSize="15sp"
@@ -79,14 +81,16 @@
                 android:layout_height="50dp"/>
 
             <TextView
-                android:textColor="@color/bluehard"
+                android:textStyle="bold"
+                android:textColor="@color/yellow"
+
                 android:text="@string/full_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
             </TextView>
             <EditText
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:drawablePadding="20sp"
                 android:drawableStart="@drawable/ic_baseline_person_outline_24"
                 android:textSize="15sp"
@@ -99,7 +103,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"/>
             <TextView
-                android:textColor="@color/bluehard"
+                android:textStyle="bold"
+                android:textColor="@color/yellow"
                 android:text="@string/date_of_birth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -108,7 +113,7 @@
             <TextView
                 android:onClick="SetDOB"
                 android:textSize="15sp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:drawablePadding="20sp"
                 android:paddingStart="1dp"
                 android:paddingTop="15dp"
@@ -122,7 +127,8 @@
                 app:drawableStartCompat="@android:drawable/ic_menu_my_calendar" />
 
             <TextView
-                android:textColor="@color/bluehard"
+                android:textStyle="bold"
+                android:textColor="@color/yellow"
                 android:text="@string/contact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -130,7 +136,7 @@
             </TextView>
             <EditText
 
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="15sp"
                 android:inputType="number"
                 android:drawablePadding="20sp"
@@ -148,7 +154,8 @@
 
             </EditText>
             <TextView
-                android:textColor="@color/bluehard"
+                android:textStyle="bold"
+                android:textColor="@color/yellow"
                 android:text="@string/email_optional"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -157,7 +164,7 @@
             <EditText
 
                 android:textSize="15sp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
 
                 android:drawablePadding="20sp"
                 android:drawableStart="@drawable/ic_baseline_email_24"
@@ -175,7 +182,8 @@
 
             </EditText>
             <TextView
-                android:textColor="@color/bluehard"
+                android:textStyle="bold"
+                android:textColor="@color/yellow"
                 android:text="@string/password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -183,7 +191,7 @@
             </TextView>
             <EditText
 
-                android:textColor="@color/black"
+                android:textColor="@color/white"
 
                 android:textSize="15sp"
                 android:drawablePadding="20sp"
@@ -200,14 +208,15 @@
             </EditText>
             <TextView
                 android:layout_marginTop="10dp"
-                android:textColor="@color/bluehard"
+                android:textStyle="bold"
+                android:textColor="@color/yellow"
                 android:text="@string/address_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
             </TextView>
             <EditText
-                android:textColor="@color/black"
+                android:textColor="@color/white"
 
                 android:textSize="15sp"
                 android:drawablePadding="20sp"
@@ -225,7 +234,8 @@
 
             <TextView
                 android:layout_marginTop="10dp"
-                android:textColor="@color/bluehard"
+                android:textStyle="bold"
+                android:textColor="@color/yellow"
                 android:text="@string/choose_your_gender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -241,8 +251,8 @@
                     <RadioButton
                         android:id="@+id/rdmale"
                         android:paddingStart="10dp"
-                        android:buttonTint="@color/bluehard"
-                        android:textColor="@color/bluehard"
+                        android:buttonTint="@color/yellow"
+                        android:textColor="@color/yellow"
                         android:text="Male "
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
@@ -251,8 +261,8 @@
                     <RadioButton
                         android:id="@+id/rdfemale"
                         android:paddingLeft="10dp"
-                        android:buttonTint="@color/bluehard"
-                        android:textColor="@color/bluehard"
+                        android:buttonTint="@color/yellow"
+                        android:textColor="@color/yellow"
                         android:text="Female "
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
@@ -262,14 +272,14 @@
                 </RadioGroup>
 
             <TextView
-                android:textColor="@color/bluehard"
+                android:textColor="@color/yellow"
                 android:text="Age"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
             </TextView>
             <EditText
-                android:textColor="@color/black"
+                android:textColor="@color/white"
 
                 android:textSize="15dp"
                 android:inputType="number"
@@ -295,7 +305,7 @@
                 android:onClick="OnClickedCreateAccount"
                 android:text="Create Account"
                 android:textColor="@color/white"
-                android:background="@drawable/loginbtnbackgredient"
+                android:background="@drawable/walletcardbackround"
                 android:layout_marginTop="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">

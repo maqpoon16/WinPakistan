@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-     android:background="@color/bluehard"
+     android:background="@color/black"
     android:layout_height="match_parent"
 
 
@@ -39,12 +39,13 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:orientation="horizontal">
+
         <androidx.appcompat.widget.AppCompatButton
             android:onClick="login"
             android:text="Login"
             app:layout_constraintWidth_percent="0.6"
             app:layout_constraintHeight_percent="0.25"
-            android:background="@drawable/loginbtnbackgredient"
+            android:background="@drawable/walletcardbackround"
             android:id="@+id/btnlogin"
             android:layout_marginTop="20dp"
             app:layout_constraintTop_toTopOf="parent"
@@ -75,7 +76,7 @@
             android:text="Sign Up"
             app:layout_constraintWidth_percent="0.6"
             app:layout_constraintHeight_percent="0.25"
-            android:background="@drawable/loginbtnbackgredient"
+            android:background="@drawable/walletcardbackround"
             android:id="@+id/btnsignup"
             android:layout_marginTop="20dp"
             app:layout_constraintTop_toBottomOf="@id/txtor"

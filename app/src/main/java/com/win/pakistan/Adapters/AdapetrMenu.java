@@ -64,9 +64,6 @@ public class AdapetrMenu extends PagerAdapter {
                 Toast.makeText(context, "hh", Toast.LENGTH_SHORT).show();
 
 
-    Intent intent=new Intent(context, WalletActivity.class);
-    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-    context.startActivity(intent);
 
 
             }

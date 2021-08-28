@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
 
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/bluehard">
+    android:background="@color/black">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         app:layout_constraintBottom_toBottomOf="parent"

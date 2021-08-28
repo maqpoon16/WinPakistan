@@ -42,6 +42,7 @@
             android:theme="@style/NoActionbar" />
         <activity
             android:name=".activites.ProfileActivity"
+
             android:theme="@style/NoActionbar" />
         <activity
             android:name=".activites.AccountInfoActivity"

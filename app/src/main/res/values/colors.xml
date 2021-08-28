@@ -74,7 +74,7 @@
 
 
     <color name="gray_300">#E0E0E0</color>
-    <color name="gray_400">#BDBDBD</color>
+    <color name="gray_400">#56BDBDBD</color>
     <color name="gray_500">#9E9E9E</color>
     <color name="gray_600">#757575</color>
     <color name="gray_700">#616161</color>
@@ -85,6 +85,7 @@
     <color name="swipe_refresh_green">#7cb342</color>
     <color name="swipe_refresh_red">#e53935</color>
     <color name="swipe_refresh_yellow">#fdd835</color>
+    <color name="yellow">#F6E019</color>
 
 
     <color name="snackbar_error_background">#e53935</color>
