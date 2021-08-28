@@ -14,6 +14,7 @@
 
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:onClick="onPictureClicked"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="30dp"
         app:layout_constraintRight_toRightOf="parent"

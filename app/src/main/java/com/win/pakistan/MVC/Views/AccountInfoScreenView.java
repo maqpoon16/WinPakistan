@@ -1,0 +1,12 @@
+package com.win.pakistan.MVC.Views;
+
+import com.win.pakistan.Models.Data;
+
+public interface AccountInfoScreenView {
+    //This class only created for layout to implement it where they get data / errors with these methods
+    void ShowException(String exception); // on any exception we get
+    void ShowFailureMessage(String failureReason); // on any exception we get
+    void SetDOB(String selectedDOB); // on any exception we get
+    void SetAge(String calculatedAge); // on any exception we get
+    void SetOnlineProfile(Data onlineProfile); // on any exception we get
+}

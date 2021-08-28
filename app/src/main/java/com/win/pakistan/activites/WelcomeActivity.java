@@ -1,9 +1,7 @@
 package com.win.pakistan.activites;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -18,9 +16,11 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.win.pakistan.Classes.PrefManager;
 import com.win.pakistan.R;
+
+import static com.win.pakistan.Common.Methods.getWelcomeScreenStatus;
+import static com.win.pakistan.Common.Methods.newUserReward;
+import static com.win.pakistan.Common.Methods.setWelcomeScreenOff;
 
 public class WelcomeActivity extends AppCompatActivity {
     private ViewPager viewPager;
@@ -29,17 +29,15 @@ public class WelcomeActivity extends AppCompatActivity {
     private TextView[] dots;
     private int[] layouts;
     private Button btnSkip, btnNext;
-    private PrefManager prefManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-        prefManager = new PrefManager(this);
-        if (!prefManager.isFirstTimeLaunch()) {
+        boolean isWelcomeScreenSkiped = getWelcomeScreenStatus(WelcomeActivity.this);
+        if(!isWelcomeScreenSkiped)
+        {
             launchHomeScreen();
-            finish();
         }
-
         // Making notification bar transparent
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
@@ -117,9 +115,8 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void launchHomeScreen() {
-        prefManager.setFirstTimeLaunch(false);
+        setWelcomeScreenOff(WelcomeActivity.this,false);
         startActivity(new Intent(WelcomeActivity.this, Homescreen.class));
-
         finish();
     }
 

@@ -10,6 +10,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface apiServices {
     //post command to get authenticate from server..
@@ -20,10 +21,16 @@ public interface apiServices {
      @POST("signup")
     Call<authResponse> getSignUp(@Body UserSignup userData);
 
+     @POST("update-user")
+    Call<authResponse> updateProfile(@Body UserSignup userData);
+
      @GET("get-time")
     Call<authResponse> getLuckDrawTime();
 
      @GET("Karachi")
     Call<TimeSpan> getWorldTimePakistan();
+
+     @GET("single-user/{userId}")
+    Call<authResponse> getUser(@Path("userId") int id);
 
 }

@@ -10,7 +10,8 @@
     <string name="preferance_name">Login</string>
     <string name="preferance_key_isEnable">IsAutoLoginEnable</string>
     <string name="preferance_key_UserData">UserData</string>
-    <string name="preferance_key_NewUser">Reward</string>
+    <string name="preferance_key_NewUser">isNewUser</string>
+    <string name="preferance_key_WelcomeScreen">isScreenEnable</string>
 
 <!--    Login Activity Screen-->
     <string name="snackbarValidationErrorUser">Incorrect user!</string>

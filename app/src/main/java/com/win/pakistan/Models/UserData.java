@@ -21,15 +21,30 @@ public class UserData{
     @SerializedName("gender")
     @Expose
     private String gender;
+    @SerializedName("dob")
+    @Expose
+    private String dob;
     @SerializedName("age")
     @Expose
     private String age;
     @SerializedName("email")
     @Expose
     private String email;
+    @SerializedName("profile_image")
+    @Expose
+    private String profileImage;
     @SerializedName("email_verified_at")
     @Expose
     private Object emailVerifiedAt;
+    @SerializedName("address")
+    @Expose
+    private String address;
+    @SerializedName("latitude")
+    @Expose
+    private String latitude;
+    @SerializedName("longitude")
+    @Expose
+    private String longitude;
     @SerializedName("created_at")
     @Expose
     private String createdAt;
@@ -77,6 +92,14 @@ public class UserData{
         this.gender = gender;
     }
 
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
     public String getAge() {
         return age;
     }
@@ -93,12 +116,44 @@ public class UserData{
         this.email = email;
     }
 
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
+    }
+
     public Object getEmailVerifiedAt() {
         return emailVerifiedAt;
     }
 
     public void setEmailVerifiedAt(Object emailVerifiedAt) {
         this.emailVerifiedAt = emailVerifiedAt;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 
     public String getCreatedAt() {

@@ -15,6 +15,8 @@ import com.win.pakistan.MVC.Presentors.LoginPresenter;
 import com.win.pakistan.MVC.Views.LoginView;
 import com.win.pakistan.R;
 import java.util.ArrayList;
+
+import static com.win.pakistan.Common.Methods.closeKeyboard;
 import static com.win.pakistan.Common.Methods.showSnackbar;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
@@ -51,6 +53,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     //Login Button
     public void homescreen(View view) {
+        closeKeyboard(LoginActivity.this);
         loginPresenter.LoginProcess(editTexts.get(0).getText().toString(),editTexts.get(1).getText().toString(),LoginActivity.this);
       }
 

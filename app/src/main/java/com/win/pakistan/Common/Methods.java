@@ -87,6 +87,16 @@ public class Methods {
         editor.putBoolean(context.getResources().getString(R.string.preferance_key_NewUser), setValue);
         editor.apply();
     }
+    public  static boolean getWelcomeScreenStatus(Activity context){
+        SharedPreferences sharedpreferences = context.getSharedPreferences(context.getResources().getString(R.string.preferance_name), Context.MODE_PRIVATE);
+        return sharedpreferences.getBoolean(context.getResources().getString(R.string.preferance_key_WelcomeScreen), true);
+    }
+    public  static void setWelcomeScreenOff(Activity context,boolean setValue){
+        SharedPreferences sharedpreferences = context.getSharedPreferences(context.getResources().getString(R.string.preferance_name), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putBoolean(context.getResources().getString(R.string.preferance_key_WelcomeScreen), setValue);
+        editor.apply();
+    }
 
     public  static void closeKeyboard(Activity context){
         View view = context.getCurrentFocus();

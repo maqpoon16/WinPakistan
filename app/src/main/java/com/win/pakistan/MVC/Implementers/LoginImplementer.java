@@ -1,5 +1,4 @@
 package com.win.pakistan.MVC.Implementers;
-
 import android.app.Activity;
 import android.text.TextUtils;
 
@@ -21,7 +20,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import static com.win.pakistan.Common.Methods.setAutoLogin;
-
 public class LoginImplementer  implements LoginPresenter {
     private final LoginView loginView;
 
