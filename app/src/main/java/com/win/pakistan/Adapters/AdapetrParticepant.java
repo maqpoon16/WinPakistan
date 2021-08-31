@@ -15,14 +15,14 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdapetrParticepant extends PagerAdapter {
     private Context context;
-    String[] country;
+    String[] Prizename;
     int[] flag;
     public AdapetrParticepant(Context context , String[] country,
                               int[] flag) {
         this.context = context;
         this.context = context;
 
-        this.country = country;
+        this.Prizename = country;
 
         this.flag = flag;
 
@@ -37,20 +37,16 @@ public class AdapetrParticepant extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         View view = LayoutInflater.from(context).inflate(R.layout.linear_layoutparticpant, null);
-        CircleImageView imageparticpnt1 = view.findViewById(R.id.imageparticpnt1);
-        CircleImageView imageparticpnt2 = view.findViewById(R.id.imageparticpnt2);
-        CircleImageView imageparticpnt3 = view.findViewById(R.id.imageparticpnt3);
-        TextView txtparticepent1= view.findViewById(R.id.txtparticepent1);
-        TextView txtparticepent2= view.findViewById(R.id.txtparticepent2);
-        TextView txtparticepent3= view.findViewById(R.id.txtparticepent3);
+        ImageView imgprize = view.findViewById(R.id.imgprize);
 
-        txtparticepent1.setText(country[position]);
-        txtparticepent2.setText(country[position+2]);
-        txtparticepent3.setText(country[position+3]);
+        TextView txtprizename= view.findViewById(R.id.txtprizename);
 
-        imageparticpnt1.setImageResource(flag[position]);
-        imageparticpnt2.setImageResource(flag[position+2]);
-        imageparticpnt3.setImageResource(flag[position+3]);
+
+        txtprizename.setText(Prizename[position]);
+
+
+        imgprize.setImageResource(flag[position]);
+
 
         container.addView(view);
         return view;
@@ -68,7 +64,7 @@ public class AdapetrParticepant extends PagerAdapter {
     */
     @Override
     public int getCount() {
-        return 4;
+        return 1;
     }
     /*
     Used to determine whether the page view is associated with object key returned by instantiateItem.

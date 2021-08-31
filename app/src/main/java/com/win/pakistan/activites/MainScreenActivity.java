@@ -53,9 +53,9 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
         //this will check user gets their on sigup reward or not!
         IsNewUser();
         handler = new Handler();
-        particpentimage = new int[] { R.mipmap.person1, R.mipmap.person2, R.mipmap.person3, R.mipmap.person2,R.mipmap.person3, R.mipmap.person1, R.mipmap.person2, R.mipmap.person3};
+        particpentimage = new int[] { R.mipmap.person1};
 
-        textpartipantname = new String[] { "Asad", "Imran", "Arshad"," Asfand","Sohail", "Faisal", "Husain"," Inham"};
+        textpartipantname = new String[] { "CD 70"};
 
         viewPagerparticpant = findViewById(R.id.view_pager);
         viewPagermenus = findViewById(R.id.view_pagermenu);

@@ -19,370 +19,395 @@
         android:fillViewport="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <androidx.constraintlayout.widget.ConstraintLayout
-                app:layout_constraintHeight_percent="0.9"
+
+
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:weightSum="5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+
+                android:id="@+id/imglayout"
+                android:orientation="horizontal"
+
+                android:background="@color/gray_400"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                tools:ignore="MissingConstraints">
+                android:layout_height="200dp">
+                <ImageButton
 
-        <ImageButton
-            android:onClick="onClickedBackButton"
-            android:padding="20dp"
-            android:layout_margin="10dp"
-            android:background="@android:color/transparent"
-            android:id="@+id/btn_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_action_name"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                    android:onClick="onClickedBackButton"
+                    android:padding="20dp"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/btn_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_action_name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-    android:id="@+id/imglayout"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="@color/gray_400"
-    app:layout_constraintHeight_percent="0.25"
-    android:layout_width="match_parent"
-    android:layout_height="0dp">
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:onClick="onPictureClicked"
-        android:id="@+id/profile_image"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:src="@mipmap/person2"
-        app:civ_border_width="2dp"
-        app:civ_border_color="#FFC107"/>
-    <TextView
-        android:onClick="onPictureClicked"
-        android:textStyle="bold"
-        android:layout_marginTop="5dp"
-        android:textAlignment="center"
-        android:text="Change Profile Picture"
-        android:textColor="@color/yellow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </TextView>
-
-</LinearLayout>
                 <LinearLayout
-                    android:id="@+id/layoutpersonal"
-                    app:layout_constraintTop_toBottomOf="@id/imglayout"
+                    android:layout_centerInParent="true"
+
+                    android:layout_gravity="center"
                     android:orientation="vertical"
-                    android:background="@color/answer_text"
-                    app:layout_constraintHeight_percent="0.25"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp">
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_gravity="center"
+                        android:onClick="onPictureClicked"
+                        android:id="@+id/profile_image"
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
+                        android:src="@mipmap/person2"
+                        app:civ_border_width="2dp"
+                        app:civ_border_color="#FFC107"/>
                     <TextView
-
-                        android:layout_marginLeft="20dp"
+                        android:onClick="onPictureClicked"
                         android:textStyle="bold"
-
-                        android:textSize="16dp"
-                        android:textColor="@color/white"
-                        android:text="Personal Information"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                    </TextView>
-                    <LinearLayout
                         android:layout_marginTop="5dp"
-                        android:layout_marginLeft="20dp"
-                        android:orientation="horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:textStyle="bold"
-                            android:textSize="16dp"
-                            android:textColor="@color/white"
-                            android:text="Full Name"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content">
-
-                        </TextView>
-                        <EditText
-
-                            android:id="@+id/edtname"
-                            android:textSize="16dp"
-                            android:textColor="@color/white"
-                            android:hint="e.g Faisal Rai"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                        </EditText>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="20dp"
-                        android:orientation="horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:textStyle="bold"
-                            android:textSize="16dp"
-                            android:textColor="@color/white"
-                            android:text="Birthday "
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content">
-
-                        </TextView>
-                        <EditText
-
-                        android:id="@+id/dtdob"
-                            android:textSize="16dp"
-                            android:textColor="@color/white"
-                            android:hint="e.g 15 March 1994"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                        </EditText>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="20dp"
-                        android:orientation="horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:textStyle="bold"
-                            android:textSize="16dp"
-                            android:textColor="@color/white"
-                            android:text="@string/age"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content">
-                        </TextView>
-
-                        <EditText
-                            android:id="@+id/edtage"
-                            android:textSize="16dp"
-                            android:textColor="@color/white"
-                            android:hint="@string/e_g_30"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                        </EditText>
-
-                    </LinearLayout>
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_marginTop="5dp"
-                    android:id="@+id/layoutcontact"
-                     app:layout_constraintTop_toBottomOf="@id/layoutaccount"
-                    android:orientation="vertical"
-                     android:background="@color/answer_text"
-                    app:layout_constraintHeight_percent="0.20"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp">
-
-                    <TextView
-
-                        android:layout_marginLeft="20dp"
-                        android:textStyle="bold"
-
-                        android:textSize="16dp"
-                        android:textColor="@color/white"
-                        android:text="Contact Information"
+                        android:textAlignment="center"
+                        android:text="Change Profile Picture"
+                        android:textColor="@color/yellow"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                     </TextView>
 
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="20dp"
-                        android:orientation="horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:textStyle="bold"
-                            android:textSize="16dp"
-                            android:textColor="@color/white"
-                            android:text="@string/phone"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content">
-
-                        </TextView>
-                        <EditText
-                            android:id="@+id/edtcontact"
-                            android:textSize="16dp"
-                            android:textColor="@color/white"
-                            android:hint="@string/e_g_03133106243"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="20dp"
-                        android:orientation="horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:textStyle="bold"
-                            android:textSize="16dp"
-                            android:textColor="@color/white"
-                            android:text="Address "
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content">
-
-                        </TextView>
-                        <EditText
-                            android:id="@+id/edtaddress"
-                            android:textSize="16dp"
-                            android:textColor="@color/white"
-                            android:hint="@string/e_g_house_no_1_street_abc_etc"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:inputType="textPostalAddress" />
-                    </LinearLayout>
-
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_marginTop="5dp"
-                    android:id="@+id/layoutaccount"
-                     app:layout_constraintTop_toBottomOf="@id/layoutpersonal"
-                    android:orientation="vertical"
-                     android:background="@color/answer_text"
-                    app:layout_constraintHeight_percent="0.25"
+
+            </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/layoutpersonal"
+                app:layout_constraintTop_toBottomOf="@id/imglayout"
+                android:orientation="vertical"
+                android:background="@color/answer_text"
+                app:layout_constraintHeight_percent="0.25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+
+                    android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
+
+                    android:textSize="16dp"
+                    android:textColor="@color/white"
+                    android:text="Personal Information"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp">
+                    android:layout_height="wrap_content">
 
-                    <TextView
-
-                        android:layout_marginLeft="20dp"
-                        android:textStyle="bold"
-
-                        android:textSize="16dp"
-                        android:textColor="@color/white"
-                        android:text="Account Information"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                    </TextView>
-
-                    <LinearLayout
-                        android:layout_marginTop="10dp"
-                        android:gravity="bottom"
-                        android:layout_gravity="bottom"
-                       android:layout_marginLeft="20dp"
-                        android:orientation="horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:textStyle="bold"
-                            android:layout_gravity="center"
-                            android:textSize="16dp"
-                            android:textColor="@color/white"
-                            android:text="Email "
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content">
-
-                        </TextView>
-                        <EditText
-                            android:id="@+id/edtemail"
-                            android:textSize="16dp"
-                            android:textColor="@color/white"
-                            android:text="faisla123@gmail.com"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                        </EditText>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="20dp"
-                        android:orientation="horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:textStyle="bold"
-                            android:textSize="16dp"
-                            android:textColor="@color/white"
-                            android:text="Password"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content">
-
-                        </TextView>
-                        <EditText
-                            android:id="@+id/edtpassword"
-                            android:textSize="16dp"
-                            android:inputType="textPassword"
-                            android:textColor="@color/white"
-                            android:hint="New Password"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="20dp"
-                        android:orientation="horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:textStyle="bold"
-                            android:textSize="16dp"
-                            android:textColor="@color/white"
-                            android:text="@string/UserName"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content">
-
-                        </TextView>
-                        <EditText
-                            android:id="@+id/edtusername"
-                            android:textSize="16dp"
-                            android:inputType="textEmailAddress"
-                            android:textColor="@color/white"
-                            android:hint="@string/enter_username"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-                    </LinearLayout>
-                </LinearLayout>
+                </TextView>
                 <LinearLayout
-                    android:id="@+id/laoutgender"
-                    android:layout_marginBottom="10dp"
-                    app:layout_constraintHeight_percent="0.08"
-                    android:background="@color/answer_text"
-                    app:layout_constraintTop_toBottomOf="@id/layoutcontact"
                     android:layout_marginTop="5dp"
+                    android:layout_marginLeft="20dp"
                     android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
                     <TextView
                         android:textStyle="bold"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginVertical="10dp"
                         android:textSize="16dp"
                         android:textColor="@color/white"
-                        android:text="@string/gender"
+                        android:text="Full Name"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content">
 
                     </TextView>
-                    <TextView
+                    <EditText
 
-                        android:layout_marginVertical="10dp"
+                        android:id="@+id/edtname"
                         android:textSize="16dp"
                         android:textColor="@color/white"
-                        android:text="@string/male"
+                        android:hint="e.g Faisal Rai"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                    </TextView>
+                    </EditText>
 
                 </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textStyle="bold"
+                        android:textSize="16dp"
+                        android:textColor="@color/white"
+                        android:text="Birthday "
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+                    <EditText
+
+                        android:id="@+id/dtdob"
+                        android:textSize="16dp"
+                        android:textColor="@color/white"
+                        android:hint="e.g 15 March 1994"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </EditText>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textStyle="bold"
+                        android:textSize="16dp"
+                        android:textColor="@color/white"
+                        android:text="@string/age"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content">
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/edtage"
+                        android:textSize="16dp"
+                        android:textColor="@color/white"
+                        android:hint="@string/e_g_30"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </EditText>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:id="@+id/layoutcontact"
+                app:layout_constraintTop_toBottomOf="@id/layoutaccount"
+                android:orientation="vertical"
+                android:background="@color/answer_text"
+                app:layout_constraintHeight_percent="0.20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
+
+                    android:textSize="16dp"
+                    android:textColor="@color/white"
+                    android:text="Contact Information"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textStyle="bold"
+                        android:textSize="16dp"
+                        android:textColor="@color/white"
+                        android:text="@string/phone"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+                    <EditText
+                        android:id="@+id/edtcontact"
+                        android:textSize="16dp"
+                        android:textColor="@color/white"
+                        android:hint="@string/e_g_03133106243"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textStyle="bold"
+                        android:textSize="16dp"
+                        android:textColor="@color/white"
+                        android:text="Address "
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+                    <EditText
+                        android:id="@+id/edtaddress"
+                        android:textSize="16dp"
+                        android:textColor="@color/white"
+                        android:hint="@string/e_g_house_no_1_street_abc_etc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPostalAddress" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:id="@+id/layoutaccount"
+                app:layout_constraintTop_toBottomOf="@id/layoutpersonal"
+                android:orientation="vertical"
+                android:background="@color/answer_text"
+                app:layout_constraintHeight_percent="0.25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
+
+                    android:textSize="16dp"
+                    android:textColor="@color/white"
+                    android:text="Account Information"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:gravity="bottom"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:textSize="16dp"
+                        android:textColor="@color/white"
+                        android:text="Email "
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+                    <EditText
+                        android:id="@+id/edtemail"
+                        android:textSize="16dp"
+                        android:textColor="@color/white"
+                        android:text="faisla123@gmail.com"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </EditText>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textStyle="bold"
+                        android:textSize="16dp"
+                        android:textColor="@color/white"
+                        android:text="Password"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+                    <EditText
+                        android:id="@+id/edtpassword"
+                        android:textSize="16dp"
+                        android:inputType="textPassword"
+                        android:textColor="@color/white"
+                        android:hint="New Password"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textStyle="bold"
+                        android:textSize="16dp"
+                        android:textColor="@color/white"
+                        android:text="@string/UserName"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+                    <EditText
+                        android:id="@+id/edtusername"
+                        android:textSize="16dp"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/white"
+                        android:hint="@string/enter_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/laoutgender"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintHeight_percent="0.08"
+                android:background="@color/answer_text"
+                app:layout_constraintTop_toBottomOf="@id/layoutcontact"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginVertical="10dp"
+                    android:textSize="16dp"
+                    android:textColor="@color/white"
+                    android:text="@string/gender"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+                <TextView
+
+                    android:layout_marginVertical="10dp"
+                    android:textSize="16dp"
+                    android:textColor="@color/white"
+                    android:text="@string/male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </LinearLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:text="Update"
+                android:layout_gravity="center"
+                android:background="@drawable/walletcardbackround"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content">
+
+            </androidx.appcompat.widget.AppCompatButton>
+        </LinearLayout>
+
+
+
     </ScrollView>
 
 </androidx.cardview.widget.CardView>
