@@ -17,6 +17,7 @@ import com.win.pakistan.R;
 import java.util.ArrayList;
 
 import static com.win.pakistan.Common.Methods.closeKeyboard;
+import static com.win.pakistan.Common.Methods.isNetworkConnected;
 import static com.win.pakistan.Common.Methods.showSnackbar;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
@@ -54,8 +55,12 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     //Login Button
     public void homescreen(View view) {
         closeKeyboard(LoginActivity.this);
-        loginPresenter.LoginProcess(editTexts.get(0).getText().toString(),editTexts.get(1).getText().toString(),LoginActivity.this);
-      }
+        if(isNetworkConnected(LoginActivity.this)){
+            loginPresenter.LoginProcess(editTexts.get(0).getText().toString(),editTexts.get(1).getText().toString(),LoginActivity.this);
+            return;
+        }
+        showSnackbar(layout,10000,LoginActivity.this, getString(R.string.no_internet_Message) );
+    }
 
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override

@@ -20,8 +20,6 @@ import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -33,7 +31,7 @@ import android.widget.Toast;
 import com.win.pakistan.MVC.Implementers.SignUpImplementer;
 import com.win.pakistan.MVC.Presentors.SignUpPresenter;
 import com.win.pakistan.MVC.Views.SignUpView;
-import com.win.pakistan.Models.UserSignup;
+import com.win.pakistan.Models.UserData;
 import com.win.pakistan.R;
 
 import java.util.Calendar;
@@ -162,7 +160,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
     }
 
     public void OnClickedCreateAccount(View view) {
-        UserSignup model = new UserSignup();
+        UserData model = new UserData();
         model.setFullName(fullname.getText().toString());
         model.setUsername(username.getText().toString());
         model.setPassword(password.getText().toString());

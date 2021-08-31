@@ -1,9 +1,8 @@
 package com.win.pakistan.Services;
 
+import com.win.pakistan.Models.LuckDrawModel;
 import com.win.pakistan.Models.TimeSpan;
-import com.win.pakistan.Models.UserAuth;
 import com.win.pakistan.Models.UserData;
-import com.win.pakistan.Models.UserSignup;
 import com.win.pakistan.Models.authResponse;
 
 import retrofit2.Call;
@@ -16,16 +15,16 @@ public interface apiServices {
     //post command to get authenticate from server..
 
     @POST("signin")
-    Call<authResponse> getLogin(@Body UserAuth userData);
+    Call<authResponse> getLogin(@Body UserData userData);
 
      @POST("signup")
-    Call<authResponse> getSignUp(@Body UserSignup userData);
+    Call<authResponse> getSignUp(@Body UserData userData);
 
      @POST("update-user")
-    Call<authResponse> updateProfile(@Body UserSignup userData);
+    Call<authResponse> updateProfile(@Body UserData userData);
 
-     @GET("get-time")
-    Call<authResponse> getLuckDrawTime();
+     @GET("get-lucky-draw/1")
+    Call<LuckDrawModel> getLuckDraw();
 
      @GET("Karachi")
     Call<TimeSpan> getWorldTimePakistan();

@@ -61,4 +61,6 @@
     <string name="phone">Phone</string>
     <string name="e_g_house_no_1_street_abc_etc">e.g House no.1 Street ABC etc</string>
     <string name="e_g_30">e.g 30</string>
+    <string name="no_internet_Message">No Internet Found!</string>
+    <string name="gender">Gender</string>
 </resources>

@@ -1,9 +1,18 @@
 package com.win.pakistan.activites;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
@@ -13,10 +22,14 @@ import android.widget.Toast;
 import com.win.pakistan.MVC.Implementers.AccountInfoScreenImplementer;
 import com.win.pakistan.MVC.Presentors.AccountInfoScreenPresenter;
 import com.win.pakistan.MVC.Views.AccountInfoScreenView;
-import com.win.pakistan.Models.Data;
+import com.win.pakistan.Models.UserData;
 import com.win.pakistan.Models.authResponse;
 import com.win.pakistan.R;
-import java.util.Calendar;
+
+import java.io.IOException;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+
 import static com.win.pakistan.Common.Methods.getAutoLogin;
 
 public class AccountInfoActivity extends AppCompatActivity implements AccountInfoScreenView {
@@ -25,6 +38,8 @@ public class AccountInfoActivity extends AppCompatActivity implements AccountInf
     private TextView dateOfBirth;
     private RadioGroup rdgender;
     private AccountInfoScreenPresenter accountInfoScreenPresenter;
+    private static final int PICK_IMAGE = 1;
+    private CircleImageView profile_image;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +76,7 @@ public class AccountInfoActivity extends AppCompatActivity implements AccountInf
     }
 
     @Override
-    public void SetOnlineProfile(Data onlineProfile) {
+    public void SetOnlineProfile(UserData onlineProfile) {
         fullname.setText(onlineProfile.getFullName());
         username.setText(onlineProfile.getUsername());
         email.setText(onlineProfile.getEmail());
@@ -75,6 +90,7 @@ public class AccountInfoActivity extends AppCompatActivity implements AccountInf
         response = getAutoLogin(AccountInfoActivity.this);
         accountInfoScreenPresenter = new AccountInfoScreenImplementer(this);
         accountInfoScreenPresenter.getOnlineProfile(AccountInfoActivity.this,response.getUser().getId());
+        profile_image = (CircleImageView) findViewById(R.id.profile_image);
         fullname = (EditText) findViewById(R.id.edtname);
         username = (EditText) findViewById(R.id.edtusername);
         password = (EditText) findViewById(R.id.edtpassword);
@@ -93,5 +109,37 @@ public class AccountInfoActivity extends AppCompatActivity implements AccountInf
         address.setText(response.getUser().getAddress());
         age.setText(response.getUser().getAge());
         dateOfBirth.setText(response.getUser().getDob());
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == Activity.RESULT_OK)
+            if (requestCode == PICK_IMAGE) {
+                Uri selectedImage = data.getData();
+                try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
+                    profile_image.setImageBitmap(bitmap);
+                } catch (IOException e) {
+                    Log.i("TAG", "Some exception " + e);
+                }
+            }
+    }
+    public void onPictureClicked(View view) {
+        checkGalleryPermission();
+    }
+
+    private  void checkGalleryPermission(){
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PICK_IMAGE);
+            return;
+        }
+        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+        photoPickerIntent.setType("image/*");
+        startActivityForResult(photoPickerIntent, PICK_IMAGE);
+    }
+
+    public void onClickedBackButton(View view) {
+        startActivity(new Intent(AccountInfoActivity.this, ProfileActivity.class));
+        finish();
     }
 }

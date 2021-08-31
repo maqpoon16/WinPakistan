@@ -2,12 +2,10 @@ package com.win.pakistan.MVC.Implementers;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
-import android.text.TextUtils;
 import android.widget.DatePicker;
 
 import com.win.pakistan.MVC.Presentors.AccountInfoScreenPresenter;
 import com.win.pakistan.MVC.Views.AccountInfoScreenView;
-import com.win.pakistan.Models.UserAuth;
 import com.win.pakistan.Models.authResponse;
 import com.win.pakistan.R;
 import com.win.pakistan.Services.apiServices;
@@ -23,8 +21,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-import static com.win.pakistan.Common.Methods.setAutoLogin;
 
 public class AccountInfoScreenImplementer implements AccountInfoScreenPresenter {
     private final AccountInfoScreenView accountInfoScreenView;
@@ -68,7 +64,7 @@ public class AccountInfoScreenImplementer implements AccountInfoScreenPresenter 
                     if(response.body() != null){
                         authResponse authResponse = response.body();
                         if(authResponse.isStatus()){
-                            accountInfoScreenView.SetOnlineProfile(authResponse.getData());
+                            accountInfoScreenView.SetOnlineProfile(authResponse.getUser());
                         }else {
                             accountInfoScreenView.ShowFailureMessage(authResponse.getMessage());
                         }

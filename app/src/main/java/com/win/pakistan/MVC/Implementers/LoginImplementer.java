@@ -4,7 +4,7 @@ import android.text.TextUtils;
 
 import com.win.pakistan.MVC.Presentors.LoginPresenter;
 import com.win.pakistan.MVC.Views.LoginView;
-import com.win.pakistan.Models.UserAuth;
+import com.win.pakistan.Models.UserData;
 import com.win.pakistan.Models.authResponse;
 import com.win.pakistan.R;
 import com.win.pakistan.Services.apiServices;
@@ -40,7 +40,7 @@ public class LoginImplementer  implements LoginPresenter {
               loginView.ShowValidationError(context.getResources().getString(R.string.snackbarValidationErrorPass));
               return;
           }
-          UserAuth userAuth = new UserAuth();
+          UserData userAuth = new UserData();
           userAuth.setMobileNumber(user);
           userAuth.setPassword(password);
 

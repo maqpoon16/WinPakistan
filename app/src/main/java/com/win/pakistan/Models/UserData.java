@@ -52,6 +52,14 @@ public class UserData{
     @Expose
     private String updatedAt;
 
+    @SerializedName("password")
+    @Expose
+    private String password;
+
+    @SerializedName("profile_img")
+    @Expose
+    private String profileImg;
+
     public int getId() {
         return id;
     }
@@ -172,4 +180,19 @@ public class UserData{
         this.updatedAt = updatedAt;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getProfileImg() {
+        return profileImg;
+    }
+
+    public void setProfileImg(String profileImg) {
+        this.profileImg = profileImg;
+    }
 }

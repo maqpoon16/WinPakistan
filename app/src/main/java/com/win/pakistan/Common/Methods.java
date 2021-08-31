@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -104,5 +105,19 @@ public class Methods {
             InputMethodManager imm = (InputMethodManager) context.getSystemService(INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
+    }
+
+    public  static boolean isNetworkConnected(Activity context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        boolean isConnected = cm.getActiveNetworkInfo()  != null;
+        if(isConnected) {
+            try {
+                String command = "ping -c 1 google.com";
+                return (Runtime.getRuntime().exec(command).waitFor() == 0);
+            } catch (Exception e) {
+                return false;
+            }
+        }
+        return  false;
     }
 }

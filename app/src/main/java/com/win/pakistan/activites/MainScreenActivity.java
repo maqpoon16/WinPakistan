@@ -24,6 +24,7 @@ import com.win.pakistan.Models.authResponse;
 import com.win.pakistan.R;
 
 import static com.win.pakistan.Common.Methods.getAutoLogin;
+import static com.win.pakistan.Common.Methods.isNetworkConnected;
 import static com.win.pakistan.Common.Methods.newUserReward;
 import static com.win.pakistan.Common.Methods.setNewUserReward;
 import static com.win.pakistan.Common.Methods.showSnackbar;
@@ -61,8 +62,12 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
         clockwise = findViewById(R.id.clockwise);
         txtname = findViewById(R.id.txtname);
         txtname.setText(response.getUser().getFullName());
-        mainScreenPresenter.TimerProcess(MainScreenActivity.this);
-
+        if(isNetworkConnected(MainScreenActivity.this)){
+            mainScreenPresenter.TimerProcess(MainScreenActivity.this);
+            return;
+        }else {
+            showSnackbar(layout,10000,MainScreenActivity.this, getString(R.string.no_internet_Message) );
+        }
         particepantadpter = new AdapetrParticepant(MainScreenActivity.this,textpartipantname,particpentimage);
 
         viewPagerparticpant.setAdapter(particepantadpter);
@@ -176,9 +181,6 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
                 dialog.dismiss();
             }
         });
-
-
-
 
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());

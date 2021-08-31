@@ -12,14 +12,10 @@ public class authResponse {
     @SerializedName("message")
     @Expose
     private String message;
-    @SerializedName("user")
+
+    @SerializedName(value = "user" , alternate={"data"})
     @Expose
     private UserData user;
-
-    @SerializedName("data")
-    @Expose
-    private Data data;
-
 
     public boolean isStatus() {
         return status;
@@ -45,11 +41,4 @@ public class authResponse {
         this.user = user;
     }
 
-    public Data getData() {
-        return data;
-    }
-
-    public void setData(Data data) {
-        this.data = data;
-    }
 }

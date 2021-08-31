@@ -5,7 +5,7 @@ import android.text.TextUtils;
 
 import com.win.pakistan.MVC.Presentors.SignUpPresenter;
 import com.win.pakistan.MVC.Views.SignUpView;
-import com.win.pakistan.Models.UserSignup;
+import com.win.pakistan.Models.UserData;
 import com.win.pakistan.Models.authResponse;
 import com.win.pakistan.R;
 import com.win.pakistan.Services.apiServices;
@@ -28,7 +28,7 @@ public class SignUpImplementer implements SignUpPresenter {
         this.context = context;
     }
     @Override
-    public void SignUpProcess(UserSignup data) {
+    public void SignUpProcess(UserData data) {
         try{
             if (data == null){
                 signUpView.ShowValidationError(context.getResources().getString(R.string.snackbarSignupModelValidation));
