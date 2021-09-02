@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
+    android:layout_width="wrap_content"
+    android:padding="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_height="wrap_content"
@@ -11,21 +12,16 @@
 
 
 
-       <LinearLayout
-           android:id="@+id/layoutimage"
-           android:orientation="horizontal"
-           android:weightSum="3"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           tools:ignore="MissingConstraints">
+
 
            <LinearLayout
                android:layout_margin="10dp"
                android:orientation="vertical"
                android:background="@drawable/walletbacklayout"
                android:layout_weight="1"
-               android:layout_width="fill_parent"
-               android:layout_height="match_parent">
+               android:layout_width="110dp"
+               android:layout_height="match_parent"
+               tools:ignore="MissingConstraints">
 
                <TextView
                    android:layout_weight="1"
@@ -33,7 +29,7 @@
                    android:visibility="visible"
 
                    android:gravity="center"
-                   android:id="@+id/txtmenu1"
+                   android:id="@+id/txtmenu"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:autoSizeMaxTextSize="20sp"
@@ -50,108 +46,24 @@
                <ImageView
 
                    android:layout_gravity="center"
-                   android:layout_centerInParent="true"
+
                    android:src="@mipmap/wallet"
                    android:layout_marginTop="5dp"
                    android:layout_weight="1"
 
-                   android:id="@+id/imagemenu1"
-                   android:layout_width="80dp"
-                   android:layout_height="80dp"
+                   android:id="@+id/imagemenu"
+                   android:layout_width="70dp"
+                   android:layout_height="70dp"
 
 
                    android:padding="3dp" />
 
 
            </LinearLayout>
-           <LinearLayout
-               android:layout_margin="10dp"
-               android:background="@drawable/prizeback"
-               android:orientation="vertical"
-               android:layout_weight="1"
-               android:layout_width="fill_parent"
-               android:layout_height="match_parent">
-               <TextView
-                   android:layout_weight="1"
-
-                   android:visibility="visible"
-
-                   android:gravity="center"
-                   android:id="@+id/txtmenu2"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:autoSizeMaxTextSize="20sp"
-                   android:autoSizeMinTextSize="12sp"
-                   android:autoSizeStepGranularity="2sp"
-                   android:autoSizeTextType="uniform"
-                   android:maxLines="1"
-                   android:text="Partecipent1"
-                   android:layout_marginTop="10dp"
-
-                   android:textAlignment="center"
-                   android:textColor="@color/white"
-                   tools:ignore="RtlCompat" />
-               <ImageView
-                   android:layout_gravity="center"
-                   android:layout_centerInParent="true"
-                   android:src="@mipmap/person1"
-                   android:layout_marginTop="5dp"
-                   android:layout_weight="1"
-
-                   android:id="@+id/imagemenu2"
-                   android:layout_width="80dp"
-                   android:layout_height="80dp"
 
 
-                   android:padding="3dp" />
-
-           </LinearLayout>
-           <LinearLayout
-               android:layout_margin="10dp"
-               android:background="@drawable/refrelback"
-               android:orientation="vertical"
-               android:layout_weight="1"
-               android:layout_width="fill_parent"
-               android:layout_height="match_parent">
-
-               <TextView
-                   android:layout_weight="1"
-
-                   android:visibility="visible"
-
-                   android:gravity="center"
-                   android:id="@+id/txtmenu3"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:autoSizeMaxTextSize="20sp"
-                   android:autoSizeMinTextSize="12sp"
-                   android:autoSizeStepGranularity="2sp"
-                   android:autoSizeTextType="uniform"
-                   android:maxLines="1"
-                   android:text="Partecipent1"
-                   android:layout_marginTop="10dp"
-
-                   android:textAlignment="center"
-                   android:textColor="@color/white"
-                   tools:ignore="RtlCompat" />
-               <ImageView
-
-                   android:layout_gravity="center"
-
-                   android:layout_centerInParent="true"
-                   android:src="@mipmap/person1"
-                   android:layout_marginTop="5dp"
-                   android:layout_weight="1"
-                   android:id="@+id/imagemenu3"
-                   android:layout_width="80dp"
-                   android:layout_height="80dp"
-
-                   android:padding="3dp" />
-
-           </LinearLayout>
 
 
-       </LinearLayout>
 
 
 

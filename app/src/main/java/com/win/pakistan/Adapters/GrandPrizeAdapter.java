@@ -14,14 +14,14 @@ import com.win.pakistan.R;
 
 import java.util.ArrayList;
 
-public class PrizeAdapter extends ArrayAdapter<PrizDataclass> {
+public class GrandPrizeAdapter extends ArrayAdapter<PrizDataclass> {
 
     Context context;
     ArrayList<PrizDataclass> albhabet;
     String request;
     TextToSpeech t1;
 
-    public PrizeAdapter(Context context, ArrayList<PrizDataclass> albhabet) {
+    public GrandPrizeAdapter(Context context, ArrayList<PrizDataclass> albhabet) {
 
         super(context, R.layout.grandprizelayout, albhabet);
         this.albhabet = albhabet;

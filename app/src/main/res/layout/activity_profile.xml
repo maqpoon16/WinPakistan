@@ -211,6 +211,7 @@ android:background="@color/black"
 
             </TextView>
             <TextView
+                android:onClick="gotowallet"
                 android:id="@+id/txtwallwt"
 
                 android:layout_marginBottom="5dp"

@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.win.pakistan.R;
 
 import androidx.viewpager.widget.PagerAdapter;
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdapetrParticepant extends PagerAdapter {
     private Context context;
@@ -36,8 +35,8 @@ public class AdapetrParticepant extends PagerAdapter {
     */
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        View view = LayoutInflater.from(context).inflate(R.layout.linear_layoutparticpant, null);
-        ImageView imgprize = view.findViewById(R.id.imgprize);
+        View view = LayoutInflater.from(context).inflate(R.layout.customlayoutprize, null);
+        ImageView imgprize = view.findViewById(R.id.imgviewprize);
 
         TextView txtprizename= view.findViewById(R.id.txtprizename);
 

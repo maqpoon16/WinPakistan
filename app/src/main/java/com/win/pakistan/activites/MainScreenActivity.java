@@ -2,6 +2,7 @@ package com.win.pakistan.activites;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.Dialog;
@@ -15,13 +16,18 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.win.pakistan.Adapters.AdapetrGifttoday;
 import com.win.pakistan.Adapters.AdapetrMenu;
 import com.win.pakistan.Adapters.AdapetrParticepant;
 import com.win.pakistan.MVC.Implementers.MainScreenImplementer;
 import com.win.pakistan.MVC.Presentors.MainScreenPresenter;
 import com.win.pakistan.MVC.Views.MainScreenView;
+import com.win.pakistan.Models.MenuDataclass;
+import com.win.pakistan.Models.TodaygiftDataclass;
 import com.win.pakistan.Models.authResponse;
 import com.win.pakistan.R;
+
+import java.util.ArrayList;
 
 import static com.win.pakistan.Common.Methods.getAutoLogin;
 import static com.win.pakistan.Common.Methods.isNetworkConnected;
@@ -31,10 +37,11 @@ import static com.win.pakistan.Common.Methods.showSnackbar;
 
 public class MainScreenActivity extends AppCompatActivity implements MainScreenView {
     private ConstraintLayout layout;
-    ViewPager viewPagerparticpant,viewPagermenus;
-    AdapetrParticepant particepantadpter;
+    RecyclerView recyclerViewpize,recyclerViewmenu;
+    AdapetrGifttoday adapetrGifttoday;
     AdapetrMenu adapetrMenu;
-    String[] textpartipantname,txtmenuname;
+    ArrayList<MenuDataclass> arrayListmenu;
+    ArrayList<TodaygiftDataclass> todaygiftArrayList;
 
     int[] particpentimage,menuimage;
     private Handler handler;
@@ -46,64 +53,53 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mainscreencopy);
+        setContentView(R.layout.activity_mainscreencopy2);
         response = getAutoLogin(MainScreenActivity.this);
         mainScreenPresenter = new MainScreenImplementer(this);
         layout = findViewById(R.id.layout);
         //this will check user gets their on sigup reward or not!
-        IsNewUser();
+      IsNewUser();
+        arrayListmenu=new ArrayList<>();
+        todaygiftArrayList=new ArrayList<>();
         handler = new Handler();
-        particpentimage = new int[] { R.mipmap.person1};
+        particpentimage = new int[]{R.mipmap.person1};
 
-        textpartipantname = new String[] { "CD 70"};
 
-        viewPagerparticpant = findViewById(R.id.view_pager);
-        viewPagermenus = findViewById(R.id.view_pagermenu);
+
+        recyclerViewpize = findViewById(R.id.giftrecyclerview);
+       recyclerViewmenu = findViewById(R.id.menurecyclerview);
         clockwise = findViewById(R.id.clockwise);
         txtname = findViewById(R.id.txtname);
         txtname.setText(response.getUser().getFullName());
-        if(isNetworkConnected(MainScreenActivity.this)){
+       if (isNetworkConnected(MainScreenActivity.this)) {
             mainScreenPresenter.TimerProcess(MainScreenActivity.this);
-            return;
-        }else {
-            showSnackbar(layout,10000,MainScreenActivity.this, getString(R.string.no_internet_Message) );
+
         }
-        particepantadpter = new AdapetrParticepant(MainScreenActivity.this,textpartipantname,particpentimage);
-
-        viewPagerparticpant.setAdapter(particepantadpter);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (particepantadpter.getCount() == page) {
-                    page = 0;
-                } else {
-                    page++;
-                }
-                viewPagerparticpant.setCurrentItem(page, true);
-                handler.postDelayed(this, delay);
-            }
-        }, 1000);
+       else {
+            showSnackbar(layout, 10000, MainScreenActivity.this, getString(R.string.no_internet_Message));
+        }
 
 
-        menuimage = new int[] {  R.mipmap.grandpize, R.mipmap.refertofriends};
+        /******* menu recyclerview*********/
+        arrayListmenu.add(new MenuDataclass("Grand Prize",R.mipmap.grandpize));
 
-        txtmenuname = new String[] { "Grand Prize", "Refer to friend"};
+        arrayListmenu.add(new MenuDataclass("Refer To Friend",R.mipmap.refertofriends));
+        arrayListmenu.add(new MenuDataclass("Refer To Friend",R.mipmap.refertofriends));
+        arrayListmenu.add(new MenuDataclass("Refer To Friend",R.mipmap.refertofriends));
 
-        adapetrMenu = new AdapetrMenu(MainScreenActivity.this,txtmenuname,menuimage);
+        adapetrMenu = new AdapetrMenu(MainScreenActivity.this, arrayListmenu);
+        recyclerViewmenu.setAdapter(adapetrMenu);
 
-        viewPagermenus.setAdapter(adapetrMenu);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (adapetrMenu.getCount() == page) {
-                    page = 0;
-                } else {
-                    page++;
-                }
-                viewPagermenus.setCurrentItem(page, true);
-                //handler.postDelayed(this, delay);
-            }
-        }, 1000);
+        /******* gift recyclerview*********/
+
+
+        todaygiftArrayList.add(new TodaygiftDataclass("Honda CD 70",R.mipmap.cd70,1000,200,2000));
+
+
+        adapetrGifttoday = new AdapetrGifttoday(MainScreenActivity.this, todaygiftArrayList);
+        recyclerViewpize.setAdapter(adapetrGifttoday);
+
+
     }
     void IsNewUser(){
         boolean userRewardEnable = newUserReward(MainScreenActivity.this);

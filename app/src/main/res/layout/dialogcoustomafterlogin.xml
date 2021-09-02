@@ -70,7 +70,7 @@
                 android:onClick="login"
                 android:text="Continue"
                 android:textColor="@color/white"
-                android:background="@drawable/loginbtnbackgredient"
+                android:background="@drawable/walletcardbackround"
                 android:id="@+id/btncontinue"
                 android:layout_marginTop="20dp"
 
@@ -87,7 +87,7 @@
                 android:onClick="login"
                 android:text="Watch Videos"
                 android:textColor="@color/white"
-                android:background="@drawable/loginbtnbackgredient"
+                android:background="@drawable/walletcardbackround"
                 android:id="@+id/btnwatchvideo"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/btncontinue"

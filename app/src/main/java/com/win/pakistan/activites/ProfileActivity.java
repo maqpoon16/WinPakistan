@@ -41,6 +41,11 @@ public class ProfileActivity extends AppCompatActivity {
         ex_mobile.setText(response.getUser().getMobileNumber());
 
     }
+    public void gotowallet(View view){
+        Intent intent=new Intent(ProfileActivity.this,WalletActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
     private  void checkGalleryPermission(){
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PICK_IMAGE);

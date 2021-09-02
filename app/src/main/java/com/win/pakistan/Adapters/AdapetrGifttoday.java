@@ -9,10 +9,10 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 import com.win.pakistan.Models.MenuDataclass;
+import com.win.pakistan.Models.TodaygiftDataclass;
 import com.win.pakistan.R;
 import com.win.pakistan.activites.PrizeActivity;
 import com.win.pakistan.activites.WalletActivity;
@@ -21,25 +21,23 @@ import java.util.ArrayList;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 
-public class AdapetrMenu extends RecyclerView.Adapter<AdapetrMenu.MyViewHolder> {
-    private ArrayList<MenuDataclass> dataSet;
+public class AdapetrGifttoday extends RecyclerView.Adapter<AdapetrGifttoday.MyViewHolder> {
+    private ArrayList<TodaygiftDataclass> dataSet;
     Context context;
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView txtmenuame;
-        ImageView menuimg;
+        TextView txtprizename;
+        ImageView imgviewprize;
         ConstraintLayout constraintLayout;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            this.txtmenuame = (TextView) itemView.findViewById(R.id.txtmenu);
+            this.txtprizename = (TextView) itemView.findViewById(R.id.txtprizename);
 
 
 
             //this.textViewVersion = (TextView) itemView.findViewById(R.id.textViewVersion);
-            this.menuimg = (ImageView) itemView.findViewById(R.id.imagemenu);
+            this.imgviewprize = (ImageView) itemView.findViewById(R.id.imgviewprize);
            /* itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v)
@@ -53,7 +51,7 @@ public class AdapetrMenu extends RecyclerView.Adapter<AdapetrMenu.MyViewHolder> 
         }
     }
 
-    public AdapetrMenu(Context context, ArrayList<MenuDataclass> data) {
+    public AdapetrGifttoday(Context context, ArrayList<TodaygiftDataclass> data) {
         this.dataSet = data;
         this.context=context;
     }
@@ -64,7 +62,7 @@ public class AdapetrMenu extends RecyclerView.Adapter<AdapetrMenu.MyViewHolder> 
 
 
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.linear_menu, parent, false);
+                .inflate(R.layout.customlayoutprize, parent, false);
 
         //view.setOnClickListener(MainActivity.myOnClickListener);
 
@@ -80,42 +78,28 @@ public class AdapetrMenu extends RecyclerView.Adapter<AdapetrMenu.MyViewHolder> 
 // Start animation
 
 
-        TextView txtitemname = holder.txtmenuame;
+        TextView txtprizename = holder.txtprizename;
 
-        ImageView itemimg = holder.menuimg;
+        ImageView imgviewprize = holder.imgviewprize;
 
-        txtitemname.setText(dataSet.get(listPosition).getMenuname());
-
-
-
-
-        Picasso.with(context).load(dataSet.get(listPosition).getMenuImage()).into(itemimg);
+        txtprizename.setText(dataSet.get(listPosition).getGiftname());
 
 
 
-        holder.menuimg.setOnClickListener(new View.OnClickListener() {
+
+        Picasso.with(context).load(dataSet.get(listPosition).getGiftImage()).into(imgviewprize);
+
+
+/*
+
+        holder.imgviewprize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(listPosition==0){
-                    Intent intent=new Intent(context, WalletActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    intent.putExtra("type","capital");
-                    context.startActivity(intent);
 
-
-                }
-                else if(listPosition==1){
-
-                    Intent intent=new Intent(context, PrizeActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    intent.putExtra("type","small");
-                    context.startActivity(intent);
-
-
-                }
 
             }
         });
+*/
 
 
     }
