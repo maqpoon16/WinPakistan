@@ -97,7 +97,7 @@ public class AdapetrMenu extends RecyclerView.Adapter<AdapetrMenu.MyViewHolder> 
             @Override
             public void onClick(View view) {
                 if(listPosition==0){
-                    Intent intent=new Intent(context, WalletActivity.class);
+                    Intent intent=new Intent(context, PrizeActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     intent.putExtra("type","capital");
                     context.startActivity(intent);
@@ -106,10 +106,7 @@ public class AdapetrMenu extends RecyclerView.Adapter<AdapetrMenu.MyViewHolder> 
                 }
                 else if(listPosition==1){
 
-                    Intent intent=new Intent(context, PrizeActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    intent.putExtra("type","small");
-                    context.startActivity(intent);
+                    Toast.makeText(context, "Refer to friend", Toast.LENGTH_SHORT).show();
 
 
                 }

@@ -84,8 +84,7 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
         arrayListmenu.add(new MenuDataclass("Grand Prize",R.mipmap.grandpize));
 
         arrayListmenu.add(new MenuDataclass("Refer To Friend",R.mipmap.refertofriends));
-        arrayListmenu.add(new MenuDataclass("Refer To Friend",R.mipmap.refertofriends));
-        arrayListmenu.add(new MenuDataclass("Refer To Friend",R.mipmap.refertofriends));
+
 
         adapetrMenu = new AdapetrMenu(MainScreenActivity.this, arrayListmenu);
         recyclerViewmenu.setAdapter(adapetrMenu);
