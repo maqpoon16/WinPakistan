@@ -4,8 +4,11 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.Toast;
+
 import com.win.pakistan.MVC.Presentors.MainScreenPresenter;
 import com.win.pakistan.MVC.Views.MainScreenView;
+import com.win.pakistan.Models.LuckDrawModels.LuckyDrawModel;
 import com.win.pakistan.Models.TimeSpan;
 import com.win.pakistan.R;
 import com.win.pakistan.Services.apiServices;
@@ -27,14 +30,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainScreenImplementer implements MainScreenPresenter {
     private final MainScreenView mainScreenView;
-    private final String EVENT_DATE_TIME = "2021-08-26 20:00:00";
-    private final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    private String EVENT_DATE_TIME = "2021-10-26 20:00:00";
     private final Handler handler = new Handler();
     private Runnable runnable;
     private Date event_date ,current_date;
     private SimpleDateFormat dateFormat;
-    public MainScreenImplementer(MainScreenView mainScreenView) {
+    public MainScreenImplementer(MainScreenView mainScreenView,String luckyDrawTime) {
         this.mainScreenView = mainScreenView;
+        if(luckyDrawTime!=null && !luckyDrawTime.isEmpty()){
+            EVENT_DATE_TIME = luckyDrawTime;
+        }
     }
 
 
@@ -47,13 +52,13 @@ public class MainScreenImplementer implements MainScreenPresenter {
             public void run() {
                 try {
                     handler.postDelayed(this, 1000);
-                    dateFormat = new SimpleDateFormat(DATE_FORMAT);
+                    dateFormat = new SimpleDateFormat(context.getResources().getString(R.string.date_formate));
                     event_date = dateFormat.parse(EVENT_DATE_TIME);
                     current_date = new Date();
                     try{
                         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-                        httpClient.readTimeout(6, TimeUnit.SECONDS);
-                        httpClient.connectTimeout(6, TimeUnit.SECONDS);
+                        httpClient.readTimeout(30, TimeUnit.SECONDS);
+                        httpClient.connectTimeout(30, TimeUnit.SECONDS);
                         Retrofit retrofit = new Retrofit.Builder()
                                 .baseUrl(context.getResources().getString(R.string.WorldTimeSpanUrl))
                                 .addConverterFactory(GsonConverterFactory.create())
@@ -104,5 +109,42 @@ public class MainScreenImplementer implements MainScreenPresenter {
             }
         };
         handler.postDelayed(runnable, 0);
+    }
+
+    @Override
+    public void GetLuckyDrawData(Activity context) {
+        try{
+            OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+            httpClient.readTimeout(60, TimeUnit.SECONDS);
+            httpClient.connectTimeout(60, TimeUnit.SECONDS);
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(context.getResources().getString(R.string.ServerBaseUrl))
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .client(httpClient.build()).build();
+            apiServices service = retrofit.create(apiServices.class);
+            Call<LuckyDrawModel> call = service.getLuckDraw();
+            call.enqueue(new Callback<LuckyDrawModel>() {
+                @Override
+                public void onResponse(@NotNull Call<LuckyDrawModel> call, @NotNull Response<LuckyDrawModel> response) {
+                    if(response.body() != null){
+                        LuckyDrawModel luckyDrawModel = response.body();
+                        mainScreenView.onlineLuckyDrawData(luckyDrawModel);
+                        return;
+                    }
+                    Toast.makeText(context, "LuckyDrawData Failed!", Toast.LENGTH_SHORT).show();
+
+                }
+
+                @Override
+                public void onFailure(@NotNull Call<LuckyDrawModel> call, @NotNull Throwable t) {
+                    mainScreenView.ShowFailureMessage(t.getLocalizedMessage());
+
+                }
+            });
+        }catch (Exception e){
+            mainScreenView.ShowException(e.getLocalizedMessage());
+
+        }
+
     }
 }

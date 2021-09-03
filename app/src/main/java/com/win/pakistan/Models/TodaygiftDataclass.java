@@ -1,10 +1,10 @@
 package com.win.pakistan.Models;
 
 public class TodaygiftDataclass {
-    String giftname,luckytitle;
-    int giftImage,getGiftfees,getGiftcoins,gifttime;
+    String giftname,luckytitle,giftImage,gifttime;
+    int getGiftfees,getGiftcoins;
 
-    public TodaygiftDataclass(String giftname, int giftImage, int getGiftfees, int getGiftcoins, int gifttime) {
+    public TodaygiftDataclass(String giftname, String giftImage, int getGiftfees, int getGiftcoins, String gifttime) {
         this.giftname = giftname;
         this.giftImage = giftImage;
         this.getGiftfees = getGiftfees;
@@ -20,11 +20,11 @@ public class TodaygiftDataclass {
         this.giftname = giftname;
     }
 
-    public int getGiftImage() {
+    public String getGiftImage() {
         return giftImage;
     }
 
-    public void setGiftImage(int giftImage) {
+    public void setGiftImage(String giftImage) {
         this.giftImage = giftImage;
     }
 
@@ -44,11 +44,11 @@ public class TodaygiftDataclass {
         this.getGiftcoins = getGiftcoins;
     }
 
-    public int getGifttime() {
+    public String getGifttime() {
         return gifttime;
     }
 
-    public void setGifttime(int gifttime) {
+    public void setGifttime(String gifttime) {
         this.gifttime = gifttime;
     }
 }

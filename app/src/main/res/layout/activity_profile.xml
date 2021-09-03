@@ -22,7 +22,6 @@ android:background="@color/black"
             tools:ignore="MissingConstraints">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:onClick="onPictureClicked"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="12dp"
         app:layout_constraintRight_toRightOf="parent"

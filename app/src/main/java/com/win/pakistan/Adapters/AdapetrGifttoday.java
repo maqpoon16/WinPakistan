@@ -87,7 +87,7 @@ public class AdapetrGifttoday extends RecyclerView.Adapter<AdapetrGifttoday.MyVi
 
 
 
-        Picasso.with(context).load(dataSet.get(listPosition).getGiftImage()).into(imgviewprize);
+        Picasso.get().load(dataSet.get(listPosition).getGiftImage()).into(imgviewprize);
 
 
 /*

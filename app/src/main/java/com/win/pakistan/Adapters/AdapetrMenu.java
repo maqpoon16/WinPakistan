@@ -89,7 +89,7 @@ public class AdapetrMenu extends RecyclerView.Adapter<AdapetrMenu.MyViewHolder> 
 
 
 
-        Picasso.with(context).load(dataSet.get(listPosition).getMenuImage()).into(itemimg);
+        Picasso.get().load(dataSet.get(listPosition).getMenuImage()).into(itemimg);
 
 
 

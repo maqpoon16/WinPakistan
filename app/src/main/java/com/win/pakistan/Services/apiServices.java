@@ -1,6 +1,7 @@
 package com.win.pakistan.Services;
 
-import com.win.pakistan.Models.LuckDrawModel;
+import com.win.pakistan.Models.LuckDrawModels.LuckyDrawModel;
+import com.win.pakistan.Models.ProfileUpdateModel;
 import com.win.pakistan.Models.TimeSpan;
 import com.win.pakistan.Models.UserData;
 import com.win.pakistan.Models.authResponse;
@@ -21,10 +22,10 @@ public interface apiServices {
     Call<authResponse> getSignUp(@Body UserData userData);
 
      @POST("update-user")
-    Call<authResponse> updateProfile(@Body UserData userData);
+    Call<authResponse> updateProfile(@Body ProfileUpdateModel userData);
 
      @GET("get-lucky-draw/1")
-    Call<LuckDrawModel> getLuckDraw();
+    Call<LuckyDrawModel> getLuckDraw();
 
      @GET("Karachi")
     Call<TimeSpan> getWorldTimePakistan();

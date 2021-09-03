@@ -20,7 +20,7 @@
             android:layout_weight="6"
             android:layout_height="match_parent"
             android:id="@+id/message"
-            android:maxLines="2"
+            android:maxLines="3"
             android:textAlignment="center"
             android:gravity="center"
             android:textColor="@color/black"

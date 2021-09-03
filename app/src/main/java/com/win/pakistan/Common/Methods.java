@@ -3,13 +3,13 @@ package com.win.pakistan.Common;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
-import android.preference.PreferenceManager;
+import android.util.Base64;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,33 +17,25 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
+import com.win.pakistan.Models.LuckDrawModels.LuckyDrawModel;
 import com.win.pakistan.Models.authResponse;
 import com.win.pakistan.R;
+
+import java.io.ByteArrayOutputStream;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
 
 public class Methods {
-    public static void showSnackbar(ConstraintLayout coordinatorLayout, int duration, Activity context, String contextString ) { // Create the Snackbar
-        // create an instance of the snackbar
+
+    public static void showSnackbar(ConstraintLayout coordinatorLayout, int duration, Activity context, String contextString ) {
         final Snackbar snackbar = Snackbar.make(coordinatorLayout, "", duration);
-
-        // inflate the custom_snackbar_view created previously
         View customSnackView = context.getLayoutInflater().inflate(R.layout.snackbar_layout, null);
-
-        // set the background of the default snackbar as transparent
         snackbar.getView().setBackgroundColor(Color.TRANSPARENT);
-
-        // now change the layout of the snackbar
         Snackbar.SnackbarLayout snackbarLayout = (Snackbar.SnackbarLayout) snackbar.getView();
-
-        // set padding of the all corners as 0
         snackbarLayout.setPadding(20, 20 , 20, 20);
-
-        // register the button from the custom_snackbar_view layout file
         TextView bGotoWebsite = customSnackView.findViewById(R.id.btnOK);
         TextView txtMessage = customSnackView.findViewById(R.id.message);
         txtMessage.setText(contextString);
-        // now handle the same button with onClickListener
         bGotoWebsite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,12 +43,11 @@ public class Methods {
                 snackbar.dismiss();
             }
         });
-
-        // add the custom snack bar layout to snackbar layout
         snackbarLayout.addView(customSnackView, 0);
-
         snackbar.show();
     }
+
+    //SharedPreference Methods
     public  static void setAutoLogin(Activity context, authResponse authResponse){
         SharedPreferences sharedpreferences = context.getSharedPreferences(context.getResources().getString(R.string.preferance_name), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedpreferences.edit();
@@ -66,6 +57,7 @@ public class Methods {
         editor.putString(context.getResources().getString(R.string.preferance_key_UserData), json);
         editor.apply();
     }
+
     public  static authResponse getAutoLogin(Activity context){
         authResponse Object = null;
         SharedPreferences sharedpreferences = context.getSharedPreferences(context.getResources().getString(R.string.preferance_name), Context.MODE_PRIVATE);
@@ -78,26 +70,54 @@ public class Methods {
         }
         return Object;
     }
+
     public  static boolean newUserReward(Activity context){
         SharedPreferences sharedpreferences = context.getSharedPreferences(context.getResources().getString(R.string.preferance_name), Context.MODE_PRIVATE);
         return sharedpreferences.getBoolean(context.getResources().getString(R.string.preferance_key_NewUser), false);
     }
+
     public  static void setNewUserReward(Activity context,boolean setValue){
         SharedPreferences sharedpreferences = context.getSharedPreferences(context.getResources().getString(R.string.preferance_name), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedpreferences.edit();
         editor.putBoolean(context.getResources().getString(R.string.preferance_key_NewUser), setValue);
         editor.apply();
     }
+
     public  static boolean getWelcomeScreenStatus(Activity context){
         SharedPreferences sharedpreferences = context.getSharedPreferences(context.getResources().getString(R.string.preferance_name), Context.MODE_PRIVATE);
         return sharedpreferences.getBoolean(context.getResources().getString(R.string.preferance_key_WelcomeScreen), true);
     }
+
     public  static void setWelcomeScreenOff(Activity context,boolean setValue){
         SharedPreferences sharedpreferences = context.getSharedPreferences(context.getResources().getString(R.string.preferance_name), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedpreferences.edit();
         editor.putBoolean(context.getResources().getString(R.string.preferance_key_WelcomeScreen), setValue);
         editor.apply();
     }
+
+    public  static void setLuckyDrawData(Activity context, LuckyDrawModel luckyDrawModel){
+        SharedPreferences sharedpreferences = context.getSharedPreferences(context.getResources().getString(R.string.preferance_name), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putBoolean(context.getResources().getString(R.string.preferance_luckyDraw_data_availble), luckyDrawModel.isStatus());
+        Gson gson = new Gson();
+        String json = gson.toJson(luckyDrawModel);
+        editor.putString(context.getResources().getString(R.string.preferance_luckyDraw), json);
+        editor.apply();
+    }
+    public  static LuckyDrawModel getLuckyDrawData(Activity context){
+        LuckyDrawModel Object = null;
+        SharedPreferences sharedpreferences = context.getSharedPreferences(context.getResources().getString(R.string.preferance_name), Context.MODE_PRIVATE);
+        if(sharedpreferences.getBoolean(context.getResources().getString(R.string.preferance_luckyDraw_data_availble),false)){
+            Gson gson = new Gson();
+            String json = sharedpreferences.getString(context.getResources().getString(R.string.preferance_luckyDraw),null);
+            if(json!=null){
+                Object = gson.fromJson(json, LuckyDrawModel.class);
+            }
+        }
+        return Object;
+    }
+
+    //SharedPreference Method Close
 
     public  static void closeKeyboard(Activity context){
         View view = context.getCurrentFocus();
@@ -120,4 +140,17 @@ public class Methods {
         }
         return  false;
     }
+
+    public  static String bitmapToBase64(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+        byte[] byteArray = byteArrayOutputStream .toByteArray();
+        return Base64.encodeToString(byteArray, Base64.DEFAULT);
+    }
+
+    public  static Bitmap base64ToBitmap(String b64) {
+        byte[] imageAsBytes = Base64.decode(b64.getBytes(), Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
+    }
+
 }

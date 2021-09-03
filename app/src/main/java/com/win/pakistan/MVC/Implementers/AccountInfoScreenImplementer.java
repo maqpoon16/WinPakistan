@@ -6,6 +6,8 @@ import android.widget.DatePicker;
 
 import com.win.pakistan.MVC.Presentors.AccountInfoScreenPresenter;
 import com.win.pakistan.MVC.Views.AccountInfoScreenView;
+import com.win.pakistan.Models.ProfileUpdateModel;
+import com.win.pakistan.Models.UserData;
 import com.win.pakistan.Models.authResponse;
 import com.win.pakistan.R;
 import com.win.pakistan.Services.apiServices;
@@ -65,6 +67,45 @@ public class AccountInfoScreenImplementer implements AccountInfoScreenPresenter 
                         authResponse authResponse = response.body();
                         if(authResponse.isStatus()){
                             accountInfoScreenView.SetOnlineProfile(authResponse.getUser());
+                        }else {
+                            accountInfoScreenView.ShowFailureMessage(authResponse.getMessage());
+                        }
+                    }
+
+                }
+
+                @Override
+                public void onFailure(@NotNull Call<authResponse> call, @NotNull Throwable t) {
+                    accountInfoScreenView.ShowFailureMessage(t.getLocalizedMessage());
+
+                }
+            });
+        }catch (Exception e){
+            accountInfoScreenView.ShowException(e.getLocalizedMessage());
+
+        }
+    }
+
+    @Override
+    public void updateProfileOnline(Activity context, ProfileUpdateModel profile) {
+        try{
+
+            OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+            httpClient.readTimeout(30, TimeUnit.SECONDS);
+            httpClient.connectTimeout(30, TimeUnit.SECONDS);
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(context.getResources().getString(R.string.ServerBaseUrl))
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .client(httpClient.build()).build();
+            apiServices service = retrofit.create(apiServices.class);
+            Call<authResponse> call = service.updateProfile(profile);
+            call.enqueue(new Callback<authResponse>() {
+                @Override
+                public void onResponse(@NotNull Call<authResponse> call, @NotNull Response<authResponse> response) {
+                    if(response.body() != null){
+                        authResponse authResponse = response.body();
+                        if(authResponse.isStatus()){
+                            accountInfoScreenView.onOnlineProfileUpdated(authResponse);
                         }else {
                             accountInfoScreenView.ShowFailureMessage(authResponse.getMessage());
                         }

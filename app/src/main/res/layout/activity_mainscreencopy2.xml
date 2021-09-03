@@ -311,10 +311,11 @@
 
                                 </TextView>
                                 <TextView
+                                    android:id="@+id/txt_coins"
                                     android:layout_marginTop="5dp"
                                     android:textAlignment="center"
                                     android:textColor="@color/white"
-                                    android:text="30"
+                                    android:text="0"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content">
 
@@ -363,10 +364,11 @@
 
                                 </TextView>
                                 <TextView
+                                    android:id="@+id/txt_cash"
                                     android:layout_marginTop="5dp"
                                     android:textAlignment="center"
                                     android:textColor="@color/white"
-                                    android:text="30 RS"
+                                    android:text="0"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content">
 

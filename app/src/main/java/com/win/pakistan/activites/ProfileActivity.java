@@ -14,6 +14,8 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 import com.win.pakistan.Models.authResponse;
 import com.win.pakistan.R;
 
@@ -39,6 +41,7 @@ public class ProfileActivity extends AppCompatActivity {
         tx_user.setText(response.getUser().getEmail());
         ex_mobile = (TextView) findViewById(R.id.textcontact);
         ex_mobile.setText(response.getUser().getMobileNumber());
+        Picasso.get().load(getResources().getString(R.string.ServerBaseUrlImage)+response.getUser().getProfileImage()).into(profile_image);
 
     }
     public void gotowallet(View view){
@@ -69,24 +72,5 @@ public class ProfileActivity extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         finish();
-    }
-    
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == Activity.RESULT_OK)
-            if (requestCode == PICK_IMAGE) {
-                Uri selectedImage = data.getData();
-                try {
-                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
-                    profile_image.setImageBitmap(bitmap);
-                } catch (IOException e) {
-                    Log.i("TAG", "Some exception " + e);
-                }
-            }
-    }
-
-    public void onPictureClicked(View view) {
-        checkGalleryPermission();
     }
 }

@@ -12,6 +12,8 @@
     <string name="preferance_key_UserData">UserData</string>
     <string name="preferance_key_NewUser">isNewUser</string>
     <string name="preferance_key_WelcomeScreen">isScreenEnable</string>
+    <string name="preferance_luckyDraw">LuckyDrawData</string>
+    <string name="preferance_luckyDraw_data_availble">IsDataAvailable</string>
 
 <!--    Login Activity Screen-->
     <string name="snackbarValidationErrorUser">Incorrect user!</string>
@@ -56,6 +58,7 @@
 <!--API String-->
     <string name="WorldTimeSpanUrl">http://worldtimeapi.org/api/timezone/Asia/</string>
     <string name="ServerBaseUrl">http://orange-ltd.com/api/</string>
+    <string name="ServerBaseUrlImage">http://orange-ltd.com/public/profile_image/</string>
     <string name="enter_username">Enter Username</string>
     <string name="e_g_03133106243">e.g 03133106243</string>
     <string name="phone">Phone</string>
@@ -63,4 +66,19 @@
     <string name="e_g_30">e.g 30</string>
     <string name="no_internet_Message">No Internet Found!</string>
     <string name="gender">Gender</string>
+    <string name="change_profile_picture">Change Profile Picture</string>
+    <string name="participate">participate</string>
+    <string name="drawtime_text">00:00:00</string>
+    <string name="your_full_name_here">Your Full Name Here</string>
+    <string name="token_text">0</string>
+    <string name="ticket">Ticket</string>
+    <string name="balance">Balance</string>
+    <string name="balance_value">0</string>
+    <string name="this_week_participant">This Week participant</string>
+    <string name="current_game">Current Game</string>
+    <string name="leaderboard">LeaderBoard</string>
+    <string name="points_value">0</string>
+    <string name="new_password">New Password</string>
+    <string name="update">Update</string>
+    <string name="date_formate">yyyy-MM-dd HH:mm:ss</string>
 </resources>

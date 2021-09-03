@@ -1,10 +1,10 @@
 package com.win.pakistan.Adapters;
 
 public class PrizDataclass {
-String prizename;
-int requiredcoins,prizeimage;
+String prizename,prizeimage;
+int requiredcoins;
 
-    public PrizDataclass(String prizename,int requiredcoins, int prizeimage) {
+    public PrizDataclass(String prizename,int requiredcoins, String prizeimage) {
         this.prizename = prizename;
         this.requiredcoins = requiredcoins;
         this.prizeimage = prizeimage;
@@ -26,11 +26,11 @@ int requiredcoins,prizeimage;
         this.requiredcoins = requiredcoins;
     }
 
-    public int getPrizeimage() {
+    public String getPrizeimage() {
         return prizeimage;
     }
 
-    public void setPrizeimage(int prizeimage) {
+    public void setPrizeimage(String prizeimage) {
         this.prizeimage = prizeimage;
     }
 }

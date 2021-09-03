@@ -31,12 +31,10 @@ public class LoginImplementer  implements LoginPresenter {
     public void LoginProcess(String user, String password , Activity context) {
       try{
           if (TextUtils.isEmpty(user)){
-
               loginView.ShowValidationError(context.getResources().getString(R.string.snackbarValidationErrorUser));
               return;
           }
           if (TextUtils.isEmpty(password)){
-
               loginView.ShowValidationError(context.getResources().getString(R.string.snackbarValidationErrorPass));
               return;
           }

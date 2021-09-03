@@ -162,7 +162,6 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
     public void OnClickedCreateAccount(View view) {
         UserData model = new UserData();
         model.setFullName(fullname.getText().toString());
-        model.setUsername(username.getText().toString());
         model.setPassword(password.getText().toString());
         model.setMobileNumber(mobile.getText().toString());
         model.setEmail(email.getText().toString());
@@ -172,12 +171,12 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
             model.setLatitude(String.valueOf(location.getLatitude()));
             model.setLongitude(String.valueOf(location.getLongitude()));
         }
-        RadioButton radioButton = (RadioButton) findViewById(rdgender.getCheckedRadioButtonId());
-        final String value =
-                radioButton
-                        .getText().toString();
-        model.setGender(value);
-        model.setAge(age.getText().toString());
+//        RadioButton radioButton = (RadioButton) findViewById(rdgender.getCheckedRadioButtonId());
+//        final String value =
+//                radioButton
+//                        .getText().toString();
+//        model.setGender(value);
+//        model.setAge(age.getText().toString());
         signUpPresenter.SignUpProcess(model);
     }
 

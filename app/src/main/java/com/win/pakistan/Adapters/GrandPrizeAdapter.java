@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.squareup.picasso.Picasso;
 import com.win.pakistan.R;
 
 import java.util.ArrayList;
@@ -40,7 +41,7 @@ public class GrandPrizeAdapter extends ArrayAdapter<PrizDataclass> {
             final TextView txtcoins = (TextView) convertView.findViewById(R.id.txtcoins);
             final TextView txtprizname = (TextView) convertView.findViewById(R.id.txtprizname);
 
-            imagepng.setImageResource(albhabet.get(position).getPrizeimage());
+            Picasso.get().load(albhabet.get(position).getPrizeimage()).into(imagepng);
 
 
             txtcoins.setText(albhabet.get(position).getRequiredcoins()+"");
