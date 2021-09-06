@@ -148,11 +148,10 @@ android:background="@color/black"
             </TextView>
             <TextView
                 android:id="@+id/txtinvitefriend"
-
                 android:layout_marginBottom="5dp"
                 android:textColor="@color/white"
-
-                android:layout_marginLeft="10dp"
+                android:onClick="onClickInviteFreind"
+                android:layout_marginStart="10dp"
                 android:drawablePadding="10dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_marginTop="10dp"

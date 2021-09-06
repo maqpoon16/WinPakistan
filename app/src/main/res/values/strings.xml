@@ -81,4 +81,6 @@
     <string name="new_password">New Password</string>
     <string name="update">Update</string>
     <string name="date_formate">yyyy-MM-dd HH:mm:ss</string>
+    <string name="default_timer">00:00:00</string>
+    <string name="dummy_img_url">https://cdn4.vectorstock.com/i/1000x1000/57/83/win-prizes-3d-gold-badge-with-red-ribbon-vector-16325783.jpg</string>
 </resources>

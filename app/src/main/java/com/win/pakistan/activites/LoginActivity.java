@@ -10,6 +10,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.win.pakistan.MVC.Implementers.LoginImplementer;
@@ -83,11 +84,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public void OnloginSuccessfull() {
-        loading.setVisibility(View.GONE);
-        showSnackbar(layout,3000,LoginActivity.this,  getResources().getString(R.string.snackbarLoginSuccessfull ) );
+//        showSnackbar(layout,3000,LoginActivity.this,  getResources().getString(R.string.snackbarLoginSuccessfull ) );
         Intent intent = new Intent(LoginActivity.this, MainScreenActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+        loading.setVisibility(View.GONE);
         finish();
     }
 

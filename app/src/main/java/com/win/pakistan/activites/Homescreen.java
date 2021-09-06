@@ -37,6 +37,7 @@ animate();
         Intent intent = new Intent(Homescreen.this, LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+        finish();
 
 
 
@@ -58,6 +59,7 @@ animate();
         Intent intent=new Intent(Homescreen.this,SignUpActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+        finish();
 
     }
 }

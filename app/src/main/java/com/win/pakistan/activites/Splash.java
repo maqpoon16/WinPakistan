@@ -31,6 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.win.pakistan.Common.Methods.getAutoLogin;
+import static com.win.pakistan.Common.Methods.isNetworkConnected;
 import static com.win.pakistan.Common.Methods.setLuckyDrawData;
 
 public class Splash extends AppCompatActivity implements AccountInfoScreenView, MainScreenView{
@@ -47,11 +48,15 @@ public class Splash extends AppCompatActivity implements AccountInfoScreenView, 
         AccountInfoScreenPresenter accountInfoScreenPresenter = new AccountInfoScreenImplementer(this);
         mainScreenPresenter = new MainScreenImplementer(this,null);
         progressBar=findViewById(R.id.simpleProgressBar);
-        if(response!=null){
-            accountInfoScreenPresenter.getOnlineProfile(Splash.this,response.getUser().getId());
-        }else {
-            mainScreenPresenter.GetLuckyDrawData(Splash.this);
+
+        if (isNetworkConnected(Splash.this)) {
+            if(response!=null){
+                accountInfoScreenPresenter.getOnlineProfile(Splash.this,response.getUser().getId());
+            }else {
+                mainScreenPresenter.GetLuckyDrawData(Splash.this);
+            }
         }
+
         new Thread(new Runnable() {
             @Override public void run() {
                 while(progressBarValue < 100) {
@@ -82,7 +87,7 @@ public class Splash extends AppCompatActivity implements AccountInfoScreenView, 
         }).start();
     }
 
-    private void delayEnter() {
+    /*private void delayEnter() {
 
         new CountDownTimer(1200, 1500) {
             @Override
@@ -102,7 +107,7 @@ public class Splash extends AppCompatActivity implements AccountInfoScreenView, 
 
             }
         }.start();
-    }
+    }*/
 
     @Override
     public void ShowException(String exception) {

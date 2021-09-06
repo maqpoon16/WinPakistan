@@ -2,6 +2,7 @@ package com.win.pakistan.Common;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -39,7 +40,6 @@ public class Methods {
         bGotoWebsite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Redirecting to Website", Toast.LENGTH_SHORT).show();
                 snackbar.dismiss();
             }
         });
@@ -154,6 +154,13 @@ public class Methods {
     }
 
 
-    //TODO: Delete this after fetched Data
+
+    public static  void inviteFriendLink(Activity context){
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "YOUR_LINK");
+        sendIntent.setType("text/plain");
+        context.startActivity(sendIntent);
+    }
 
 }

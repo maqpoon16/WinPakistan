@@ -24,6 +24,7 @@ import java.io.IOException;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 import static com.win.pakistan.Common.Methods.getAutoLogin;
+import static com.win.pakistan.Common.Methods.inviteFriendLink;
 import static com.win.pakistan.Common.Methods.setAutoLogin;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -72,5 +73,9 @@ public class ProfileActivity extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         finish();
+    }
+
+    public void onClickInviteFreind(View view) {
+        inviteFriendLink(ProfileActivity.this);
     }
 }

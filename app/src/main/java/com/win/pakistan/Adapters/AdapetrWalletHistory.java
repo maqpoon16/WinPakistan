@@ -1,47 +1,43 @@
 package com.win.pakistan.Adapters;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.squareup.picasso.Picasso;
-import com.win.pakistan.Common.Methods;
-import com.win.pakistan.Models.MenuDataclass;
-import com.win.pakistan.R;
-import com.win.pakistan.activites.PrizeActivity;
-import com.win.pakistan.activites.WalletActivity;
-
-import java.util.ArrayList;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 
-public class AdapetrMenu extends RecyclerView.Adapter<AdapetrMenu.MyViewHolder> {
-    private ArrayList<MenuDataclass> dataSet;
+import com.squareup.picasso.Picasso;
+import com.win.pakistan.Models.LeatherBoardDataclass;
+import com.win.pakistan.Models.WalletHistoryDataclass;
+import com.win.pakistan.R;
+
+import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+
+public class AdapetrWalletHistory extends RecyclerView.Adapter<AdapetrWalletHistory.MyViewHolder> {
+    private ArrayList<WalletHistoryDataclass> dataSet;
     Context context;
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView txtmenuame;
-        ImageView menuimg;
+        TextView txtTimeDate,txtLuckdrawTitle,txtPaymentMethod,txtCashOrCoin;
+        CircleImageView imageleaderimage;
         ConstraintLayout constraintLayout;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            this.txtmenuame = (TextView) itemView.findViewById(R.id.txtmenu);
-
+            this.txtTimeDate = (TextView) itemView.findViewById(R.id.txttimedate);
+            this.txtLuckdrawTitle = (TextView) itemView.findViewById(R.id.txtluckydrawtitle);
+            this.txtPaymentMethod = (TextView) itemView.findViewById(R.id.txtpaymentmethod);
+            this.txtCashOrCoin = (TextView) itemView.findViewById(R.id.txtpaidcashorcoins);
 
 
             //this.textViewVersion = (TextView) itemView.findViewById(R.id.textViewVersion);
-            this.menuimg = (ImageView) itemView.findViewById(R.id.imagemenu);
+            this.imageleaderimage = (CircleImageView) itemView.findViewById(R.id.imagewallethistory);
            /* itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v)
@@ -55,7 +51,7 @@ public class AdapetrMenu extends RecyclerView.Adapter<AdapetrMenu.MyViewHolder> 
         }
     }
 
-    public AdapetrMenu(Context context, ArrayList<MenuDataclass> data) {
+    public AdapetrWalletHistory(Context context, ArrayList<WalletHistoryDataclass> data) {
         this.dataSet = data;
         this.context=context;
     }
@@ -66,7 +62,7 @@ public class AdapetrMenu extends RecyclerView.Adapter<AdapetrMenu.MyViewHolder> 
 
 
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.linear_menu, parent, false);
+                .inflate(R.layout.customwallethistory, parent, false);
 
         //view.setOnClickListener(MainActivity.myOnClickListener);
 
@@ -80,20 +76,21 @@ public class AdapetrMenu extends RecyclerView.Adapter<AdapetrMenu.MyViewHolder> 
                 R.anim.slide_out_top);
 
 // Start animation
+        TextView txtTimeDate,txtLuckdrawTitle,txtPaymentMethod,txtCashOrCoin;
 
+        txtTimeDate = holder.txtTimeDate;
+        txtLuckdrawTitle = holder.txtLuckdrawTitle;
+        txtPaymentMethod = holder.txtPaymentMethod;
+        txtCashOrCoin = holder.txtCashOrCoin;
 
-        TextView txtitemname = holder.txtmenuame;
+        CircleImageView itemimg = holder.imageleaderimage;
 
-        ImageView itemimg = holder.menuimg;
-
-        txtitemname.setText(dataSet.get(listPosition).getMenuname());
-
-
-
-
-        Picasso.get().load(dataSet.get(listPosition).getMenuImage()).into(itemimg);
-
-
+        txtTimeDate.setText(dataSet.get(listPosition).getHistoryTimedate());
+        txtLuckdrawTitle.setText(dataSet.get(listPosition).getHistoryTitle());
+        txtPaymentMethod.setText(dataSet.get(listPosition).getHistoryPaymentBy());
+        txtCashOrCoin.setText(dataSet.get(listPosition).getHistoryCoinOrCash());
+ Picasso.get().load(dataSet.get(listPosition).getHistoryimage()).into(itemimg);
+/*
 
         holder.menuimg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,14 +106,12 @@ public class AdapetrMenu extends RecyclerView.Adapter<AdapetrMenu.MyViewHolder> 
                 else if(listPosition==1){
 
                     Toast.makeText(context, "Refer to friend", Toast.LENGTH_SHORT).show();
-                    Methods.inviteFriendLink((Activity) context);
+
 
                 }
 
             }
-        });
-
-
+        });*/
     }
     @Override
     public int getItemCount() {

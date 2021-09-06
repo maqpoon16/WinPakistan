@@ -72,14 +72,12 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
         broadcastIntent();
         //this will check user gets their on sigup reward or not!
         IsNewUser();
-
         if (isNetworkConnected(MainScreenActivity.this)) {
             mainScreenPresenter.GetLuckyDrawData(MainScreenActivity.this);
        }
        else {
             showSnackbar(layout, 10000, MainScreenActivity.this, getString(R.string.no_internet_Message));
         }
-
         objectAssignment();
     }
 
@@ -106,18 +104,16 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
 
     }
     void objectAssignment(){
-
         Picasso.get().load(getResources().getString(R.string.ServerBaseUrlImage)+response.getUser().getProfileImage()).into(profile_image);
-        clockwise.setText("00:00:00");
+        clockwise.setText(R.string.default_timer);
         txtname.setText(response.getUser().getFullName());
         luckydraw_title.setText(luckyDrawModel.getData().getLuckydraw().getLuckydrawName());
-        /******* menu recyclerview*********/
+        //******* menu recyclerview*********/
         arrayListmenu.add(new MenuDataclass("Grand Prize",R.mipmap.grandpize));
         arrayListmenu.add(new MenuDataclass("Refer To Friend",R.mipmap.refertofriends));
         adapetrMenu = new AdapetrMenu(MainScreenActivity.this, arrayListmenu);
         recyclerViewmenu.setAdapter(adapetrMenu);
-
-        /******* gift recyclerview*********/
+        //******* gift recyclerview*********/
         if(luckyDrawModel!=null){
             txtCashRequired.setText(luckyDrawModel.getData().getLuckydraw().getCashReqiured());
             txtCoinsRequired.setText(luckyDrawModel.getData().getLuckydraw().getCoinsRequired());
@@ -126,7 +122,7 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
             for(Prize prize  : gifts){
                 int coins = Integer.parseInt(luckyDrawModel.getData().getLuckydraw().getCoinsRequired());
                 int cash = Integer.parseInt(luckyDrawModel.getData().getLuckydraw().getCashReqiured());
-                String img = "https://cdn4.vectorstock.com/i/1000x1000/57/83/win-prizes-3d-gold-badge-with-red-ribbon-vector-16325783.jpg";
+                String img = getString(R.string.dummy_img_url);
                 if(prize.getImage()!=null){
                     img = prize.getImage().toString();
                 }
@@ -174,10 +170,6 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
                 dialog.dismiss();
             }
         });
-
-
-
-
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
         lp.width = -1;
@@ -188,7 +180,6 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
     }
 
     private void particepatelottery() {
-
         Button btncontiue,btnwatchvideo;
         View promptsView = LayoutInflater.from(MainScreenActivity.this).inflate(R.layout.particepatedialoge, null);
         final Dialog dialog = new Dialog(MainScreenActivity.this);
@@ -207,7 +198,6 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
 
             @Override
             public void onClick(View v) {
-                // TODO Google Reward videos here
                 dialog.dismiss();
             }
         });
@@ -253,9 +243,10 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
                 int coins = Integer.parseInt(this.luckyDrawModel.getData().getLuckydraw().getCoinsRequired());
                 int cash = Integer.parseInt(this.luckyDrawModel.getData().getLuckydraw().getCashReqiured());
                 String img = "https://cdn4.vectorstock.com/i/1000x1000/57/83/win-prizes-3d-gold-badge-with-red-ribbon-vector-16325783.jpg";
-                if(prize.getImage()!=null){
+               //Todo: uncomment after demo
+                /*if(prize.getImage()!=null){
                     img = prize.getImage().toString();
-                }
+                }*/
                 String dateTime = this.luckyDrawModel.getData().getLuckydraw().getDateTime();
                 String title = prize.getTitle();
                 todaygiftArrayList.add(new TodaygiftDataclass(title,img ,cash,coins,dateTime));
@@ -297,7 +288,6 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
     public void leaderboardView(View view) {
         ArrayList<LeatherBoardDataclass> arrayListleatherboard=new ArrayList<>();
         AdapetrLeatherBoard adapetrLeatherBoard;
-
         RecyclerView recyclerViewleadtherboad;
         View promptsView = LayoutInflater.from(MainScreenActivity.this).inflate(R.layout.leaderboarddialoge, null);
         final Dialog dialog = new Dialog(MainScreenActivity.this);
@@ -310,7 +300,6 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
         arrayListleatherboard.add(new LeatherBoardDataclass("Faisal Khan","160000","20-Jan-2002","CD 70",R.mipmap.person3));
         arrayListleatherboard.add(new LeatherBoardDataclass("Inham ur Rehman","210000","20-Jan-2012","CD 70",R.mipmap.person1));
         arrayListleatherboard.add(new LeatherBoardDataclass("Faisal Khan","160000","20-Jan-2002","CD 70",R.mipmap.person2));
-
         adapetrLeatherBoard = new AdapetrLeatherBoard(MainScreenActivity.this, arrayListleatherboard);
         recyclerViewleadtherboad.setAdapter(adapetrLeatherBoard);
        /* btncontiue.setOnClickListener(new View.OnClickListener() {
