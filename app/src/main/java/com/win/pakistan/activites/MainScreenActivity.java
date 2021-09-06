@@ -15,16 +15,19 @@ import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.win.pakistan.Adapters.AdapetrGifttoday;
+import com.win.pakistan.Adapters.AdapetrLeatherBoard;
 import com.win.pakistan.Adapters.AdapetrMenu;
 import com.win.pakistan.Common.Recievers.ConnectivityReceiver;
 import com.win.pakistan.MVC.Implementers.MainScreenImplementer;
 import com.win.pakistan.MVC.Presentors.MainScreenPresenter;
 import com.win.pakistan.MVC.Views.MainScreenView;
+import com.win.pakistan.Models.LeatherBoardDataclass;
 import com.win.pakistan.Models.LuckDrawModels.LuckyDrawModel;
 import com.win.pakistan.Models.LuckDrawModels.Luckydraw;
 import com.win.pakistan.Models.LuckDrawModels.Prize;
@@ -103,6 +106,7 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
 
     }
     void objectAssignment(){
+
         Picasso.get().load(getResources().getString(R.string.ServerBaseUrlImage)+response.getUser().getProfileImage()).into(profile_image);
         clockwise.setText("00:00:00");
         txtname.setText(response.getUser().getFullName());
@@ -291,29 +295,33 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
     
 
     public void leaderboardView(View view) {
-        Button btncontiue,btnwatchvideo;
+        ArrayList<LeatherBoardDataclass> arrayListleatherboard=new ArrayList<>();
+        AdapetrLeatherBoard adapetrLeatherBoard;
+
+        RecyclerView recyclerViewleadtherboad;
         View promptsView = LayoutInflater.from(MainScreenActivity.this).inflate(R.layout.leaderboarddialoge, null);
         final Dialog dialog = new Dialog(MainScreenActivity.this);
         dialog.requestWindowFeature(1);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(-1));
-        btncontiue = (Button) promptsView.findViewById(R.id.btncontinue);
-        btnwatchvideo = (Button) promptsView.findViewById(R.id.btnwatchvideo);
-        btncontiue.setOnClickListener(new View.OnClickListener() {
+
+        recyclerViewleadtherboad=(RecyclerView)promptsView.findViewById(R.id.recyclerviewleatherboard);
+        arrayListleatherboard.add(new LeatherBoardDataclass("Husanin Ali khan","110000","20-Jan-2022","CD 70",R.mipmap.person3));
+        arrayListleatherboard.add(new LeatherBoardDataclass("Inham ur Rehman","210000","20-Jan-2012","CD 70",R.mipmap.person3));
+        arrayListleatherboard.add(new LeatherBoardDataclass("Faisal Khan","160000","20-Jan-2002","CD 70",R.mipmap.person3));
+        arrayListleatherboard.add(new LeatherBoardDataclass("Inham ur Rehman","210000","20-Jan-2012","CD 70",R.mipmap.person1));
+        arrayListleatherboard.add(new LeatherBoardDataclass("Faisal Khan","160000","20-Jan-2002","CD 70",R.mipmap.person2));
+
+        adapetrLeatherBoard = new AdapetrLeatherBoard(MainScreenActivity.this, arrayListleatherboard);
+        recyclerViewleadtherboad.setAdapter(adapetrLeatherBoard);
+       /* btncontiue.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
             }
         });
-        btnwatchvideo.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                // TODO Google Reward videos here
-                dialog.dismiss();
-            }
-        });
-
+*/
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
         lp.width = -1;

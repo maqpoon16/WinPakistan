@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="150dp"
-    android:layout_height="180dp"
+    android:layout_height="130dp"
     app:cardBackgroundColor="@color/white"
 
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -16,18 +16,19 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:textAlignment="center"
             android:textColor="@color/bluehard"
-           android:textSize="17dp"
+           android:textSize="12dp"
             android:id="@+id/txtprizname"
             android:layout_gravity="center"
             android:text="Honda"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints" />
         <TextView
             android:textColor="@color/btn_context_menu_text_red"
 
-            android:textSize="13dp"
+            android:textSize="11dp"
             android:layout_gravity="center"
             android:text="Coins Required"
             android:layout_width="wrap_content"
@@ -35,12 +36,14 @@
             tools:ignore="MissingConstraints" />
 
         <TextView
+            android:textSize="10dp"
+            android:textAlignment="center"
             android:textColor="@color/black"
             android:id="@+id/txtcoins"
             android:textStyle="bold"
             android:layout_gravity="center"
             android:text="2000"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints" />
 
@@ -49,8 +52,8 @@
             android:layout_gravity="bottom"
             android:id="@+id/imagegrandprize"
             android:src="@mipmap/wallet"
-            android:layout_width="130dp"
-            android:layout_height="70dp">
+            android:layout_width="70dp"
+            android:layout_height="60dp">
 
         </ImageView>
 

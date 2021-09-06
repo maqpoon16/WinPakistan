@@ -18,7 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WinPakistanLottery"
         tools:targetApi="m">
-        <activity android:name=".activites.MainScreenActivity" android:theme="@style/loginthem">
+        <activity
+
+            android:screenOrientation="portrait"
+            android:name=".activites.MainScreenActivity" android:theme="@style/loginthem">
 
 
 
@@ -31,31 +34,40 @@
             </intent-filter>
         </receiver>
         <activity
+            android:screenOrientation="portrait"
             android:name=".activites.SignUpActivity"
             android:theme="@style/loginthem" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".activites.LoginActivity"
             android:theme="@style/loginthem" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".activites.Homescreen"
             android:theme="@style/NoActionbar" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".activites.PrizeActivity"
             android:theme="@style/NoActionbar" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".activites.WalletActivity"
             android:theme="@style/NoActionbar" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".activites.WelcomeActivity"
             android:theme="@style/NoActionbar" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".activites.ProfileActivity"
 
             android:theme="@style/NoActionbar" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".activites.AccountInfoActivity"
             android:theme="@style/NoActionbar" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".activites.Splash"
             android:theme="@style/NoActionbar">
 
