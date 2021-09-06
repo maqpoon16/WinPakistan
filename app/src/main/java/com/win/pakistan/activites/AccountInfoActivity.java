@@ -87,6 +87,7 @@ public class AccountInfoActivity extends AppCompatActivity implements AccountInf
 
     @Override
     public void SetOnlineProfile(UserData onlineProfile) {
+
         userData = onlineProfile;
         fullname.setText(onlineProfile.getFullName());
         username.setText(onlineProfile.getUsername());

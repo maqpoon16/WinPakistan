@@ -28,6 +28,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.win.pakistan.MVC.Implementers.SignUpImplementer;
 import com.win.pakistan.MVC.Presentors.SignUpPresenter;
 import com.win.pakistan.MVC.Views.SignUpView;
@@ -53,6 +54,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
     private MyLocationListener mylistener;
     private Criteria criteria;
     private static final int REQUEST_LOCATION = 1;
+    private LottieAnimationView loading;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -71,6 +73,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
         age = (EditText) findViewById(R.id.edtage);
         rdgender = (RadioGroup) findViewById(R.id.rdgender);
         dateOfBirth = (TextView) findViewById(R.id.dtdob);
+        loading = findViewById(R.id.animatedLoading);
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
@@ -88,18 +91,21 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
 
     @Override
     public void ShowValidationError(String error) {
+        loading.setVisibility(View.GONE);
         showSnackbar(layout, 6000, SignUpActivity.this, error);
 
     }
 
     @Override
     public void ShowException(String exception) {
+        loading.setVisibility(View.GONE);
         showSnackbar(layout, 6000, SignUpActivity.this, exception);
 
     }
 
     @Override
     public void OnSignUpSuccessfull() {
+        loading.setVisibility(View.GONE);
         showSnackbar(layout, 3000, SignUpActivity.this, getResources().getString(R.string.snackbarLoginSuccessfull));
         Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -109,6 +115,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
 
     @Override
     public void OnSignUpFailed(String loginFailMessage) {
+        loading.setVisibility(View.GONE);
         showSnackbar(layout, 6000, SignUpActivity.this, loginFailMessage);
 
     }
@@ -160,6 +167,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
     }
 
     public void OnClickedCreateAccount(View view) {
+        loading.setVisibility(View.VISIBLE);
         UserData model = new UserData();
         model.setFullName(fullname.getText().toString());
         model.setPassword(password.getText().toString());
@@ -212,18 +220,14 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
 
         if (location != null) {
             mylistener.onLocationChanged(location);
-        } else {
-            // leads to the settings because there is no last known location
-            Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-            startActivity(intent);
         }
+
         // location updates: at least 1 meter and 200millsecs change
         locationManager.requestLocationUpdates(provider, 200, 1, mylistener);
         String a= null;
         if (location != null) {
             a = ""+location.getLatitude();
         }
-        Toast.makeText(getApplicationContext(), a, Toast.LENGTH_LONG).show();
     }
     class MyLocationListener implements LocationListener {
 
@@ -257,6 +261,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
                     Toast.LENGTH_SHORT).show();
         }
     }
+
     private void OnGPS() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Enable GPS").setCancelable(false).setPositiveButton("Yes", new  DialogInterface.OnClickListener() {

@@ -11,6 +11,7 @@
         android:weightSum="10"
         android:orientation="horizontal">
         <ImageView
+            android:background="@color/black"
             android:layout_width="0dp"
             android:layout_weight="2.5"
             android:layout_height="80dp"
@@ -33,13 +34,13 @@
             android:background="@android:color/darker_gray"/>
 
         <TextView
-            android:background="@android:color/transparent"
+            android:background="@drawable/walletcardbackround"
             android:id="@+id/btnOK"
             android:textAlignment="center"
             android:gravity="center"
             android:text="OK"
             android:textSize="25sp"
-            android:textColor="@android:color/holo_blue_bright"
+            android:textColor="@android:color/white"
             android:layout_width="0dp"
             android:layout_weight="1.5"
             android:layout_height="match_parent"/>

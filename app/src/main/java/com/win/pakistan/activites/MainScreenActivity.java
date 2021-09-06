@@ -55,7 +55,7 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
     ArrayList<TodaygiftDataclass> todaygiftArrayList;
 
     private MainScreenPresenter mainScreenPresenter;
-    private  TextView clockwise,txtname,txtCoinsRequired,txtCashRequired;
+    private  TextView clockwise,luckydraw_title,txtname,txtCoinsRequired,txtCashRequired;
     private CircleImageView profile_image;
     private authResponse response;
     private LuckyDrawModel luckyDrawModel;
@@ -90,6 +90,7 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
             mainScreenPresenter = new MainScreenImplementer(this,null);
         }
         layout = findViewById(R.id.layout);
+        luckydraw_title = findViewById(R.id.luckydraw_title);
         arrayListmenu=new ArrayList<>();
         todaygiftArrayList=new ArrayList<>();
         recyclerViewpize = findViewById(R.id.giftrecyclerview);
@@ -105,6 +106,7 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
         Picasso.get().load(getResources().getString(R.string.ServerBaseUrlImage)+response.getUser().getProfileImage()).into(profile_image);
         clockwise.setText("00:00:00");
         txtname.setText(response.getUser().getFullName());
+        luckydraw_title.setText(luckyDrawModel.getData().getLuckydraw().getLuckydrawName());
         /******* menu recyclerview*********/
         arrayListmenu.add(new MenuDataclass("Grand Prize",R.mipmap.grandpize));
         arrayListmenu.add(new MenuDataclass("Refer To Friend",R.mipmap.refertofriends));
@@ -284,5 +286,40 @@ public class MainScreenActivity extends AppCompatActivity implements MainScreenV
     protected void onResume() {
         super.onResume();
         broadcastIntent();
+    }
+
+    
+
+    public void leaderboardView(View view) {
+        Button btncontiue,btnwatchvideo;
+        View promptsView = LayoutInflater.from(MainScreenActivity.this).inflate(R.layout.leaderboarddialoge, null);
+        final Dialog dialog = new Dialog(MainScreenActivity.this);
+        dialog.requestWindowFeature(1);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(-1));
+        btncontiue = (Button) promptsView.findViewById(R.id.btncontinue);
+        btnwatchvideo = (Button) promptsView.findViewById(R.id.btnwatchvideo);
+        btncontiue.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        btnwatchvideo.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Google Reward videos here
+                dialog.dismiss();
+            }
+        });
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = -1;
+        lp.height = -1;
+        dialog.setContentView(promptsView);
+        dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
     }
 }

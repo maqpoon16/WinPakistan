@@ -24,6 +24,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.win.pakistan.Common.Methods.setAutoLogin;
+
 public class AccountInfoScreenImplementer implements AccountInfoScreenPresenter {
     private final AccountInfoScreenView accountInfoScreenView;
 
@@ -66,6 +68,7 @@ public class AccountInfoScreenImplementer implements AccountInfoScreenPresenter 
                     if(response.body() != null){
                         authResponse authResponse = response.body();
                         if(authResponse.isStatus()){
+                            setAutoLogin(context,authResponse);
                             accountInfoScreenView.SetOnlineProfile(authResponse.getUser());
                         }else {
                             accountInfoScreenView.ShowFailureMessage(authResponse.getMessage());

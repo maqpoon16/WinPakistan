@@ -153,4 +153,7 @@ public class Methods {
         return BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
     }
 
+
+    //TODO: Delete this after fetched Data
+
 }

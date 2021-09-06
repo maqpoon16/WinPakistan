@@ -80,7 +80,7 @@ public class MainScreenImplementer implements MainScreenPresenter {
                                             long Hours = diff / (60 * 60 * 1000) % 24;
                                             long Minutes = diff / (60 * 1000) % 60;
                                             long Seconds = diff / 1000 % 60;
-                                            mainScreenView.SetTimer(String.format("%02d", Hours)+":"+String.format("%02d", Minutes)+":"+String.format("%02d", Seconds));
+                                            mainScreenView.SetTimer(String.format("%02d", Days)+" Day\n"+String.format("%02d", Hours)+":"+String.format("%02d", Minutes)+":"+String.format("%02d", Seconds));
                                         } else {
                                             handler.removeCallbacks(runnable);
                                         }
