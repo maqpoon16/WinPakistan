@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
+<<<<<<< HEAD
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,17 +8,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_height="90dp" >
+=======
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="2dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="90dp"
+
+
+    >
+
+
+>>>>>>> origin/Inhamcode
 
 
 
            <androidx.constraintlayout.widget.ConstraintLayout
 
                android:background="@drawable/leatherbackground"
+<<<<<<< HEAD
                android:orientation="horizontal"
+=======
+
+
+               android:orientation="horizontal"
+
+>>>>>>> origin/Inhamcode
                app:layout_constraintBottom_toBottomOf="parent"
                app:layout_constraintTop_toTopOf="parent"
                app:layout_constraintRight_toRightOf="parent"
                app:layout_constraintLeft_toLeftOf="parent"
+<<<<<<< HEAD
                android:layout_weight="1"
                android:layout_width="match_parent"
                android:layout_height="match_parent"
@@ -33,6 +57,23 @@
 
 
                    android:src="@mipmap/person1"
+=======
+               app:layout_constraintWidth_percent="0.9"
+               android:layout_weight="1"
+               android:layout_width="0dp"
+               android:layout_height="70dp"
+               tools:ignore="MissingConstraints">
+               <de.hdodenhof.circleimageview.CircleImageView
+                   android:layout_marginLeft="10dp"
+                   app:layout_constraintLeft_toLeftOf="parent"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+
+                   android:id="@+id/imaghsitory"
+
+
+                   android:src="@mipmap/coins2"
+>>>>>>> origin/Inhamcode
                    android:layout_width="50dp"
                    android:layout_height="50dp">
 
@@ -41,6 +82,7 @@
                    app:layout_constraintBottom_toBottomOf="parent"
                    app:layout_constraintTop_toTopOf="parent"
                    android:id="@+id/view"
+<<<<<<< HEAD
                    app:layout_constraintLeft_toRightOf="@+id/imagewallethistory"
                    android:layout_marginHorizontal="10dp"
                    android:padding="5dp"
@@ -52,11 +94,24 @@
                <LinearLayout
                    android:gravity="center"
                    android:layout_margin="5dp"
+=======
+                   app:layout_constraintLeft_toRightOf="@+id/imaghsitory"
+                   android:layout_margin="2dp"
+                   android:padding="5dp"
+                   android:layout_marginLeft="15dp"
+                   android:background="@color/gray"
+                   android:layout_width="3dp"
+                   android:layout_height="60dp">
+
+               </View>
+               <LinearLayout
+>>>>>>> origin/Inhamcode
                    app:layout_constraintWidth_percent="0.5"
                    app:layout_constraintBottom_toBottomOf="parent"
                    app:layout_constraintTop_toTopOf="parent"
                    android:id="@+id/leaner"
                    app:layout_constraintLeft_toRightOf="@+id/view"
+<<<<<<< HEAD
                    android:orientation="vertical"
                    android:layout_width="0dp"
                    android:layout_height="match_parent">
@@ -69,24 +124,54 @@
                        android:textStyle="bold"
                        android:text="20-Sep-2021"
                        android:id="@+id/txttimedate"
+=======
+
+                   android:layout_marginLeft="15dp"
+                   android:orientation="vertical"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content">
+
+
+
+                   <TextView
+                       android:textColor="@color/black"
+                       android:text="20-Sep-2021"
+                       android:id="@+id/txthisorydate"
+>>>>>>> origin/Inhamcode
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content">
 
                    </TextView>
+<<<<<<< HEAD
 
                    <TextView
                        android:textSize="10sp"
                        android:textColor="@color/gray"
                        android:text="Lucky Draw Name Here"
                        android:id="@+id/txtluckydrawtitle"
+=======
+                   <TextView
+
+                       android:textColor="@color/black"
+                       android:textSize="10dp"
+                       android:textStyle="bold"
+                       android:text="Husain Ali khan"
+                       android:id="@+id/txthisoryluckyname"
+>>>>>>> origin/Inhamcode
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content">
 
                    </TextView>
 
+<<<<<<< HEAD
                    <TextView
                        android:textSize="12sp"
                        android:id="@+id/txtpaymentmethod"
+=======
+
+                   <TextView
+                       android:id="@+id/txthisorypayedby"
+>>>>>>> origin/Inhamcode
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
                        android:text="Paid By Coins"
@@ -99,6 +184,7 @@
 
 
                <View
+<<<<<<< HEAD
                    android:layout_margin="10dp"
                     android:id="@+id/view2"
                    app:layout_constraintBottom_toBottomOf="parent"
@@ -122,6 +208,43 @@
                    app:layout_constraintBottom_toBottomOf="@+id/view2"
                    app:layout_constraintLeft_toRightOf="@+id/view2"
                    app:layout_constraintTop_toTopOf="@+id/view2"/>
+=======
+
+
+
+                   android:id="@+id/view2"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+
+                   app:layout_constraintLeft_toRightOf="@id/leaner"
+
+                   android:background="@color/gray"
+                   android:layout_width="3dp"
+                   android:layout_height="60dp">
+
+               </View>
+
+
+                   <TextView
+                       app:layout_constraintLeft_toRightOf="@+id/view2"
+                       app:layout_constraintBottom_toBottomOf="parent"
+                       app:layout_constraintTop_toTopOf="parent"
+                       android:textColor="@color/category_business"
+
+                       android:layout_marginLeft="5dp"
+                       android:gravity="center"
+
+                       android:textSize="12dp"
+                       android:textStyle="bold"
+                       android:text="12000000"
+                       android:id="@+id/txthistoryamount"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content">
+
+                   </TextView>
+
+
+>>>>>>> origin/Inhamcode
 
            </androidx.constraintlayout.widget.ConstraintLayout>
 
