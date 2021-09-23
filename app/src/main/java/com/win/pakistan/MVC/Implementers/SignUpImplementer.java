@@ -38,11 +38,7 @@ public class SignUpImplementer implements SignUpPresenter {
 
                 signUpView.ShowValidationError(context.getResources().getString(R.string.snackbarSignupModelValidationFullName));
                 return;
-            } if (TextUtils.isEmpty(data.getUsername())){
-
-                signUpView.ShowValidationError(context.getResources().getString(R.string.snackbarSignupModelValidationUser));
-                return;
-            } if (TextUtils.isEmpty(data.getPassword())){
+            }  if (TextUtils.isEmpty(data.getPassword())){
 
                 signUpView.ShowValidationError(context.getResources().getString(R.string.snackbarSignupModelValidationPass));
                 return;
@@ -50,15 +46,12 @@ public class SignUpImplementer implements SignUpPresenter {
 
                 signUpView.ShowValidationError(context.getResources().getString(R.string.snackbarSignupModelValidationContact));
                 return;
-            } if (TextUtils.isEmpty(data.getGender())){
-
-                signUpView.ShowValidationError(context.getResources().getString(R.string.snackbarSignupModelValidationGender));
-                return;
-            } if (TextUtils.isEmpty(data.getAge())){
-
-                signUpView.ShowValidationError(context.getResources().getString(R.string.snackbarSignupModelValidationAge));
-                return;
             }
+            //if (TextUtils.isEmpty(data.getAge())){
+//
+//                signUpView.ShowValidationError(context.getResources().getString(R.string.snackbarSignupModelValidationAge));
+//                return;
+//            }
 
             OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
             httpClient.readTimeout(20, TimeUnit.SECONDS);

@@ -73,15 +73,6 @@
 
                     </LinearLayout>
 
-                    <ProgressBar
-                        android:id="@+id/img_progress"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/layout_img"
-                        android:layout_alignTop="@+id/layout_img"
-                        android:layout_alignEnd="@+id/layout_img"
-                        android:layout_alignBottom="@+id/layout_img"
-                        android:visibility="visible" />
                 </RelativeLayout>
 
                 <LinearLayout
@@ -178,8 +169,8 @@
                             android:layout_height="wrap_content"
                             android:text="@string/age"
                             android:textColor="@color/white"
-                            android:textSize="16dp"
-                            android:textStyle="bold"></TextView>
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
                         <EditText
                             android:id="@+id/edtage"
@@ -475,15 +466,16 @@
         tools:ignore="MissingConstraints">
     </TextView>
 
-    <ProgressBar
-        android:visibility="visible"
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animatedLoading"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:progressDrawable="@drawable/circular_progress_bar"
-        app:layout_constraintBottom_toBottomOf="@+id/cardView"
-        app:layout_constraintEnd_toEndOf="@+id/cardView"
-        app:layout_constraintStart_toStartOf="@+id/cardView"
-        app:layout_constraintTop_toTopOf="@+id/cardView" />
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -152,11 +152,8 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="5dp"
                 android:drawableStart="@drawable/ic_baseline_phone_callback_24"
-
-
                 android:drawablePadding="20sp"
                 android:hint="@string/type_your_contact"
-
                 android:inputType="number"
                 android:paddingStart="1dp"
                 android:textColor="@color/white"
@@ -210,7 +207,7 @@
                 android:layout_marginTop="5dp"
                 android:drawableStart="@drawable/ic_baseline_lock_open_24"
                 android:drawablePadding="20sp"
-                android:hint="@string/full_address"
+                android:hint="@string/password"
                 android:inputType="textPassword"
                 android:paddingStart="1dp"
                 android:textColor="@color/white"
@@ -367,6 +364,19 @@
             </LinearLayout>
 
         </LinearLayout>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animatedLoading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

@@ -7,22 +7,10 @@
     android:padding="2dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_height="90dp"
-
-
-    >
-
-
-
-
-
-           <androidx.constraintlayout.widget.ConstraintLayout
-
+    android:layout_height="90dp">
+     <androidx.constraintlayout.widget.ConstraintLayout
                android:background="@drawable/leatherbackground"
-
-
                android:orientation="horizontal"
-
                app:layout_constraintBottom_toBottomOf="parent"
                app:layout_constraintTop_toTopOf="parent"
                app:layout_constraintRight_toRightOf="parent"
@@ -30,7 +18,7 @@
                app:layout_constraintWidth_percent="0.9"
                android:layout_weight="1"
                android:layout_width="0dp"
-               android:layout_height="70dp"
+               android:layout_height="wrap_content"
                tools:ignore="MissingConstraints">
                <de.hdodenhof.circleimageview.CircleImageView
                    android:layout_marginLeft="10dp"

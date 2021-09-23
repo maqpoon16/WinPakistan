@@ -49,7 +49,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
     private Calendar calendar;
 
     private LocationManager locationManager;
-    private  Location location;
+     static Location location;
     private String provider;
     private MyLocationListener mylistener;
     private Criteria criteria;
@@ -67,7 +67,6 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
         fullname = (EditText) findViewById(R.id.edtname);
         username = (EditText) findViewById(R.id.edtusername);
         password = (EditText) findViewById(R.id.edtpassword);
-        email = (EditText) findViewById(R.id.edtemail);
         mobile = (EditText) findViewById(R.id.edtcontact);
         address = (EditText) findViewById(R.id.edtaddress);
         age = (EditText) findViewById(R.id.edtage);
@@ -171,8 +170,9 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
         UserData model = new UserData();
         model.setFullName(fullname.getText().toString());
         model.setPassword(password.getText().toString());
+        model.setUsername(mobile.getText().toString());
         model.setMobileNumber(mobile.getText().toString());
-        model.setEmail(email.getText().toString());
+        model.setEmail("no email.");
         model.setDob(dateOfBirth.getText().toString());
         model.setAddress(address.getText().toString());
         if (location != null) {
@@ -183,8 +183,8 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
 //        final String value =
 //                radioButton
 //                        .getText().toString();
-//        model.setGender(value);
-//        model.setAge(age.getText().toString());
+        model.setGender("Male/Female");
+        model.setAge(age.getText().toString());
         signUpPresenter.SignUpProcess(model);
     }
 
@@ -234,12 +234,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
         @Override
         public void onLocationChanged(Location location) {
             // Initialize the location fields
-
-
-
-            Toast.makeText(SignUpActivity.this,  ""+location.getLatitude()+location.getLongitude(),
-                    Toast.LENGTH_SHORT).show();
-
+            SignUpActivity.location = location;
         }
 
         @Override

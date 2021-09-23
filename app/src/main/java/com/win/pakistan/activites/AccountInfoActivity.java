@@ -22,6 +22,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.squareup.picasso.Picasso;
 import com.win.pakistan.MVC.Implementers.AccountInfoScreenImplementer;
 import com.win.pakistan.MVC.Presentors.AccountInfoScreenPresenter;
@@ -45,7 +46,7 @@ public class AccountInfoActivity extends AppCompatActivity implements AccountInf
     private UserData userData;
     private EditText fullname, username, password, email, mobile, address, age;
     private TextView dateOfBirth,txBase64;
-    private ProgressBar progressBar;
+    private LottieAnimationView loading;
     private RadioGroup rdgender;
     private AccountInfoScreenPresenter accountInfoScreenPresenter;
     private static final int PICK_IMAGE = 1;
@@ -108,7 +109,7 @@ public class AccountInfoActivity extends AppCompatActivity implements AccountInf
 
     @Override
     public void onOnlineProfileUpdated(authResponse response) {
-        progressBar.setVisibility(View.GONE);
+        loading.setVisibility(View.GONE);
         if(response.isStatus()) {
             showSnackbar(layout,10000,AccountInfoActivity.this, response.getMessage());
             startActivity(new Intent(AccountInfoActivity.this, ProfileActivity.class));
@@ -124,8 +125,7 @@ public class AccountInfoActivity extends AppCompatActivity implements AccountInf
         accountInfoScreenPresenter.getOnlineProfile(AccountInfoActivity.this,response.getUser().getId());
         layout = findViewById(R.id.layout);
         profile_image = (CircleImageView) findViewById(R.id.profile_image);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        progressBar.setVisibility(View.GONE);
+        loading = findViewById(R.id.animatedLoading);
         fullname = (EditText) findViewById(R.id.edtname);
         username = (EditText) findViewById(R.id.edtusername);
         password = (EditText) findViewById(R.id.edtpassword);
@@ -186,7 +186,7 @@ public class AccountInfoActivity extends AppCompatActivity implements AccountInf
     }
 
     public void onUpdateButtonClicked(View view) {
-        progressBar.setVisibility(View.VISIBLE);
+        loading.setVisibility(View.VISIBLE);
         if(userData!=null){
             ProfileUpdateModel profile = new ProfileUpdateModel();
             profile.setId(userData.getId());

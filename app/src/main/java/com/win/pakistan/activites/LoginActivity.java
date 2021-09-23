@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         closeKeyboard(LoginActivity.this);
         if(isNetworkConnected(LoginActivity.this)){
             loading.setVisibility(View.VISIBLE);
-        loginPresenter.LoginProcess(editTexts.get(0).getText().toString(),editTexts.get(1).getText().toString(),LoginActivity.this);
+             loginPresenter.LoginProcess(editTexts.get(0).getText().toString(),editTexts.get(1).getText().toString(),LoginActivity.this);
             return;
         }
         showSnackbar(layout,10000,LoginActivity.this, getString(R.string.no_internet_Message) );
