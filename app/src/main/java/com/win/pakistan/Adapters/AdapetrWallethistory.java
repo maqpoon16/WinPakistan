@@ -84,42 +84,6 @@ public class AdapetrWallethistory extends RecyclerView.Adapter<AdapetrWallethist
 
         CircleImageView imaghsitory = holder.imaghsitory;
 
-        txthisoryluckyname.setText(dataSet.get(listPosition).getHistoryluckyname());
-        txthisorypayedby.setText(dataSet.get(listPosition).getHistorypaidby());
-        txthistoryamount.setText(dataSet.get(listPosition).getHistoryamount_or_coins());
-        txthisorydate.setText(dataSet.get(listPosition).getHistoryluckydate());
-
-
-
-
-
-
-        Picasso.get().load(dataSet.get(listPosition).getHistoryimage()).into(imaghsitory);
-
-
-
-/*
-
-        holder.menuimg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(listPosition==0){
-                    Intent intent=new Intent(context, PrizeActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    intent.putExtra("type","capital");
-                    context.startActivity(intent);
-
-
-                }
-                else if(listPosition==1){
-
-                    Toast.makeText(context, "Refer to friend", Toast.LENGTH_SHORT).show();
-
-
-                }
-
-            }
-        });*/
 
 
     }
